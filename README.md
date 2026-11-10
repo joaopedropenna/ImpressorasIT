@@ -157,6 +157,6 @@ c:\Impressora IT (Útil)\
 
 ---
 
-## 🛡️ Licença e Uso
+## ⏳ Intuito da criação do programa
 
-Desenvolvido para uso interno da **Equipe de TI da Prefeitura**. Todos os direitos reservados.
+Desenvolvido para otimização de tempo de equipes de manutenção e TI.
