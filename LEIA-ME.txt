@@ -1,0 +1,74 @@
+==============================================================================
+ INSTALADOR INTELIGENTE DE IMPRESSORAS - TI PREFEITURA
+==============================================================================
+
+Utilitário automático para localização, configuração e instalação silenciosa
+de impressoras na Rede Local (TCP/IP) e via Cabo USB em máquinas Windows.
+
+------------------------------------------------------------------------------
+ NOVIDADE: MODO 100% AUTOMÁTICO
+------------------------------------------------------------------------------
+Agora você não precisa mais procurar o IP nem o modelo manualmente!
+
+1. Ao abrir o programa (via InstaladorImpressoras.exe ou Iniciar.bat):
+   - O instalador inicia automaticamente uma varredura na rede local e
+     nas portas USB do computador.
+   - Ele detecta impressoras conectadas (Canon, Brother, Epson, etc.) e lista
+     na tela inicial com o IP ou porta USB.
+
+2. Escolha e Personalização:
+   - Selecione a impressora encontrada na lista e clique em "Configurar".
+   - O programa sugere um nome padrão para a impressora no Windows.
+   - VOCÊ PODE PERSONALIZAR O NOME LIVREMENTE:
+     Exemplo: "Canon 1643 - Gabinete", "Epson L6490 - Recepção", "Brother RH".
+   - Escolha se deseja imprimir página de teste e se deseja baixar o driver
+     automaticamente caso ele ainda não esteja salvo no PC.
+
+3. Instalação em 1 Clique:
+   - Clique em "🚀 INSTALAR AGORA".
+   - O instalador publica o driver, cria a porta, adiciona a impressora com o
+     nome personalizado que você escolheu e envia a página de teste direto
+     para ela.
+
+------------------------------------------------------------------------------
+ AINDA PRECISA DO MODO MANUAL?
+------------------------------------------------------------------------------
+Se a impressora estiver em outra VLAN/sub-rede ou desligada durante a busca:
+- Clique no link "⚙️ Inserir IP ou Modelo Manualmente" na tela inicial.
+- Escolha a Marca, o Modelo e digite o IP manualmente.
+
+------------------------------------------------------------------------------
+ DOWNLOAD E ARMAZENAMENTO DE DRIVERS
+------------------------------------------------------------------------------
+- Modo Offline: Os drivers da Canon (imageRUNNER 1643iF e GX7000/GX7010) já estão
+  salvos localmente na pasta "Drivers\". A instalação deles não necessita de internet.
+- Epson L6490: o pacote oficial é extraído para arquivos .inf e instalado
+  automaticamente com pnputil, sem abrir o assistente Epson. O pacote e os
+  arquivos extraídos ficam em Drivers\Epson\L6490.
+- Em outras marcas, a instalação offline depende de haver arquivos .inf em
+  suas pastas dentro de Drivers. Se faltarem, use o script Baixar-Drivers.ps1.- Para outros modelos, o instalador procura arquivos .inf na pasta local Drivers.
+  A extração automática depende do formato do pacote do fabricante.
+- Script Auxiliar: O arquivo "Baixar-Drivers.ps1" continua disponível para quem
+  quiser baixar os pacotes completos previamente e deixá-los no pendrive.
+
+==============================================================================
+ ARQUIVOS DO PROJETO:
+==============================================================================
+   c:\Impressora IT (Útil)\
+   │
+   ├── InstaladorImpressoras.exe   (Executável principal de 1 clique com UAC)
+   ├── Iniciar.bat                 (Iniciador rápido alternativo em lote)
+   ├── InstaladorImpressoras.ps1   (Script principal com interface WPF)
+   ├── Baixar-Drivers.ps1          (Auxiliar de download e status de drivers)
+   ├── LEIA-ME.txt                 (Manual completo)
+   │
+   ├── Drivers\                    (Pasta dos drivers offline)
+   │   ├── Canon\ (iR1643iF, GX7000, GX7010)
+   │   ├── Brother\ (DCPL5652DN)
+   │   └── Epson\ (L6490)
+   │
+   └── src\                        (Código-fonte e motor C# FastPrinterDiscovery)
+==============================================================================
+
+
+

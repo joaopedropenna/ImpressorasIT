@@ -1,0 +1,1454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright CANON INC. 2019 All Rights Reserved -->
+<!--  CPCA to Bidi Extension file(Generic Plus Related) -->
+<!--  Version 1.5.0.2 -->
+<bidi:Definition xmlns:bidi="http://schemas.microsoft.com/windows/2005/03/printing/bidi">
+  <Schema>
+    <Property name="Printer">
+      <Property name="Canon">
+        <Property name="OIP">
+          <!-- DEVICE -->
+          <Property name="Device">
+            <Value name="DeviceModelNameCode" acquire="deviceModel" filter="AcquireData[@name='deviceModel']/ResponseParam/STRING8_CODE_SET/Code" type="BIDI_INT" />
+            <Value name="DeviceModelName" acquire="deviceModel" filter="AcquireData[@name='deviceModel']/ResponseParam/STRING8_CODE_SET/String" type="BIDI_STRING" />
+            <Property name="Specification">
+              <Value name="Data1"  acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data1" type="BIDI_STRING" />
+              <Value name="Data2"  acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data2" type="BIDI_INT" />
+              <Value name="Data3"  acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data3" type="BIDI_INT" />
+              <Value name="Data40" acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data40" type="BIDI_INT" />
+              <Value name="Data41" acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data41" type="BIDI_INT" />
+              <Value name="Data42" acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data42" type="BIDI_INT" />
+              <Value name="Data43" acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data43" type="BIDI_INT" />
+              <Value name="Data44" acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data44" type="BIDI_INT" />
+              <Value name="Data45" acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data45" type="BIDI_INT" />
+              <Value name="Data46" acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data46" type="BIDI_INT" />
+              <Value name="Data47" acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/UUID/Data47" type="BIDI_INT" />
+              <Value name="Version" acquire="deviceSpecificationId" filter="AcquireData[@name='deviceSpecificationId']/ResponseParam/DEVICE_SPECIFICATION_ID/Version" type="BIDI_INT" />
+            </Property>     
+            <Property name="FirmwareVersion_Binary">
+              <Value name="Data"    acquire="firmwareVersion_Binary" filter="AcquireData[@name='firmwareVersion_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="TrayInfo2_Binary">
+              <Value name="Data" acquire="trayInfo2_Binary" filter="AcquireData[@name='trayInfo2_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+            <Property name="MediaState_Binary">
+              <Value name="Data" acquire="mediaState_Binary" filter="AcquireData[@name='mediaState_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+            <Property name="ComponentState_Binary">
+              <Value name="Data" acquire="componentState_Binary" filter="AcquireData[@name='componentState_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+            <Property name="OptionalUnits_Binary">
+              <Value name="Data" acquire="optionalUnits_Binary" filter="AcquireData[@name='optionalUnits_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+            <Property name="MediumSupported_Binary">
+              <Value name="Data" acquire="mediumSupported_Binary" filter="AcquireData[@name='mediumSupported_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="ColorMode_Binary">
+              <Value name="Data" acquire="colorMode_Binary" filter="AcquireData[@name='colorMode_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="ColorMode2_Binary">
+              <Value name="Data" acquire="colorMode2_Binary" filter="AcquireData[@name='colorMode2_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+			<Property name="OutputsSupported_Binary">
+			  <Value name="Data" acquire="outputsSupported_Binary" filter="AcquireData[@name='outputsSupported_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+            <Property name="DuplexUnit_Binary">
+              <Value name="Data" acquire="plexesSupported_Binary" filter="AcquireData[@name='plexesSupported_Binary']/ResponseParam/Data"  type="BIDI_STRING"/>
+            </Property>
+            <Property name="FinishingInfo_Binary">
+              <Value name="Data" acquire="finishingInfo_Binary" filter="AcquireData[@name='finishingInfo_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+            <Property name="FinishingUnitInfo_Binary">
+              <Value name="Data" acquire="finishingUnitInfo_Binary" filter="AcquireData[@name='finishingUnitInfo_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+			<Property name="FinishingUnitInfo2_Binary">
+              <Value name="Data" acquire="finishingUnitInfo2_Binary" filter="AcquireData[@name='finishingUnitInfo2_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+            <Property name="DeckName_Binary">
+              <Value name="Data" acquire="feedingUnitInfo_Binary" filter="AcquireData[@name='feedingUnitInfo_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="FeedingUnitInfo2_Binary">
+              <Value name="Data" acquire="feedingUnitInfo2_Binary" filter="AcquireData[@name='feedingUnitInfo2_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="OutputBinInfo2_Binary">
+              <Value name="Data" acquire="outputBinInfo2_Binary" filter="AcquireData[@name='outputBinInfo2_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="FinisherInfo2_Binary">
+              <Value name="Data" acquire="finisherInfo2_Binary" filter="AcquireData[@name='finisherInfo2_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="AuthenticationTypeSupported_Binary">
+              <Value name="Data" acquire="authenticationTypeSupported_Binary" filter="AcquireData[@name='authenticationTypeSupported_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+            <Value name="UserManagementLevel" acquire="userManagementLevel" filter="AcquireData[@name='userManagementLevel']/ResponseParam/Security" type="BIDI_INT"/>
+            <Property name="UserMustAuthentication">
+              <Installed name="Supported" acquire="authentication" filter="AcquireData[@name='authentication']/ResponseParam[MustAuthentication='1']" />
+            </Property>
+            <Property name="ColorSupported">
+              <Installed name="Supported" acquire="engineSpeed" filter="AcquireData[@name='engineSpeed']/ResponseParam/MAX_SPEED_LIST8/List[ID='3' or ID='4']" />
+            </Property>
+            <Property name="JobAttributes_Binary">
+              <Value name="Data" acquire="jobAttributes_Binary" filter="AcquireData[@name='jobAttributes_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="BinderAttributes_Binary">
+              <Value name="Data" acquire="binderAttributes_Binary" filter="AcquireData[@name='binderAttributes_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="DocumentAttributes_Binary">
+              <Value name="Data" acquire="documentAttributes_Binary" filter="AcquireData[@name='documentAttributes_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="ComponentAttributes_Binary">
+              <Value name="Data" acquire="componentAttributes_Binary" filter="AcquireData[@name='componentAttributes_Binary']/ResponseParam/Data" type="BIDI_STRING" />
+            </Property>
+            <Property name="Diename">
+              <Value name="DieNumber"  acquire="diename" filter="AcquireData[@name='diename']/ResponseParam/DIE_INFO_1/DieNumber" type="BIDI_INT"/>
+              <Value name="Flag"       acquire="diename" filter="AcquireData[@name='diename']/ResponseParam/DIE_INFO_1/Flag" type="BIDI_INT"/>
+              <Value name="DetailInfo" acquire="diename" filter="AcquireData[@name='diename']/ResponseParam/DIE_INFO_1/DetailInfo" type="BIDI_INT"/>
+              <Property name="DieName">
+                <Value name="Code"   acquire="diename" filter="AcquireData[@name='diename']/ResponseParam/DIE_INFO_1/DieName/Code" type="BIDI_INT"/>
+                <Value name="Count"  acquire="diename" filter="AcquireData[@name='diename']/ResponseParam/DIE_INFO_1/DieName/Count" type="BIDI_INT"/>
+                <Value name="String" acquire="diename" filter="AcquireData[@name='diename']/ResponseParam/DIE_INFO_1/DieName/String" type="BIDI_STRING"/>
+              </Property>
+            </Property>
+            <Property name="EngineSpeed_Binary">
+              <Value name="Data" acquire="engineSpeed_Binary" filter="AcquireData[@name='engineSpeed_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+            </Property>
+            <Value name="MaxBinder" acquire="maxBinder" filter="AcquireData[@name='maxBinder']/ResponseParam/MaximumBinderCounts" type="BIDI_INT"/>
+            <Property name="Locale_Binary">
+              <Value name="Data" acquire="locale_Binary" filter="AcquireData[@name='locale_Binary']/ResponseParam/Data"  type="BIDI_STRING"/>
+            </Property>
+          </Property>
+
+          <Property name="Printer">
+            <Property name="Capability">
+              <Property name="SecurePrintSupported">
+                <Installed name="Supported" acquire="securePrint" filter="AcquireData[@name='securePrint']/ResponseParam[JobPasswordSupported='1']" />
+              </Property>
+              <Property name="SecureSchedulePrint_Binary">
+                <Value name="Data" acquire="secureSchedulePrint_Binary" filter="AcquireData[@name='secureSchedulePrint_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="InterruptPrint_Binary">
+                <Value name="Data" acquire="jobExecutionModesOfJobStartSupported_Binary" filter="AcquireData[@name='jobExecutionModesOfJobStartSupported_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="Rotation_Binary">
+                <Value name="Data" acquire="rotation_Binary" filter="AcquireData[@name='rotation_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="BlurryImageCorrection_Binary">
+                <Value name="Data" acquire="blurryImageCorrection_Binary" filter="AcquireData[@name='blurryImageCorrection_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="BarcodeAdjustment_Binary">
+                <Value name="Data" acquire="barcodeAdjustment_Binary" filter="AcquireData[@name='barcodeAdjustment_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="InputTrayByCopiesSupported">
+                <Installed name="Supported" acquire="carbonCopy" filter="AcquireData[@name='carbonCopy']/ResponseParam[InputTrayByCopiesSupported='1']" />
+              </Property>
+              <Property name="Resolution_Binary">
+                <Value name="Data" acquire="resolutionsSupported_Binary" filter="AcquireData[@name='resolutionsSupported_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="BiColorExtension_Binary">
+                <Value name="Data" acquire="biColorExtension_Binary" filter="AcquireData[@name='biColorExtension_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="JobEncryptionInfoSupported_Binary">
+                <Value name="Data" acquire="jobEncryptionInformationSupported_Binary" filter="AcquireData[@name='jobEncryptionInformationSupported_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="UnicodeSupported_Binary">
+                <Value name="Data" acquire="cpcaUnicodeSupported_Binary" filter="AcquireData[@name='cpcaUnicodeSupported_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="TrustPrintMode">
+                <Value name="Mode" acquire="trustPrintMode" filter="AcquireData[@name='trustPrintMode']/ResponseParam/Ubyte" type="BIDI_INT"/>
+              </Property>
+              <Property name="ICCProfileUseSupported_Binary">
+                <Value name="Data" acquire="iccProfileUseSupported_Binary" filter="AcquireData[@name='iccProfileUseSupported_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>              
+              <Property name="ColorOutputProfile_Binary">
+                <Value name="Data" acquire="ColorOutputProfile_Binary" filter="AcquireData[@name='ColorOutputProfile_Binary']/ResponseParam/Data" type="BIDI_STRING"/>
+              </Property>
+              <Property name="WideColorGamutPrintModeAvailability">
+                <Value name="Supported" acquire="popPrint" filter="AcquireData[@name='popPrint']/ResponseParam/WideColorGamutPrintModeAvailability" type="BIDI_INT"/>
+              </Property>   			  
+            </Property>
+          </Property>
+          
+          <!-- Finishing -->
+          <Property name="Finishing">
+            <!-- MediaInfo -->
+            <Property name="MediaInfo">
+              <Property name="MediaInfoEntry">
+                <Parameter name="$MediaInfoEntryId$" parameter="MediaInfoEntryId" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param/ParamIndex">
+                  <Value name="MediaId" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/Medium" type="BIDI_INT"/>
+                  <Value name="Name" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/BrandName/String" type="BIDI_STRING" />
+                  <Value name="Weight" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/EngineParameters/Field/Weight" type="BIDI_INT" />
+                  <Value name="Surface" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/EngineParameters/Field/Surface" type="BIDI_STRING"/>
+                  <Value name="Shape" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/EngineParameters/Field/Shape" type="BIDI_STRING"/>
+                  <Value name="Color" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/EngineParameters/Field/Color" type="BIDI_STRING"/>
+                  <Value name="GutterShift" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/EngineParameters/Field/GutterShift" type="BIDI_INT" />
+                </Parameter>
+              </Property>
+            </Property>
+          </Property>
+          
+          <!-- Opretion: ListObjects2A -->
+          <!-- ファイルボックス情報/FileBox -->
+          <Property name="FileBox">
+            <Property name="FileBoxEntry">
+              <Parameter name="$FileBoxEntryId$" parameter="FileBoxEntryId" acquire="fileBox" filter="AcquireData[@name='fileBox']/Param/ParamIndex">
+                <Value name="NameCode" acquire="fileBox" filter="AcquireData[@name='fileBox']/Param[ParamIndex='$FileBoxEntryId$']/ResponseParam/FileBoxName/Code" type="BIDI_INT" />
+                <Value name="NameString" acquire="fileBox" filter="AcquireData[@name='fileBox']/Param[ParamIndex='$FileBoxEntryId$']/ResponseParam/FileBoxName/String" type="BIDI_STRING" />
+                <Value name="Number" acquire="fileBox" filter="AcquireData[@name='fileBox']/Param[ParamIndex='$FileBoxEntryId$']/ResponseParam/FileBoxNumber" type="BIDI_INT" />
+                <Value name="JobExecutePrint" acquire="fileBox" filter="AcquireData[@name='fileBox']/Param[ParamIndex='$FileBoxEntryId$']/ResponseParam/FileBoxJobExecutePrint" type="BIDI_INT" />
+              </Parameter>
+            </Property>
+          </Property>
+          <!-- RESOURCE -->
+          <Property name="Resource">
+            <!-- フォームファイル情報/FormFile -->
+            <Property name="Form">
+              <Property name="FormEntry">
+                <Parameter name="$FormEntryId$" parameter="FormEntryId" acquire="form" filter="AcquireData[@name='form']/Param/ParamIndex">
+                  <Value name="ObjectHandle" acquire="form" filter="AcquireData[@name='form']/Param[ParamIndex='$FormEntryId$']/ResponseParam/ObjectHandle/HandleValue" type="BIDI_STRING" />
+                  <Value name="NameCode" acquire="form" filter="AcquireData[@name='form']/Param[ParamIndex='$FormEntryId$']/ResponseParam/formName/Code" type="BIDI_INT" />
+                  <Value name="NameString" acquire="form" filter="AcquireData[@name='form']/Param[ParamIndex='$FormEntryId$']/ResponseParam/formName/String" type="BIDI_STRING" />
+                  <Value name="CreatedDate" acquire="form" filter="AcquireData[@name='form']/Param[ParamIndex='$FormEntryId$']/ResponseParam/DateTimes/Date" type="BIDI_INT"/>
+                  <Value name="CreatedTime" acquire="form" filter="AcquireData[@name='form']/Param[ParamIndex='$FormEntryId$']/ResponseParam/DateTimes/Time" type="BIDI_INT"/>
+                  <Value name="FileListHandles" acquire="form" filter="AcquireData[@name='form']/Param[ParamIndex='$FormEntryId$']/ResponseParam/HandleList/HandleList/Handle" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!--ICCプロファイル情報/ICC Profile -->
+            <Property name="ICCProfile">
+              <Property name="ICCProfileEntry">
+                <Parameter name="$ICCProfileEntryId$" parameter="ICCProfileEntryId" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param/ParamIndex">
+                  <Value name="ICCProfileNameCodeSet" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/iccprofileName/Code" type="BIDI_INT" />
+                  <Value name="ICCProfileName" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/iccprofileName/String" type="BIDI_STRING" />
+                  <Value name="UsedFlag" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/usedFlag" type="BIDI_INT" />
+                  <Value name="NameSwitchFlagOriginal" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/nameswitchFlag/SwitchFlagOriginal" type="BIDI_INT" />
+                  <Value name="NameSwitchFlagGroup" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/nameswitchFlag/SwitchFlagGroup" type="BIDI_INT" />
+                  <Value name="ColorSpace" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/colorspaceData" type="BIDI_INT" />
+                  <Value name="CodeSet" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/codesetName/CodeSet" type="BIDI_INT" />
+                  <Value name="ResourceState" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/resourceState/State" type="BIDI_INT" />
+                  <Value name="InnerFileNameCodeSet" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/innerfileName/Code" type="BIDI_INT" />
+                  <Value name="InnerFileName" acquire="iccprofile" filter="AcquireData[@name='iccprofile']/Param[ParamIndex='$ICCProfileEntryId$']/ResponseParam/innerfileName/String" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!--D-Half情報/D-Half-->
+            <!--キャリブレーション情報/Calibration-->
+            <Property name="DHalf">
+              <Property name="DHalfEntry">
+                <Parameter name="$DHalfEntryId$" parameter="DHalfEntryId" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param/ParamIndex">
+                  <Value name="CodeSet" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param[ParamIndex='$DHalfEntryId$']/ResponseParam/codesetName" type="BIDI_STRING" />
+                  <Value name="TimeStamp" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param[ParamIndex='$DHalfEntryId$']/ResponseParam/timestamp" type="BIDI_STRING" />
+                  <Value name="Type" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param[ParamIndex='$DHalfEntryId$']/ResponseParam/type" type="BIDI_STRING" />
+                  <Value name="Data" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param[ParamIndex='$DHalfEntryId$']/ResponseParam/data/Count" type="BIDI_STRING" />
+                  <Value name="Resolution" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param[ParamIndex='$DHalfEntryId$']/ResponseParam/resolution" type="BIDI_STRING" />
+                  <Value name="MediumType" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param[ParamIndex='$DHalfEntryId$']/ResponseParam/mediumype" type="BIDI_STRING" />
+                  <Value name="InputDataDepth" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param[ParamIndex='$DHalfEntryId$']/ResponseParam/inputdepth" type="BIDI_STRING" />
+                  <Value name="OutputDataDepth" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param[ParamIndex='$DHalfEntryId$']/ResponseParam/outputdepth" type="BIDI_STRING" />
+                  <Value name="HalfToneOutputDataDepth" acquire="dhalf" filter="AcquireData[@name='dhalf']/Param[ParamIndex='$DHalfEntryId$']/ResponseParam/halfoutputdepth" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!--カスタムダウンロードプロファイル情報/Custom Download Profile-->
+            <Property name="CustomDownloadProfile">
+              <Property name="CustomProfileEntry">
+                <Parameter name="$CustomProfileEntryId$" parameter="CustomProfileEntryId" acquire="customprofile" filter="AcquireData[@name='customprofile']/Param/ParamIndex">
+                  <Value name="NameCode" acquire="customprofile" filter="AcquireData[@name='customprofile']/Param[ParamIndex='$CustomProfileEntryId$']/ResponseParam/name/Code" type="BIDI_INT" />
+                  <Value name="Name" acquire="customprofile" filter="AcquireData[@name='customprofile']/Param[ParamIndex='$CustomProfileEntryId$']/ResponseParam/name/String" type="BIDI_STRING" />
+                  <Value name="State" acquire="customprofile" filter="AcquireData[@name='customprofile']/Param[ParamIndex='$CustomProfileEntryId$']/ResponseParam/State" type="BIDI_INT" />
+                  <Value name="CodeSet" acquire="customprofile" filter="AcquireData[@name='customprofile']/Param[ParamIndex='$CustomProfileEntryId$']/ResponseParam/codesetName" type="BIDI_INT" />
+                </Parameter>
+              </Property>
+            </Property>
+          </Property>
+
+          <!-- MediaInfo2_2 XPS Style-->
+          <Property name="MediaInformation">
+            <Property name="MediaInformationEntry">
+              <Parameter name="$MediaInformationEntryId$" parameter="MediaInformationEntryId" acquire="mediaInformation2_2" filter="AcquireData[@name='mediaInformation2_2']/Param/ParamIndex">
+                <Value name="MediaId" acquire="mediaInformation2_2" filter="AcquireData[@name='mediaInformation2_2']/Param[ParamIndex='$MediaInformationEntryId$']/ResponseParam/List/Medium" type="BIDI_INT"/>
+                <Value name="Name" acquire="mediaInformation2_2" filter="AcquireData[@name='mediaInformation2_2']/Param[ParamIndex='$MediaInformationEntryId$']/ResponseParam/List/BrandName/String" type="BIDI_STRING" />
+                <Value name="Weight" acquire="mediaInformation2_2" filter="AcquireData[@name='mediaInformation2_2']/Param[ParamIndex='$MediaInformationEntryId$']/ResponseParam/List/EngineParameters/Field/Weight" type="BIDI_INT" />
+                <Value name="Surface" acquire="mediaInformation2_2" filter="AcquireData[@name='mediaInformation2_2']/Param[ParamIndex='$MediaInformationEntryId$']/ResponseParam/List/EngineParameters/Field/Surface" type="BIDI_STRING"/>
+                <Value name="Shape" acquire="mediaInformation2_2" filter="AcquireData[@name='mediaInformation2_2']/Param[ParamIndex='$MediaInformationEntryId$']/ResponseParam/List/EngineParameters/Field/Shape" type="BIDI_STRING"/>
+                <Value name="Color" acquire="mediaInformation2_2" filter="AcquireData[@name='mediaInformation2_2']/Param[ParamIndex='$MediaInformationEntryId$']/ResponseParam/List/EngineParameters/Field/Color" type="BIDI_STRING"/>
+                <Value name="GutterShift" acquire="mediaInformation2_2" filter="AcquireData[@name='mediaInformation2_2']/Param[ParamIndex='$MediaInformationEntryId$']/ResponseParam/List/EngineParameters/Field/GutterShift" type="BIDI_INT" />
+              </Parameter>
+            </Property>
+          </Property>
+
+          <Property name="Media">
+            <!-- MediumSupportInfo -->
+            <Property name="MediumSupportInfo">
+              <Property name="MediumSupportInfoEntry">
+                <Parameter name="$MediumSupportInfoEntryId$" parameter="MediumSupportInfoEntryId" acquire="mediumSupportInfo" filter="AcquireData[@name='mediumSupportInfo']/Param/ParamIndex">                
+                  <Value name="Type" acquire="mediumSupportInfo" filter="AcquireData[@name='mediumSupportInfo']/Param[ParamIndex='$MediumSupportInfoEntryId$']/ResponseParam/List/MediumID/Type" type="BIDI_INT" />
+                  <Value name="Color" acquire="mediumSupportInfo" filter="AcquireData[@name='mediumSupportInfo']/Param[ParamIndex='$MediumSupportInfoEntryId$']/ResponseParam/List/MediumID/Color" type="BIDI_INT" />
+                  <Value name="Size" acquire="mediumSupportInfo" filter="AcquireData[@name='mediumSupportInfo']/Param[ParamIndex='$MediumSupportInfoEntryId$']/ResponseParam/List/MediumID/Size" type="BIDI_INT" />
+                  <Value name="Support" acquire="mediumSupportInfo" filter="AcquireData[@name='mediumSupportInfo']/Param[ParamIndex='$MediumSupportInfoEntryId$']/ResponseParam/List/Support" type="BIDI_INT" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!-- MediaInfo -->
+            <Property name="MediaInfo_Binary">
+              <Property name="MediaInfoEntry">
+                <Parameter name="$MediaInfoEntryId$" parameter="MediaInfoEntryId" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param/ParamIndex">
+                  <Value name="Data" acquire="mediaInformation" filter="AcquireData[@name='mediaInformation']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/Data" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!-- MediaInfo2 -->
+            <Property name="MediaInfo2_Binary">
+              <Property name="MediaInfoEntry">
+                <Parameter name="$MediaInfoEntryId$" parameter="MediaInfoEntryId" acquire="mediaInformation2" filter="AcquireData[@name='mediaInformation2']/Param/ParamIndex">
+                  <Value name="Data" acquire="mediaInformation2" filter="AcquireData[@name='mediaInformation2']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/Data" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!-- MediaInfo1_2 -->
+            <Property name="MediaInfo1_2_Binary">
+              <Property name="MediaInfoEntry">
+                <Parameter name="$MediaInfoEntryId$" parameter="MediaInfoEntryId" acquire="mediaInformation1_2" filter="AcquireData[@name='mediaInformation1_2']/Param/ParamIndex">
+                  <Value name="Data" acquire="mediaInformation1_2" filter="AcquireData[@name='mediaInformation1_2']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/Data" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!-- MediaInfo2_2 Binary -->
+            <Property name="MediaInfo2_2_Binary">
+              <Property name="MediaInfoEntry">
+                <Parameter name="$MediaInfoEntryId$" parameter="MediaInfoEntryId" acquire="mediaInformation2_2_Binary" filter="AcquireData[@name='mediaInformation2_2_Binary']/Param/ParamIndex">
+                  <Value name="Data" acquire="mediaInformation2_2_Binary" filter="AcquireData[@name='mediaInformation2_2_Binary']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/Data" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!-- MediaInfo1_3 -->
+            <Property name="MediaInfo1_3_Binary">
+              <Property name="MediaInfoEntry">
+                <Parameter name="$MediaInfoEntryId$" parameter="MediaInfoEntryId" acquire="mediaInformation1_3" filter="AcquireData[@name='mediaInformation1_3']/Param/ParamIndex">
+                  <Value name="Data" acquire="mediaInformation1_3" filter="AcquireData[@name='mediaInformation1_3']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/Data" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!-- MediaInfo2_3 -->
+            <Property name="MediaInfo2_3_Binary">
+              <Property name="MediaInfoEntry">
+                <Parameter name="$MediaInfoEntryId$" parameter="MediaInfoEntryId" acquire="mediaInformation2_3" filter="AcquireData[@name='mediaInformation2_3']/Param/ParamIndex">
+                  <Value name="Data" acquire="mediaInformation2_3" filter="AcquireData[@name='mediaInformation2_3']/Param[ParamIndex='$MediaInfoEntryId$']/ResponseParam/List/Data" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!-- InputTrayMediumLibrary -->
+            <Property name="InputTrayMediaInfo_Binary">
+              <Property name="InputBinsEntry">
+                <Parameter name="$InputBinsEntryId$" parameter="InputBinsEntryId" acquire="inputTrayMediumLibrary" filter="AcquireData[@name='inputTrayMediumLibrary']/Param/ParamIndex">
+                  <Value name="Data" acquire="inputTrayMediumLibrary" filter="AcquireData[@name='inputTrayMediumLibrary']/Param[ParamIndex='$InputBinsEntryId$']/ResponseParam/List/Data" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!-- InputTrayMediumLibrary2 -->
+            <Property name="InputTrayMediaInfo2_Binary">
+              <Property name="InputBinsEntry">
+                <Parameter name="$InputBinsEntryId$" parameter="InputBinsEntryId" acquire="inputTrayMediumLibrary2" filter="AcquireData[@name='inputTrayMediumLibrary2']/Param/ParamIndex">
+                  <Value name="Data" acquire="inputTrayMediumLibrary2" filter="AcquireData[@name='inputTrayMediumLibrary2']/Param[ParamIndex='$InputBinsEntryId$']/ResponseParam/List/Data" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>
+            <!-- InputTrayMediumLibrary3 -->
+            <Property name="InputTrayMediaInfo3_Binary">
+              <Property name="InputBinsEntry">
+                <Parameter name="$InputBinsEntryId$" parameter="InputBinsEntryId" acquire="inputTrayMediumLibrary3" filter="AcquireData[@name='inputTrayMediumLibrary3']/Param/ParamIndex">
+                  <Value name="Data" acquire="inputTrayMediumLibrary3" filter="AcquireData[@name='inputTrayMediumLibrary3']/Param[ParamIndex='$InputBinsEntryId$']/ResponseParam/List/Data" type="BIDI_STRING" />
+                </Parameter>
+              </Property>
+            </Property>            
+          </Property>          
+        </Property>
+      </Property>
+    </Property>
+  </Schema>
+  
+  <!-- Aquire CPCA Data -->
+  <CpcaHeader version="100">
+    <!-- type defined-->
+    <!--  ULONG:         unsigned long (4byte)                   -->
+    <!--  USHORT:        unsigned short(2byte)                   -->
+    <!--  UBYTE:         unsigned char (1byte)                   -->
+    <!--  BYTE:          signed char   (1byte)                   -->
+    <!--  STRING:        unsigned char (*byte)                   -->
+    <!--  STRINGCOUNT:   unsigned char (1byte) for String Count  -->
+    <!--  STRINGCOUNT16: unsigned char (2byte) for String Count  -->
+    <!--  UBYTE:     unsigned char (1byte) for List Count    -->
+    <!--  LISTCOUNT16:   unsigned char (2byte) for List Count    -->
+
+
+    <!-- Get2 PART START -->
+
+    <!-- id_att_device_model -->
+    <AcquireData name="deviceModel">
+      <CpcaAttribute operation="Get2[102]" handle="supervisor[101]" attribute="device_model[1056]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaStruct name="STRING8_CODE_SET">
+            <CpcaItem name="Code" size="2" type="USHORT" />
+            <CpcaItem name="Count" size="1" type="STRINGCOUNT" />
+            <CpcaItem name="String" size="*" type="STRING" />
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_input_tray_info_2 -->
+    <AcquireData name="trayInfo2_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="input_tray_info_2[2150]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_input_tray_media_state -->
+    <AcquireData name="mediaState_Binary">  
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="input_tray_media_state[2152]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_component_state_2 -->
+    <AcquireData name="componentState_Binary">  
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="component_state_2[282]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_locale -->
+    <AcquireData name="locale_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="supervisor[101]" attribute="locale[1008]">
+        <RequestParam />
+        <ResponseParam>
+            <CpcaItem name="Data"  size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_user_management_level -->
+    <AcquireData name="userManagementLevel">
+      <CpcaAttribute operation="Get2[102]" handle="supervisor[101]" attribute="user_management_level[115]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Security" size="1" type="UBYTE" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_must_authentication-->
+    <AcquireData name="authentication">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="must_authentication[359]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="MustAuthentication" size="1" type="UBYTE" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_device_specification_id -->
+    <AcquireData name="deviceSpecificationId">
+      <CpcaAttribute operation="Get2[102]" handle="supervisor[101]" attribute="device_specification_id[1082]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaStruct name="DEVICE_SPECIFICATION_ID">
+            <CpcaStruct name="UUID">
+              <CpcaItem name="Data1" size="4" type="ULONG" />
+              <CpcaItem name="Data2" size="2" type="USHORT" />
+              <CpcaItem name="Data3" size="2" type="USHORT" />
+              <CpcaItem name="Data40" size="1" type="UBYTE" />
+              <CpcaItem name="Data41" size="1" type="UBYTE" />
+              <CpcaItem name="Data42" size="1" type="UBYTE" />
+              <CpcaItem name="Data43" size="1" type="UBYTE" />
+              <CpcaItem name="Data44" size="1" type="UBYTE" />
+              <CpcaItem name="Data45" size="1" type="UBYTE" />
+              <CpcaItem name="Data46" size="1" type="UBYTE" />
+              <CpcaItem name="Data47" size="1" type="UBYTE" />
+            </CpcaStruct>
+            <CpcaItem name="Version" size="2" type="USHORT" />
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_input_tray_medium_library -->
+    <AcquireData name="inputTrayMediumLibrary">
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="input_tray_medium_library[2356]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaStruct name="INPUT_TRAY_MEDIUM_LIBRARY_LIST8">
+            <CpcaItem name="Count" size="1" type="LISTCOUNT" />
+            <!-- cpcaINPUT_TRAY_MEDIUM_LIBRARY -->
+            <CpcaStruct name="List">
+              <CpcaItem name="Data" size="*" type="BINARY" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_input_tray_medium_library_2 -->
+    <AcquireData name="inputTrayMediumLibrary2">
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="input_tray_medium_library_2[2396]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaStruct name="INPUT_TRAY_MEDIUM_LIBRARY_2_LIST8">
+            <CpcaItem name="Count" size="1" type="LISTCOUNT" />
+            <!-- cpcaINPUT_TRAY_MEDIUM_LIBRARY_2 -->
+            <CpcaStruct name="List">
+              <CpcaItem name="Data" size="*" type="BINARY" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_input_tray_medium_library_3 -->
+    <AcquireData name="inputTrayMediumLibrary3">
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="input_tray_medium_library_3[2425]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaStruct name="INPUT_TRAY_MEDIUM_LIBRARY_3_LIST8">
+            <CpcaItem name="Count" size="1" type="LISTCOUNT" />
+            <!-- cpcaINPUT_TRAY_MEDIUM_LIBRARY_3 -->
+            <CpcaStruct name="List">
+              <CpcaItem name="Data" size="*" type="BINARY" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_optional_units -->
+    <AcquireData name="optionalUnits_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="supervisor[101]" attribute="optional_units[1016]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_plexes_supported -->
+    <AcquireData name="plexesSupported_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="plexes_supported[2058]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_job_execution_modes_of_job_start_supported -->
+    <AcquireData name="jobExecutionModesOfJobStartSupported_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="job_execution_modes_of_job_start_supported[209]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_finisher_info_2 -->
+    <AcquireData name="finisherInfo2_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="finisher_info_2[2297]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_finishing_info -->
+    <AcquireData name="finishingInfo_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="finishing_info[2159]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_output_bin_info_2 -->
+    <AcquireData name="outputBinInfo2_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="output_bin_info_2[2153]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_feeding_unit_info -->
+    <AcquireData name="feedingUnitInfo_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="feeding_unit_info[2315]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_feeding_unit_info_2 -->
+    <AcquireData name="feedingUnitInfo2_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="feeding_unit_info_2[2467]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_finishing_unit_info -->
+    <AcquireData name="finishingUnitInfo_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="finishing_unit_info[2321]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+	<!--B id_att_finishing_unit_info_2 -->
+    <AcquireData name="finishingUnitInfo2_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="finishing_unit_info[2463]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+	
+    <!--B id_att_job_encryption_information_supported -->
+    <AcquireData name="jobEncryptionInformationSupported_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_job_service_first[501]" attribute="job_encryption_information_supported[2296]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_trust_print_mode -->
+    <AcquireData name="trustPrintMode">
+      <CpcaAttribute operation="Get2[102]" handle="printer_job_service_first[501]" attribute="trust_print_mode[2372]">
+        <RequestParam />
+        <ResponseParam>
+          <!-- cpcaUBYTE -->
+          <CpcaItem name="Ubyte" size="1" type="UBYTE" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_engine_speed -->
+    <AcquireData name="engineSpeed_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="engine_speed[2234]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_authentication_type_supported -->
+    <AcquireData name="authenticationTypeSupported_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="supervisor[101]" attribute="authentication_type_supported[1098]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_option_parameter_supported -->
+    <AcquireData name="cpcaUnicodeSupported_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="supervisor[101]" attribute="option_parameter_supported[1097]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_icc_profile_use_supported -->
+    <AcquireData name="iccProfileUseSupported_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="icc_profile_resource_service[2023]" attribute="icc_profile_use_supported[12513]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+	
+	<!--B id_att_pdl_file_format_supported-->
+    <AcquireData name="ColorOutputProfile_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="pdl_file_resource_service[2022]" attribute="pdl_file_format_supported[12012]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+    
+    <!--B id_att_resolutions_supported -->
+    <AcquireData name="resolutionsSupported_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_job_service_first[501]" attribute="resolutions_supported[109]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_job_start_modes_supported-->
+    <AcquireData name="secureSchedulePrint_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="job_start_modes_supported[89]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_job_password_supported-->
+    <AcquireData name="securePrint">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="job_password_supported[161]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="JobPasswordSupported" size="1" type="UBYTE" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_medium_supported-->
+    <AcquireData name="mediumSupported_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="medium_supported[2062]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_color_modes_select_supported-->
+    <AcquireData name="colorMode_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="color_modes_select_supported[2106]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_marker_colorant_info-->
+    <AcquireData name="colorMode2_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="marker_colorant_info[2157]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+	
+    <!--B id_att_outputs_supported-->
+    <AcquireData name="outputsSupported_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="outputs_supported [2050]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+	
+    <!--B id_att_job_attributes_supported-->
+    <AcquireData name="jobAttributes_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="job_attributes_supported[63]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_binder_attributes_supported-->
+    <AcquireData name="binderAttributes_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="binder_attributes_supported[64]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_document_attributes_supported-->
+    <AcquireData name="documentAttributes_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="binder_attributes_supported[65]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_component_attributes_supported-->
+    <AcquireData name="componentAttributes_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="component_attributes_supported[111]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+    
+    <!--B id_att_version_info-->
+    <AcquireData name="firmwareVersion_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="supervisor[101]" attribute="version_info[1050]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_maximum_binder_counts-->
+    <AcquireData name="maxBinder">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="maximum_binder_counts[2462]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="MaximumBinderCounts" size="4" type="ULONG" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_output_partitions_supported-->
+    <AcquireData name="rotation_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="output_partitions_supported[2125]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_bi_color_modes_supported-->
+    <AcquireData name="biColorExtension_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="bi_color_modes_supported[2466]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_dot_thinning_modes_supported-->
+    <AcquireData name="blurryImageCorrection_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="dot_thinning_modes_supported[2470]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!--B id_att_bar_code_print_adjustment_modes_supported-->
+    <AcquireData name="barcodeAdjustment_Binary">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="bi_color_modes_supported[2469]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="Data" size="*" type="BINARY" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_puncher_die_info_current-->
+    <AcquireData name="diename">
+      <CpcaAttribute operation="Get2[102]" handle="printer_first[601]" attribute="puncher_die_info_current[2404]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaStruct name="DIE_INFO_1">
+            <CpcaItem name="DieNumber" size="2" type="USHORT" />
+            <CpcaItem name="Flag" size="1" type="UBYTE" />
+            <CpcaItem name="DetailInfo" size="1" type="UBYTE" />
+            <CpcaStruct name="DieName">
+              <CpcaItem name="Code" size="2" type="USHORT" />
+              <CpcaItem name="Count" size="1" type="STRINGCOUNT" />
+              <CpcaItem name="String" size="*" type="STRING" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_input_tray_by_copies_supported-->
+    <AcquireData name="carbonCopy">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="input_tray_by_copies_supported[2465]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="InputTrayByCopiesSupported" size="1" type="BYTE" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- id_att_wide_color_gamut_print_mode_availability-->
+    <AcquireData name="popPrint">
+      <CpcaAttribute operation="Get2[102]" handle="print_job_service_first[501]" attribute="wide_color_gamut_print_mode_availability[2496]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaItem name="WideColorGamutPrintModeAvailability" size="1" type="UBYTE" />
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- Get2 PART END-->
+    
+    <!-- FileBoxInfo -->
+    <AcquireData name="fileBox">
+      <CpcaParam name="fileBox" operation="ListObjects2[114]" handlefilter="file_box_root[4033]" classID="oc_file_box[1002]">
+        <AcquireAtOnce HandleNumber="3">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="file_box_name[10601]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaSTRING8_CODE_SET -->
+              <CpcaStruct name="FileBoxName">
+                <CpcaItem name="Code" size="2" type="USHORT" />
+                <CpcaItem name="Count" size="1" type="STRINGCOUNT" />
+                <CpcaItem name="String" size="*" type="STRING" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="10">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="file_box_number[10617]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaItem name="FileBoxNumber" size="2" type="USHORT" />
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="10">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="file_box_job_execute_print[10911]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaItem name="FileBoxJobExecutePrint" size="1" type="UBYTE" />
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+      </CpcaParam>
+    </AcquireData>
+    <!-- FormInfo -->
+    <AcquireData name="form">
+      <CpcaParam name="form" operation="ListObjects2[114]" handlefilter="file_box_for_form[4037]" classID="oc_folder[1015]">
+        <AcquireAtOnce HandleNumber="999">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_null_attribute[0]">
+            <RequestParam/>
+            <ResponseParam>
+              <CpcaStruct name="ObjectHandle">
+                <CpcaItem name="HandleValue" size="*" type="BINARY"/>
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="folder_name[11804]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaSTRING8_CODE_SET -->
+              <CpcaStruct name="formName">
+                <CpcaItem name="Code" size="2" type="USHORT" />
+                <CpcaItem name="Count" size="1" type="STRINGCOUNT" />
+                <CpcaItem name="String" size="*" type="STRING" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="10">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="folder_created_time[11806]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaDATETIMES -->
+              <CpcaStruct name="DateTimes">
+                <CpcaItem name="Date" size="4" type="ULONG" />
+                <CpcaItem name="Time" size="4" type="ULONG" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="6">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_file_list[231]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaUBYTE_LIST16 -->
+              <CpcaStruct name="HandleList">
+                <CpcaItem name="Count" size="2" type="USHORT" />
+                <CpcaStruct name="HandleList">
+                  <CpcaItem name="Handle" size="*" type="BINARY" />
+                </CpcaStruct>
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+      </CpcaParam>
+    </AcquireData>
+    <!--ICCプロファイル情報/ICC Profile -->
+    <AcquireData name="iccprofile">
+      <CpcaParam name="iccprofile" operation="ListObjects2[114]" handlefilter="id_val_supervisor[101]" classID="id_oc_icc_profile[1019]">
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_icc_profile_name[12502]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaSTRING8_CODE_SET -->
+              <CpcaStruct name="iccprofileName">
+                <CpcaItem name="Code" size="2" type="USHORT" />
+                <CpcaItem name="Count" size="1" type="STRINGCOUNT" />
+                <CpcaItem name="String" size="*" type="STRING" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_icc_profile_use[12507]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaDATETIMES -->
+              <CpcaStruct name="usedFlag">
+                <CpcaItem name="Flag" size="1" type="UBYTE" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_resource_characteristic[178]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaDATETIMES -->
+              <CpcaStruct name="codesetName">
+                <CpcaItem name="CodeSet" size="1" type="UBYTE"/>
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="8">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_resource_name_switch_flag[288]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaDATETIMES -->
+              <CpcaStruct name="nameswitchFlag">
+                <CpcaItem name="SwitchFlagOriginal" size="4" type="ULONG"  /><!--
+                      #define id_val_resource_for_none                                   0x00000000
+                      #define id_val_resource_for_CanonLIPS                              0x00000001
+                      #define id_val_resource_for_CanonPSK                               0x00000002
+                      #define id_val_resource_for_CanonPSR                               0x00000004
+                      #define id_val_resource_for_CanonPCL5C                             0x00000008
+                      #define id_val_resource_for_CanonPCL6                              0x00000010
+                      #define id_val_resource_for_CanonPCLXL                             0x00000020
+                      #define id_val_resource_for_GDIUFR                                 0x00000040
+                      #define id_val_resource_for_OpenIfType1PSK                         0x00000080
+                      #define id_val_resource_for_OpenIfType1PSR                         0x00000100
+                      #define id_val_resource_for_OpenIfType1PCL5c                       0x00000200
+                      #define id_val_resource_for_OpenIfType1PCL6                        0x00000400-->
+                <CpcaItem name="SwitchFlagGroup" size="4" type="ULONG"  />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_icc_profile_color_space_of_data[12506]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaDATETIMES -->
+                <CpcaItem name="colorspaceData" size="1" type="UBYTE"  />
+                <!--
+                      #define id_val_icc_profile_color_space_of_data_XYZ                 1
+                      #define id_val_icc_profile_color_space_of_data_Lab                 2
+                      #define id_val_icc_profile_color_space_of_data_rgb                 3
+                      #define id_val_icc_profile_color_space_of_data_cmyk                4-->
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_resource_state[179]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaDATETIMES -->
+              <CpcaStruct name="resourceState">
+                <CpcaItem name="State" size="1" type="UBYTE" /><!--
+                #define id_val_resource_state_unknown                              1
+                #define id_val_resource_state_stable                               2
+                #define id_val_resource_state_processing                           3
+                #define id_val_resource_state_deleting                             4
+                #define id_val_resource_state_initializing                         5
+                #define id_val_resource_state_incomplete                           6-->
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_icc_profile_inner_file_name[12508]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaSTRING8_CODE_SET -->
+              <CpcaStruct name="innerfileName">
+                <CpcaItem name="Code" size="2" type="USHORT" />
+                <CpcaItem name="Count" size="1" type="STRINGCOUNT" />
+                <CpcaItem name="String" size="*" type="STRING" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+      </CpcaParam>
+    </AcquireData>
+    <!--D-Half情報/DHalf-->
+    <!--キャリブレーション情報/Calibration-->
+    <AcquireData name="dhalf">
+      <CpcaParam name="dhalf" operation="ListObjects2[114]" handlefilter="id_val_supervisor[101]" classID="id_oc_calibration[1013]">
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_resource_characteristic[178]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaStruct name="codesetName">
+                <CpcaItem name="CodeSet" size="1" type="UBYTE" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_resource_time_stamp[180]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaStruct name="timestamp">
+                 <CpcaItem name="Date" size="4" type="ULONG" />
+                 <CpcaItem name="Time" size="4" type="ULONG" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_calibration_halftone_type[11610]">
+            <RequestParam />
+            <ResponseParam>
+               <CpcaItem name="type" size="1" type="UBYTE" />
+                  <!--
+                #define id_val_calibration_halftone_type_resolution                1
+                #define id_val_calibration_halftone_type_high_resolution           2
+                #define id_val_calibration_halftone_type_gradation                 3
+                #define id_val_calibration_halftone_type_quality                   4
+                #define id_val_calibration_halftone_type_error_diffusion           5
+                #define id_val_calibration_halftone_type_common                    cpcaDENSITY_HALFTONE_LIST86-->
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="10">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_calibration_density_halftone_data[11613]">
+            <RequestParam />
+            <ResponseParam>
+              <!--cpcaDENSITY_HALFTONE_LIST8-->
+              <CpcaStruct name="data">
+                <CpcaItem name="Count" size="1" type="UBYTE" />
+                <CpcaStruct name="dataList">
+                  <CpcaItem name="halftoneDataList" size="*" type="UBYTE" />
+                </CpcaStruct>
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_calibration_resolution[11616]">
+            <RequestParam />
+            <ResponseParam>
+              <!--cpcaRESOLUTION-->
+              <CpcaStruct name="resolution">
+                <CpcaItem name="Type" size="4" type="ULONG" />
+                <CpcaItem name="X" size="4" type="ULONG" />
+                <CpcaItem name="Y" size="4" type="ULONG" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_calibration_target_medium_type[11612]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaItem name="mediumype" size="1" type="UBYTE" />
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_calibration_input_data_depth[11618]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaItem name="inputdepth" size="1" type="UBYTE" />
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_calibration_output_data_depth[11611]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaItem name="outputdepth" size="1" type="UBYTE" />
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_calibration_halftone_output_data_depth[11619]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaItem name="halfoutputdepth" size="1" type="UBYTE" />
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+      </CpcaParam>
+    </AcquireData>
+    <!--カスタムダウンロードプロファイル情報/Custom Download Profile-->
+    <AcquireData name="customprofile">
+      <CpcaParam name="customprofile" operation="ListObjects2[114]" handlefilter="id_val_supervisor[101]" classID="id_oc_color_look_up_table[1016]">
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_color_look_up_table_name_2[11918]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaStruct name="name">
+                <CpcaItem name="Code" size="2" type="USHORT" />
+                <CpcaItem name="Count" size="2" type="STRINGCOUNT16" />
+                <CpcaItem name="String" size="*" type="STRING" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="1">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_resource_state[179]">
+            <RequestParam />
+            <ResponseParam>
+              <!-- cpcaDATETIMES -->
+                <CpcaItem name="State" size="1" type="UBYTE" /><!--
+                #define id_val_resource_state_unknown                              1
+                #define id_val_resource_state_stable                               2
+                #define id_val_resource_state_processing                           3
+                #define id_val_resource_state_deleting                             4
+                #define id_val_resource_state_initializing                         5
+                #define id_val_resource_state_incomplete                           6-->
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+        <AcquireAtOnce HandleNumber="4">
+          <CpcaAttribute operation="Get2[102]" handle="$handle$" attribute="id_att_resource_characteristic[178]">
+            <RequestParam />
+            <ResponseParam>
+              <CpcaStruct name="codesetName">
+                <CpcaItem name="CodeSet" size="1" type="UBYTE" />
+              </CpcaStruct>
+            </ResponseParam>
+          </CpcaAttribute>
+        </AcquireAtOnce>
+      </CpcaParam>
+    </AcquireData>
+
+    <!-- (\Printer.Canon.OIP.MediumSupportInfo) -->
+    <AcquireData name="mediumSupportInfo">
+      <!-- id_att_medium_supported -->
+      <CpcaAttribute operation="GetListElement[103]" handle="print_job_service_first[501]" attribute="medium_supported[2062]">
+        <RequestParam />
+        <ResponseParam>
+          <CpcaStruct name="cpcaMEDIUM_ID_SUPPORT_LIST16">
+            <CpcaItem name="Count" size="2" type="LISTCOUNT16" />
+            <CpcaStruct name="List">
+              <!--cpcaMEDIUM_ID-->
+              <CpcaStruct name="MediumID">
+                <CpcaItem name="Type" size="1" type="UBYTE" />
+                <CpcaItem name="Color" size="1" type="UBYTE" />
+                <CpcaItem name="Size" size="2" type="USHORT" />
+              </CpcaStruct>
+              <!--cpcaMEDIUM_ID_SUPPORT-->
+              <CpcaItem name="Support" size="1" type="UBYTE" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- (\Printer.Canon.OIP.MediaInfo) -->
+    <AcquireData name="mediaInformation">
+      <!--id_att_medium_library_type1-->
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="medium_library_type1[321]">
+        <RequestParam />
+        <ResponseParam>
+          <!-- cpcaMEDIUM_LIBRARY_LIST16 -->
+          <CpcaStruct name="cpcaMEDIUM_LIBRARY_LIST16">
+            <CpcaItem name="Count" size="2" type="LISTCOUNT16" />
+            <!-- cpcaMEDIUM_LIBRARY -->
+            <CpcaStruct name="List">
+              <CpcaItem name="Data" size="*" type="BINARY" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- (\Printer.Canon.OIP.MediaInfo2) -->
+    <AcquireData name="mediaInformation2">
+      <!-- id_att_medium_library_type2 -->
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="medium_library_type2[322]">
+        <RequestParam />
+        <ResponseParam>
+          <!-- cpcaMEDIUM_LIBRARY_LIST16 -->
+          <CpcaStruct name="cpcaMEDIUM_LIBRARY_LIST16">
+            <CpcaItem name="Count" size="2" type="LISTCOUNT16" />
+            <!-- cpcaMEDIUM_LIBRARY -->
+            <CpcaStruct name="List">
+              <CpcaItem name="Data" size="*" type="BINARY" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- (\Printer.Canon.OIP.MediaInfo1_2) -->
+    <AcquireData name="mediaInformation1_2">
+      <!-- id_att_medium_library_type1_2 -->
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="medium_library_type1_2[341]">
+        <RequestParam />
+        <ResponseParam>
+          <!-- cpcaMEDIUM_LIBRARY_2_LIST16 -->
+          <CpcaStruct name="cpcaMEDIUM_LIBRARY_2_LIST16">
+            <CpcaItem name="Count" size="2" type="LISTCOUNT16" />
+            <!-- cpcaMEDIUM_LIBRARY_2 -->
+            <CpcaStruct name="List">
+              <CpcaItem name="Data" size="*" type="BINARY" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- (\Printer.Canon.OIP.MediaInfo2_2) -->
+    <AcquireData name="mediaInformation2_2_Binary">
+      <!-- id_att_medium_library_type2_2 -->
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="medium_library_type2_2[342]">
+        <RequestParam />
+        <ResponseParam>
+          <!-- cpcaMEDIUM_LIBRARY_2_LIST16 -->
+          <CpcaStruct name="cpcaMEDIUM_LIBRARY_2_LIST16">
+            <CpcaItem name="Count" size="2" type="LISTCOUNT16" />
+            <!-- cpcaMEDIUM_LIBRARY_2 -->
+            <CpcaStruct name="List">
+              <CpcaItem name="Data" size="*" type="BINARY" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+    <!-- id_att_medium_library_type2 -->
+    <AcquireData name="mediaInformation2_2">
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="medium_library_type2_2[342]">
+        <RequestParam />
+        <ResponseParam>
+          <!-- cpcaMEDIUM_LIBRARY_LIST16 -->
+          <CpcaStruct name="cpcaMEDIUM_LIBRARY_LIST16">
+            <CpcaItem name="Count" size="2" type="LISTCOUNT16" />
+            <!-- cpcaMEDIUM_LIBRARY -->
+            <CpcaStruct name="List">
+              <!-- cpcaMEDIUM_LIBRARY_ID -->
+              <CpcaStruct name="Medium">
+                <CpcaItem name="LocalID" size="2" type="USHORT" />
+                <CpcaItem name="OriginalID" size="2" type="USHORT" />
+              </CpcaStruct>
+              <!-- cpcaSTRING8_CODE_SET -->
+              <CpcaStruct name="BrandName">
+                <CpcaItem name="Code" size="2" type="USHORT" />
+                <CpcaItem name="Count" size="1" type="STRINGCOUNT" />
+                <CpcaItem name="String" size="*" type="STRING" />
+              </CpcaStruct>
+              <!-- cpcaSHORT_LIST8 -->
+              <CpcaStruct name="EngineParameters">
+                <CpcaItem name="Count" size="1" type="UBYTE" />
+                <CpcaStruct name="Field">
+                  <CpcaItem name="Weight" size="2" type="USHORT" />
+                  <CpcaItem name="Surface" size="2" type="USHORT" />
+                  <CpcaItem name="Shape" size="2" type="USHORT" />
+                  <CpcaItem name="Color" size="2" type="USHORT" />
+                  <CpcaItem name="Transfer" size="2" type="USHORT" />
+                  <CpcaItem name="Gross" size="2" type="USHORT" />
+                  <CpcaItem name="Side1Crul" size="2" type="USHORT" />
+                  <CpcaItem name="Side2Crul" size="2" type="USHORT" />
+                  <CpcaItem name="PickupAir" size="2" type="USHORT" />
+                  <CpcaItem name="Grain" size="2" type="USHORT" />
+                  <CpcaItem name="Side1TopRegist" size="2" type="USHORT" />
+                  <CpcaItem name="Side2TopRegist" size="2" type="USHORT" />
+                  <CpcaItem name="Side1SideRegist" size="2" type="USHORT" />
+                  <CpcaItem name="Side2SideRegist" size="2" type="USHORT" />
+                  <CpcaItem name="Side1Hmag" size="2" type="USHORT" />
+                  <CpcaItem name="Side1Vmag" size="2" type="USHORT" />
+                  <CpcaItem name="Side2Hmag" size="2" type="USHORT" />
+                  <CpcaItem name="Side2Vmag" size="2" type="USHORT" />
+                  <CpcaItem name="Side2TopAutoRegist" size="2" type="USHORT" />
+                  <CpcaItem name="Side1Skew" size="2" type="USHORT" />
+                  <CpcaItem name="Side2Skew" size="2" type="USHORT" />
+                  <CpcaItem name="Separate" size="2" type="USHORT" />
+                  <CpcaItem name="Itbcln" size="2" type="USHORT" />
+                  <CpcaItem name="GutterShift" size="2" type="USHORT" />
+                  <CpcaItem name="Profile" size="2" type="USHORT" />
+                  <CpcaItem name="Staple" size="2" type="USHORT" />
+                  <CpcaItem name="StapleBind" size="2" type="USHORT" />
+                  <CpcaItem name="SideRegistSlope" size="2" type="USHORT" />
+                  <CpcaItem name="Stack" size="2" type="USHORT" />
+                  <CpcaItem name="Saddle" size="2" type="USHORT" />
+                  <CpcaItem name="SaddleFold" size="2" type="USHORT" />
+                  <CpcaItem name="PunchHole" size="2" type="USHORT" />
+                  <CpcaItem name="Fold" size="2" type="USHORT" />
+                  <CpcaItem name="Reserve1" size="2" type="USHORT" />
+                  <CpcaItem name="Reserve2" size="2" type="USHORT" />
+                  <CpcaItem name="Reserve3" size="2" type="USHORT" />
+                  <CpcaItem name="Reserve4" size="2" type="USHORT" />
+                  <CpcaItem name="Reserve5" size="2" type="USHORT" />
+                </CpcaStruct>
+              </CpcaStruct>
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- (\Printer.Canon.OIP.MediaInfo1_3) -->
+    <AcquireData name="mediaInformation1_3">
+      <!-- id_att_medium_library_type1_3 -->
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="medium_library_type1_3[350]">
+        <RequestParam />
+        <ResponseParam>
+          <!-- cpcaMEDIUM_LIBRARY_3_LIST16 -->
+          <CpcaStruct name="cpcaMEDIUM_LIBRARY_3_LIST16">
+            <CpcaItem name="Count" size="2" type="LISTCOUNT16" />
+            <!-- cpcaMEDIUM_LIBRARY_3 -->
+            <CpcaStruct name="List">
+              <CpcaItem name="Data" size="*" type="BINARY" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+    <!-- (\Printer.Canon.OIP.MediaInfo2_3) -->
+    <AcquireData name="mediaInformation2_3">
+      <!-- id_att_medium_library_type2_3 -->
+      <CpcaAttribute operation="GetListElement[103]" handle="printer_first[601]" attribute="medium_library_type2_3[351]">
+        <RequestParam />
+        <ResponseParam>
+          <!-- cpcaMEDIUM_LIBRARY_3_LIST16 -->
+          <CpcaStruct name="cpcaMEDIUM_LIBRARY_3_LIST16">
+            <CpcaItem name="Count" size="2" type="LISTCOUNT16" />
+            <!-- cpcaMEDIUM_LIBRARY_3 -->
+            <CpcaStruct name="List">
+              <CpcaItem name="Data" size="*" type="BINARY" />
+            </CpcaStruct>
+          </CpcaStruct>
+        </ResponseParam>
+      </CpcaAttribute>
+    </AcquireData>
+
+  </CpcaHeader>
+</bidi:Definition>

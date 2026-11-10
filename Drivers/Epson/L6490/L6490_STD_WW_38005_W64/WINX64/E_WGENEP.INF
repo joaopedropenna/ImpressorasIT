@@ -1,0 +1,426 @@
+; Copyright (C) SEIKO EPSON CORPORATION 2015. All rights reserved.
+; 
+[Version]
+Signature       = "$Windows NT$"
+Provider        = %EPSON%
+ClassGUID       = {36FC9E60-C465-11CF-8056-444553540000}
+Class           = USB
+DriverVer=03/26/2020,1.2.0.30
+CatalogFile      = E_WGENEP.CAT
+
+
+[Manufacturer]
+%EPSON% = EPSON,NTamd64.5.2,NTamd64.6.1,NTamd64.6.2
+
+
+
+; =================== For Endpoint ============================================================
+; ========== Manufacturer/Models sections ===========
+
+[EPSON]
+
+[EPSON.NTamd64.5.2]
+"EPSON Printer Utility 008B" =USB_Install_XP, USB\VID_04B8&PID_008B&MI_01
+"EPSON Printer Utility 0093" =USB_Install_XP, USB\VID_04B8&PID_0093&MI_01
+"EPSON Printer Utility 0095" =USB_Install_XP, USB\VID_04B8&PID_0095&MI_01
+"EPSON Printer Utility 009E" =USB_Install_XP, USB\VID_04B8&PID_009E&MI_01
+
+"EPSON Printer Utility 00A0" =USB_Install_XP, USB\VID_04B8&PID_00A0&MI_01
+"EPSON Printer Utility 00A1" =USB_Install_XP, USB\VID_04B8&PID_00A1&MI_01
+"EPSON Printer Utility 00A2" =USB_Install_XP, USB\VID_04B8&PID_00A2&MI_01
+"EPSON Printer Utility 00A4" =USB_Install_XP, USB\VID_04B8&PID_00A4&MI_01
+"EPSON Printer Utility 00A5" =USB_Install_XP, USB\VID_04B8&PID_00A5&MI_01
+"EPSON Printer Utility 00A6" =USB_Install_XP, USB\VID_04B8&PID_00A6&MI_01
+"EPSON Printer Utility 00A7" =USB_Install_XP, USB\VID_04B8&PID_00A7&MI_01
+"EPSON Printer Utility 00AA" =USB_Install_XP, USB\VID_04B8&PID_00AA&MI_01
+"EPSON Printer Utility 00AB" =USB_Install_XP, USB\VID_04B8&PID_00AB&MI_01
+"EPSON Printer Utility 00AC" =USB_Install_XP, USB\VID_04B8&PID_00AC&MI_01
+"EPSON Printer Utility 00AE" =USB_Install_XP, USB\VID_04B8&PID_00AE&MI_01
+"EPSON Printer Utility 00AF" =USB_Install_XP, USB\VID_04B8&PID_00AF&MI_01
+"EPSON Printer Utility 00B0" =USB_Install_XP, USB\VID_04B8&PID_00B0&MI_01
+"EPSON Printer Utility 00B5" =USB_Install_XP, USB\VID_04B8&PID_00B5&MI_01
+"EPSON Printer Utility 00C0" =USB_Install_XP, USB\VID_04B8&PID_00C0&MI_01
+"EPSON Printer Utility 00C1" =USB_Install_XP, USB\VID_04B8&PID_00C1&MI_01
+"EPSON Printer Utility 00C2" =USB_Install_XP, USB\VID_04B8&PID_00C2&MI_01
+"EPSON Printer Utility 00C3" =USB_Install_XP, USB\VID_04B8&PID_00C3&MI_01
+"EPSON Printer Utility 00C7" =USB_Install_XP, USB\VID_04B8&PID_00C7&MI_01
+
+"EPSON Printer Utility 1112" =USB_Install_XP, USB\VID_04B8&PID_1112&MI_03
+"EPSON Printer Utility 1114" =USB_Install_XP, USB\VID_04B8&PID_1114&MI_03
+"EPSON Printer Utility 1115" =USB_Install_XP, USB\VID_04B8&PID_1115&MI_03
+"EPSON Printer Utility 1116" =USB_Install_XP, USB\VID_04B8&PID_1116&MI_02
+"EPSON Printer Utility 1117" =USB_Install_XP, USB\VID_04B8&PID_1117&MI_03
+"EPSON Printer Utility 1118" =USB_Install_XP, USB\VID_04B8&PID_1118&MI_03
+"EPSON Printer Utility 1119" =USB_Install_XP, USB\VID_04B8&PID_1119&MI_03
+"EPSON Printer Utility 111A" =USB_Install_XP, USB\VID_04B8&PID_111A&MI_03
+"EPSON Printer Utility 111B" =USB_Install_XP, USB\VID_04B8&PID_111B&MI_03
+"EPSON Printer Utility 111E" =USB_Install_XP, USB\VID_04B8&PID_111E&MI_03
+"EPSON Printer Utility 111F" =USB_Install_XP, USB\VID_04B8&PID_111F&MI_02
+"EPSON Printer Utility 1121" =USB_Install_XP, USB\VID_04B8&PID_1121&MI_03
+"EPSON Printer Utility 1122" =USB_Install_XP, USB\VID_04B8&PID_1122&MI_02
+"EPSON Printer Utility 1123" =USB_Install_XP, USB\VID_04B8&PID_1123&MI_03
+"EPSON Printer Utility 1124" =USB_Install_XP, USB\VID_04B8&PID_1124&MI_02
+"EPSON Printer Utility 1125" =USB_Install_XP, USB\VID_04B8&PID_1125&MI_03
+"EPSON Printer Utility 1126" =USB_Install_XP, USB\VID_04B8&PID_1126&MI_03
+"EPSON Printer Utility 1127" =USB_Install_XP, USB\VID_04B8&PID_1127&MI_03
+"EPSON Printer Utility 1128" =USB_Install_XP, USB\VID_04B8&PID_1128&MI_02
+"EPSON Printer Utility 1129" =USB_Install_XP, USB\VID_04B8&PID_1129&MI_02
+"EPSON Printer Utility 112A" =USB_Install_XP, USB\VID_04B8&PID_112A&MI_03
+"EPSON Printer Utility 112B" =USB_Install_XP, USB\VID_04B8&PID_112B&MI_03
+"EPSON Printer Utility 112C" =USB_Install_XP, USB\VID_04B8&PID_112C&MI_03
+"EPSON Printer Utility 112D" =USB_Install_XP, USB\VID_04B8&PID_112D&MI_03
+"EPSON Printer Utility 112E" =USB_Install_XP, USB\VID_04B8&PID_112E&MI_03
+"EPSON Printer Utility 112F" =USB_Install_XP, USB\VID_04B8&PID_112F&MI_03
+"EPSON Printer Utility 1130" =USB_Install_XP, USB\VID_04B8&PID_1130&MI_02
+"EPSON Printer Utility 1131" =USB_Install_XP, USB\VID_04B8&PID_1131&MI_03
+"EPSON Printer Utility 1132" =USB_Install_XP, USB\VID_04B8&PID_1132&MI_03
+"EPSON Printer Utility 1133" =USB_Install_XP, USB\VID_04B8&PID_1133&MI_03
+"EPSON Printer Utility 1134" =USB_Install_XP, USB\VID_04B8&PID_1134&MI_03
+"EPSON Printer Utility 1135" =USB_Install_XP, USB\VID_04B8&PID_1135&MI_02
+
+"EPSON Printer Utility 1136" =USB_Install_XP, USB\VID_04B8&PID_1136&MI_02
+"EPSON Printer Utility 1137" =USB_Install_XP, USB\VID_04B8&PID_1137&MI_02
+"EPSON Printer Utility 1138" =USB_Install_XP, USB\VID_04B8&PID_1138&MI_02
+"EPSON Printer Utility 1139" =USB_Install_XP, USB\VID_04B8&PID_1139&MI_03
+"EPSON Printer Utility 113A" =USB_Install_XP, USB\VID_04B8&PID_113A&MI_02
+"EPSON Printer Utility 113B" =USB_Install_XP, USB\VID_04B8&PID_113B&MI_02
+"EPSON Printer Utility 113C" =USB_Install_XP, USB\VID_04B8&PID_113C&MI_03
+"EPSON Printer Utility 113D" =USB_Install_XP, USB\VID_04B8&PID_113D&MI_02
+"EPSON Printer Utility 113E" =USB_Install_XP, USB\VID_04B8&PID_113E&MI_03
+"EPSON Printer Utility 113F" =USB_Install_XP, USB\VID_04B8&PID_113F&MI_03
+"EPSON Printer Utility 1140" =USB_Install_XP, USB\VID_04B8&PID_1140&MI_03
+"EPSON Printer Utility 1143" =USB_Install_XP, USB\VID_04B8&PID_1143&MI_02
+"EPSON Printer Utility 1145" =USB_Install_XP, USB\VID_04B8&PID_1145&MI_03
+"EPSON Printer Utility 1146" =USB_Install_XP, USB\VID_04B8&PID_1146&MI_03
+"EPSON Printer Utility 1147" =USB_Install_XP, USB\VID_04B8&PID_1147&MI_03
+"EPSON Printer Utility 1148" =USB_Install_XP, USB\VID_04B8&PID_1148&MI_03
+"EPSON Printer Utility 1149" =USB_Install_XP, USB\VID_04B8&PID_1149&MI_03
+"EPSON Printer Utility 114A" =USB_Install_XP, USB\VID_04B8&PID_114A&MI_02
+"EPSON Printer Utility 114B" =USB_Install_XP, USB\VID_04B8&PID_114B&MI_03
+"EPSON Printer Utility 114C" =USB_Install_XP, USB\VID_04B8&PID_114C&MI_03
+"EPSON Printer Utility 114D" =USB_Install_XP, USB\VID_04B8&PID_114D&MI_02
+"EPSON Printer Utility 114E" =USB_Install_XP, USB\VID_04B8&PID_114E&MI_02
+"EPSON Printer Utility 114F" =USB_Install_XP, USB\VID_04B8&PID_114F&MI_02
+"EPSON Printer Utility 1150" =USB_Install_XP, USB\VID_04B8&PID_1150&MI_02
+"EPSON Printer Utility 1151" =USB_Install_XP, USB\VID_04B8&PID_1151&MI_02
+"EPSON Printer Utility 1152" =USB_Install_XP, USB\VID_04B8&PID_1152&MI_03
+"EPSON Printer Utility 1153" =USB_Install_XP, USB\VID_04B8&PID_1153&MI_03
+"EPSON Printer Utility 1154" =USB_Install_XP, USB\VID_04B8&PID_1154&MI_02
+"EPSON Printer Utility 1155" =USB_Install_XP, USB\VID_04B8&PID_1155&MI_02
+"EPSON Printer Utility 1156" =USB_Install_XP, USB\VID_04B8&PID_1156&MI_03
+"EPSON Printer Utility 1157" =USB_Install_XP, USB\VID_04B8&PID_1157&MI_02
+"EPSON Printer Utility 1158" =USB_Install_XP, USB\VID_04B8&PID_1158&MI_02
+"EPSON Printer Utility 1159" =USB_Install_XP, USB\VID_04B8&PID_1159&MI_03
+"EPSON Printer Utility 115A" =USB_Install_XP, USB\VID_04B8&PID_115A&MI_03
+"EPSON Printer Utility 115B" =USB_Install_XP, USB\VID_04B8&PID_115B&MI_03
+"EPSON Printer Utility 115C" =USB_Install_XP, USB\VID_04B8&PID_115C&MI_03
+"EPSON Printer Utility 115D" =USB_Install_XP, USB\VID_04B8&PID_115D&MI_03
+"EPSON Printer Utility 115E" =USB_Install_XP, USB\VID_04B8&PID_115E&MI_03
+"EPSON Printer Utility 115F" =USB_Install_XP, USB\VID_04B8&PID_115F&MI_03
+"EPSON Printer Utility 1160" =USB_Install_XP, USB\VID_04B8&PID_1160&MI_02
+"EPSON Printer Utility 1161" =USB_Install_XP, USB\VID_04B8&PID_1161&MI_02
+"EPSON Printer Utility 1162" =USB_Install_XP, USB\VID_04B8&PID_1162&MI_03
+"EPSON Printer Utility 1163" =USB_Install_XP, USB\VID_04B8&PID_1163&MI_03
+"EPSON Printer Utility 1164" =USB_Install_XP, USB\VID_04B8&PID_1164&MI_02
+"EPSON Printer Utility 1165" =USB_Install_XP, USB\VID_04B8&PID_1165&MI_02
+"EPSON Printer Utility 1166" =USB_Install_XP, USB\VID_04B8&PID_1166&MI_03
+"EPSON Printer Utility 1167" =USB_Install_XP, USB\VID_04B8&PID_1167&MI_02
+"EPSON Printer Utility 1168" =USB_Install_XP, USB\VID_04B8&PID_1168&MI_03
+"EPSON Printer Utility 1169" =USB_Install_XP, USB\VID_04B8&PID_1169&MI_02
+"EPSON Printer Utility 116A" =USB_Install_XP, USB\VID_04B8&PID_116A&MI_02
+"EPSON Printer Utility 116B" =USB_Install_XP, USB\VID_04B8&PID_116B&MI_02
+"EPSON Printer Utility 116C" =USB_Install_XP, USB\VID_04B8&PID_116C&MI_03
+"EPSON Printer Utility 116D" =USB_Install_XP, USB\VID_04B8&PID_116D&MI_03
+"EPSON Printer Utility 116E" =USB_Install_XP, USB\VID_04B8&PID_116E&MI_02
+"EPSON Printer Utility 116F" =USB_Install_XP, USB\VID_04B8&PID_116F&MI_03
+"EPSON Printer Utility 1170" =USB_Install_XP, USB\VID_04B8&PID_1170&MI_03
+"EPSON Printer Utility 1171" =USB_Install_XP, USB\VID_04B8&PID_1171&MI_02
+"EPSON Printer Utility 1172" =USB_Install_XP, USB\VID_04B8&PID_1172&MI_02
+"EPSON Printer Utility 1173" =USB_Install_XP, USB\VID_04B8&PID_1173&MI_02
+"EPSON Printer Utility 1174" =USB_Install_XP, USB\VID_04B8&PID_1174&MI_03
+"EPSON Printer Utility 1175" =USB_Install_XP, USB\VID_04B8&PID_1175&MI_03
+"EPSON Printer Utility 1176" =USB_Install_XP, USB\VID_04B8&PID_1176&MI_03
+"EPSON Printer Utility 1177" =USB_Install_XP, USB\VID_04B8&PID_1177&MI_03
+"EPSON Printer Utility 1178" =USB_Install_XP, USB\VID_04B8&PID_1178&MI_03
+"EPSON Printer Utility 1179" =USB_Install_XP, USB\VID_04B8&PID_1179&MI_03
+"EPSON Printer Utility 117A" =USB_Install_XP, USB\VID_04B8&PID_117A&MI_03
+"EPSON Printer Utility 117B" =USB_Install_XP, USB\VID_04B8&PID_117B&MI_03
+"EPSON Printer Utility 117C" =USB_Install_XP, USB\VID_04B8&PID_117C&MI_03
+"EPSON Printer Utility 117D" =USB_Install_XP, USB\VID_04B8&PID_117D&MI_03
+"EPSON Printer Utility 117E" =USB_Install_XP, USB\VID_04B8&PID_117E&MI_02
+"EPSON Printer Utility 117F" =USB_Install_XP, USB\VID_04B8&PID_117F&MI_02
+"EPSON Printer Utility 1180" =USB_Install_XP, USB\VID_04B8&PID_1180&MI_02
+"EPSON Printer Utility 1181" =USB_Install_XP, USB\VID_04B8&PID_1181&MI_02
+"EPSON Printer Utility 1182" =USB_Install_XP, USB\VID_04B8&PID_1182&MI_02
+"EPSON Printer Utility 1183" =USB_Install_XP, USB\VID_04B8&PID_1183&MI_02
+"EPSON Printer Utility 1184" =USB_Install_XP, USB\VID_04B8&PID_1184&MI_02
+"EPSON Printer Utility 1185" =USB_Install_XP, USB\VID_04B8&PID_1185&MI_02
+"EPSON Printer Utility 1186" =USB_Install_XP, USB\VID_04B8&PID_1186&MI_02
+"EPSON Printer Utility 1187" =USB_Install_XP, USB\VID_04B8&PID_1187&MI_02
+"EPSON Printer Utility 118A" =USB_Install_XP, USB\VID_04B8&PID_118A&MI_02
+"EPSON Printer Utility 118B" =USB_Install_XP, USB\VID_04B8&PID_118B&MI_02
+"EPSON Printer Utility 118C" =USB_Install_XP, USB\VID_04B8&PID_118C&MI_02
+"EPSON Printer Utility 118D" =USB_Install_XP, USB\VID_04B8&PID_118D&MI_03
+"EPSON Printer Utility 118E" =USB_Install_XP, USB\VID_04B8&PID_118E&MI_03
+"EPSON Printer Utility 118F" =USB_Install_XP, USB\VID_04B8&PID_118F&MI_03
+"EPSON Printer Utility 1190" =USB_Install_XP, USB\VID_04B8&PID_1190&MI_02
+"EPSON Printer Utility 1191" =USB_Install_XP, USB\VID_04B8&PID_1191&MI_02
+"EPSON Printer Utility 1304" =USB_Install_XP, USB\VID_04B8&PID_1304&MI_01
+"EPSON Printer Utility 1306" =USB_Install_XP, USB\VID_04B8&PID_1306&MI_01
+"EPSON Printer Utility 1307" =USB_Install_XP, USB\VID_04B8&PID_1307&MI_01
+"EPSON Printer Utility 1308" =USB_Install_XP, USB\VID_04B8&PID_1308&MI_01
+"EPSON Printer Utility 1309" =USB_Install_XP, USB\VID_04B8&PID_1309&MI_01
+"EPSON Printer Utility 130A" =USB_Install_XP, USB\VID_04B8&PID_130A&MI_01
+"EPSON Printer Utility 130F" =USB_Install_XP, USB\VID_04B8&PID_130F&MI_01
+
+[EPSON.NTamd64.6.1]
+"EPSON Printer Utility 008B" =USB_Install, USB\VID_04B8&PID_008B&MI_01
+"EPSON Printer Utility 0093" =USB_Install, USB\VID_04B8&PID_0093&MI_01
+"EPSON Printer Utility 0095" =USB_Install, USB\VID_04B8&PID_0095&MI_01
+"EPSON Printer Utility 009E" =USB_Install, USB\VID_04B8&PID_009E&MI_01
+
+"EPSON Printer Utility 00A0" =USB_Install, USB\VID_04B8&PID_00A0&MI_01
+"EPSON Printer Utility 00A1" =USB_Install, USB\VID_04B8&PID_00A1&MI_01
+"EPSON Printer Utility 00A2" =USB_Install, USB\VID_04B8&PID_00A2&MI_01
+"EPSON Printer Utility 00A4" =USB_Install, USB\VID_04B8&PID_00A4&MI_01
+"EPSON Printer Utility 00A5" =USB_Install, USB\VID_04B8&PID_00A5&MI_01
+"EPSON Printer Utility 00A6" =USB_Install, USB\VID_04B8&PID_00A6&MI_01
+"EPSON Printer Utility 00A7" =USB_Install, USB\VID_04B8&PID_00A7&MI_01
+"EPSON Printer Utility 00AA" =USB_Install, USB\VID_04B8&PID_00AA&MI_01
+"EPSON Printer Utility 00AB" =USB_Install, USB\VID_04B8&PID_00AB&MI_01
+"EPSON Printer Utility 00AC" =USB_Install, USB\VID_04B8&PID_00AC&MI_01
+"EPSON Printer Utility 00AE" =USB_Install, USB\VID_04B8&PID_00AE&MI_01
+"EPSON Printer Utility 00AF" =USB_Install, USB\VID_04B8&PID_00AF&MI_01
+"EPSON Printer Utility 00B0" =USB_Install, USB\VID_04B8&PID_00B0&MI_01
+"EPSON Printer Utility 00B5" =USB_Install, USB\VID_04B8&PID_00B5&MI_01
+"EPSON Printer Utility 00C0" =USB_Install, USB\VID_04B8&PID_00C0&MI_01
+"EPSON Printer Utility 00C1" =USB_Install, USB\VID_04B8&PID_00C1&MI_01
+"EPSON Printer Utility 00C2" =USB_Install, USB\VID_04B8&PID_00C2&MI_01
+"EPSON Printer Utility 00C3" =USB_Install, USB\VID_04B8&PID_00C3&MI_01
+"EPSON Printer Utility 00C7" =USB_Install, USB\VID_04B8&PID_00C7&MI_01
+
+"EPSON Printer Utility 1112" =USB_Install, USB\VID_04B8&PID_1112&MI_03
+"EPSON Printer Utility 1114" =USB_Install, USB\VID_04B8&PID_1114&MI_03
+"EPSON Printer Utility 1115" =USB_Install, USB\VID_04B8&PID_1115&MI_03
+"EPSON Printer Utility 1116" =USB_Install, USB\VID_04B8&PID_1116&MI_02
+"EPSON Printer Utility 1117" =USB_Install, USB\VID_04B8&PID_1117&MI_03
+"EPSON Printer Utility 1118" =USB_Install, USB\VID_04B8&PID_1118&MI_03
+"EPSON Printer Utility 1119" =USB_Install, USB\VID_04B8&PID_1119&MI_03
+"EPSON Printer Utility 111A" =USB_Install, USB\VID_04B8&PID_111A&MI_03
+"EPSON Printer Utility 111B" =USB_Install, USB\VID_04B8&PID_111B&MI_03
+"EPSON Printer Utility 111E" =USB_Install, USB\VID_04B8&PID_111E&MI_03
+"EPSON Printer Utility 111F" =USB_Install, USB\VID_04B8&PID_111F&MI_02
+"EPSON Printer Utility 1121" =USB_Install, USB\VID_04B8&PID_1121&MI_03
+"EPSON Printer Utility 1122" =USB_Install, USB\VID_04B8&PID_1122&MI_02
+"EPSON Printer Utility 1123" =USB_Install, USB\VID_04B8&PID_1123&MI_03
+"EPSON Printer Utility 1124" =USB_Install, USB\VID_04B8&PID_1124&MI_02
+"EPSON Printer Utility 1125" =USB_Install, USB\VID_04B8&PID_1125&MI_03
+"EPSON Printer Utility 1126" =USB_Install, USB\VID_04B8&PID_1126&MI_03
+"EPSON Printer Utility 1127" =USB_Install, USB\VID_04B8&PID_1127&MI_03
+"EPSON Printer Utility 1128" =USB_Install, USB\VID_04B8&PID_1128&MI_02
+"EPSON Printer Utility 1129" =USB_Install, USB\VID_04B8&PID_1129&MI_02
+"EPSON Printer Utility 112A" =USB_Install, USB\VID_04B8&PID_112A&MI_03
+"EPSON Printer Utility 112B" =USB_Install, USB\VID_04B8&PID_112B&MI_03
+"EPSON Printer Utility 112C" =USB_Install, USB\VID_04B8&PID_112C&MI_03
+"EPSON Printer Utility 112D" =USB_Install, USB\VID_04B8&PID_112D&MI_03
+"EPSON Printer Utility 112E" =USB_Install, USB\VID_04B8&PID_112E&MI_03
+"EPSON Printer Utility 112F" =USB_Install, USB\VID_04B8&PID_112F&MI_03
+"EPSON Printer Utility 1130" =USB_Install, USB\VID_04B8&PID_1130&MI_02
+"EPSON Printer Utility 1131" =USB_Install, USB\VID_04B8&PID_1131&MI_03
+"EPSON Printer Utility 1132" =USB_Install, USB\VID_04B8&PID_1132&MI_03
+"EPSON Printer Utility 1133" =USB_Install, USB\VID_04B8&PID_1133&MI_03
+"EPSON Printer Utility 1134" =USB_Install, USB\VID_04B8&PID_1134&MI_03
+"EPSON Printer Utility 1135" =USB_Install, USB\VID_04B8&PID_1135&MI_02
+
+"EPSON Printer Utility 1136" =USB_Install, USB\VID_04B8&PID_1136&MI_02
+"EPSON Printer Utility 1137" =USB_Install, USB\VID_04B8&PID_1137&MI_02
+"EPSON Printer Utility 1138" =USB_Install, USB\VID_04B8&PID_1138&MI_02
+"EPSON Printer Utility 1139" =USB_Install, USB\VID_04B8&PID_1139&MI_03
+"EPSON Printer Utility 113A" =USB_Install, USB\VID_04B8&PID_113A&MI_02
+"EPSON Printer Utility 113B" =USB_Install, USB\VID_04B8&PID_113B&MI_02
+"EPSON Printer Utility 113C" =USB_Install, USB\VID_04B8&PID_113C&MI_03
+"EPSON Printer Utility 113D" =USB_Install, USB\VID_04B8&PID_113D&MI_02
+"EPSON Printer Utility 113E" =USB_Install, USB\VID_04B8&PID_113E&MI_03
+"EPSON Printer Utility 113F" =USB_Install, USB\VID_04B8&PID_113F&MI_03
+"EPSON Printer Utility 1140" =USB_Install, USB\VID_04B8&PID_1140&MI_03
+"EPSON Printer Utility 1143" =USB_Install, USB\VID_04B8&PID_1143&MI_02
+"EPSON Printer Utility 1145" =USB_Install, USB\VID_04B8&PID_1145&MI_03
+"EPSON Printer Utility 1146" =USB_Install, USB\VID_04B8&PID_1146&MI_03
+"EPSON Printer Utility 1147" =USB_Install, USB\VID_04B8&PID_1147&MI_03
+"EPSON Printer Utility 1148" =USB_Install, USB\VID_04B8&PID_1148&MI_03
+"EPSON Printer Utility 1149" =USB_Install, USB\VID_04B8&PID_1149&MI_03
+"EPSON Printer Utility 114A" =USB_Install, USB\VID_04B8&PID_114A&MI_02
+"EPSON Printer Utility 114B" =USB_Install, USB\VID_04B8&PID_114B&MI_03
+"EPSON Printer Utility 114C" =USB_Install, USB\VID_04B8&PID_114C&MI_03
+"EPSON Printer Utility 114D" =USB_Install, USB\VID_04B8&PID_114D&MI_02
+"EPSON Printer Utility 114E" =USB_Install, USB\VID_04B8&PID_114E&MI_02
+"EPSON Printer Utility 114F" =USB_Install, USB\VID_04B8&PID_114F&MI_02
+"EPSON Printer Utility 1150" =USB_Install, USB\VID_04B8&PID_1150&MI_02
+"EPSON Printer Utility 1151" =USB_Install, USB\VID_04B8&PID_1151&MI_02
+"EPSON Printer Utility 1152" =USB_Install, USB\VID_04B8&PID_1152&MI_03
+"EPSON Printer Utility 1153" =USB_Install, USB\VID_04B8&PID_1153&MI_03
+"EPSON Printer Utility 1154" =USB_Install, USB\VID_04B8&PID_1154&MI_02
+"EPSON Printer Utility 1155" =USB_Install, USB\VID_04B8&PID_1155&MI_02
+"EPSON Printer Utility 1156" =USB_Install, USB\VID_04B8&PID_1156&MI_03
+"EPSON Printer Utility 1157" =USB_Install, USB\VID_04B8&PID_1157&MI_02
+"EPSON Printer Utility 1158" =USB_Install, USB\VID_04B8&PID_1158&MI_02
+"EPSON Printer Utility 1159" =USB_Install, USB\VID_04B8&PID_1159&MI_03
+"EPSON Printer Utility 115A" =USB_Install, USB\VID_04B8&PID_115A&MI_03
+"EPSON Printer Utility 115B" =USB_Install, USB\VID_04B8&PID_115B&MI_03
+"EPSON Printer Utility 115C" =USB_Install, USB\VID_04B8&PID_115C&MI_03
+"EPSON Printer Utility 115D" =USB_Install, USB\VID_04B8&PID_115D&MI_03
+"EPSON Printer Utility 115E" =USB_Install, USB\VID_04B8&PID_115E&MI_03
+"EPSON Printer Utility 115F" =USB_Install, USB\VID_04B8&PID_115F&MI_03
+"EPSON Printer Utility 1160" =USB_Install, USB\VID_04B8&PID_1160&MI_02
+"EPSON Printer Utility 1161" =USB_Install, USB\VID_04B8&PID_1161&MI_02
+"EPSON Printer Utility 1162" =USB_Install, USB\VID_04B8&PID_1162&MI_03
+"EPSON Printer Utility 1163" =USB_Install, USB\VID_04B8&PID_1163&MI_03
+"EPSON Printer Utility 1164" =USB_Install, USB\VID_04B8&PID_1164&MI_02
+"EPSON Printer Utility 1165" =USB_Install, USB\VID_04B8&PID_1165&MI_02
+"EPSON Printer Utility 1166" =USB_Install, USB\VID_04B8&PID_1166&MI_03
+"EPSON Printer Utility 1167" =USB_Install, USB\VID_04B8&PID_1167&MI_02
+"EPSON Printer Utility 1168" =USB_Install, USB\VID_04B8&PID_1168&MI_03
+"EPSON Printer Utility 1169" =USB_Install, USB\VID_04B8&PID_1169&MI_02
+"EPSON Printer Utility 116A" =USB_Install, USB\VID_04B8&PID_116A&MI_02
+"EPSON Printer Utility 116B" =USB_Install, USB\VID_04B8&PID_116B&MI_02
+"EPSON Printer Utility 116C" =USB_Install, USB\VID_04B8&PID_116C&MI_03
+"EPSON Printer Utility 116D" =USB_Install, USB\VID_04B8&PID_116D&MI_03
+"EPSON Printer Utility 116E" =USB_Install, USB\VID_04B8&PID_116E&MI_02
+"EPSON Printer Utility 116F" =USB_Install, USB\VID_04B8&PID_116F&MI_03
+"EPSON Printer Utility 1170" =USB_Install, USB\VID_04B8&PID_1170&MI_03
+"EPSON Printer Utility 1171" =USB_Install, USB\VID_04B8&PID_1171&MI_02
+"EPSON Printer Utility 1172" =USB_Install, USB\VID_04B8&PID_1172&MI_02
+"EPSON Printer Utility 1173" =USB_Install, USB\VID_04B8&PID_1173&MI_02
+"EPSON Printer Utility 1174" =USB_Install, USB\VID_04B8&PID_1174&MI_03
+"EPSON Printer Utility 1175" =USB_Install, USB\VID_04B8&PID_1175&MI_03
+"EPSON Printer Utility 1176" =USB_Install, USB\VID_04B8&PID_1176&MI_03
+"EPSON Printer Utility 1177" =USB_Install, USB\VID_04B8&PID_1177&MI_03
+"EPSON Printer Utility 1178" =USB_Install, USB\VID_04B8&PID_1178&MI_03
+"EPSON Printer Utility 1179" =USB_Install, USB\VID_04B8&PID_1179&MI_03
+"EPSON Printer Utility 117A" =USB_Install, USB\VID_04B8&PID_117A&MI_03
+"EPSON Printer Utility 117B" =USB_Install, USB\VID_04B8&PID_117B&MI_03
+"EPSON Printer Utility 117C" =USB_Install, USB\VID_04B8&PID_117C&MI_03
+"EPSON Printer Utility 117D" =USB_Install, USB\VID_04B8&PID_117D&MI_03
+"EPSON Printer Utility 117E" =USB_Install, USB\VID_04B8&PID_117E&MI_02
+"EPSON Printer Utility 117F" =USB_Install, USB\VID_04B8&PID_117F&MI_02
+"EPSON Printer Utility 1180" =USB_Install, USB\VID_04B8&PID_1180&MI_02
+"EPSON Printer Utility 1181" =USB_Install, USB\VID_04B8&PID_1181&MI_02
+"EPSON Printer Utility 1182" =USB_Install, USB\VID_04B8&PID_1182&MI_02
+"EPSON Printer Utility 1183" =USB_Install, USB\VID_04B8&PID_1183&MI_02
+"EPSON Printer Utility 1184" =USB_Install, USB\VID_04B8&PID_1184&MI_02
+"EPSON Printer Utility 1185" =USB_Install, USB\VID_04B8&PID_1185&MI_02
+"EPSON Printer Utility 1186" =USB_Install, USB\VID_04B8&PID_1186&MI_02
+"EPSON Printer Utility 1187" =USB_Install, USB\VID_04B8&PID_1187&MI_02
+"EPSON Printer Utility 118A" =USB_Install, USB\VID_04B8&PID_118A&MI_02
+"EPSON Printer Utility 118B" =USB_Install, USB\VID_04B8&PID_118B&MI_02
+"EPSON Printer Utility 118C" =USB_Install, USB\VID_04B8&PID_118C&MI_02
+"EPSON Printer Utility 118D" =USB_Install, USB\VID_04B8&PID_118D&MI_03
+"EPSON Printer Utility 118E" =USB_Install, USB\VID_04B8&PID_118E&MI_03
+"EPSON Printer Utility 118F" =USB_Install, USB\VID_04B8&PID_118F&MI_03
+"EPSON Printer Utility 1190" =USB_Install, USB\VID_04B8&PID_1190&MI_02
+"EPSON Printer Utility 1191" =USB_Install, USB\VID_04B8&PID_1191&MI_02
+"EPSON Printer Utility 1304" =USB_Install, USB\VID_04B8&PID_1304&MI_01
+"EPSON Printer Utility 1306" =USB_Install, USB\VID_04B8&PID_1306&MI_01
+"EPSON Printer Utility 1307" =USB_Install, USB\VID_04B8&PID_1307&MI_01
+"EPSON Printer Utility 1308" =USB_Install, USB\VID_04B8&PID_1308&MI_01
+"EPSON Printer Utility 1309" =USB_Install, USB\VID_04B8&PID_1309&MI_01
+"EPSON Printer Utility 130A" =USB_Install, USB\VID_04B8&PID_130A&MI_01
+"EPSON Printer Utility 130F" =USB_Install, USB\VID_04B8&PID_130F&MI_01
+
+[EPSON.NTamd64.6.2]
+; =================== Installation ===================
+
+;[1]
+[USB_Install_XP]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+[USB_Install]
+Include=winusb.inf
+Needs=WINUSB.NT
+
+;[2]
+[USB_Install_XP.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[USB_Install.Services]
+Include=winusb.inf
+AddService=WinUSB,0x00000002,WinUSB_ServiceInstall
+
+;[3]
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+;[4]
+[USB_Install_XP.Wdf]
+KmdfService=WINUSB, WinUsb_InstallXP
+
+[USB_Install.Wdf]
+KmdfService=WINUSB, WinUsb_Install
+
+[WinUSB_InstallXP]
+KmdfLibraryVersion=1.9
+
+[WinUSB_Install]
+KmdfLibraryVersion=1.11
+
+;[5]
+[USB_Install_XP.HW]
+AddReg=Dev_AddReg
+
+[USB_Install.HW]
+AddReg=Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{B1CEB704-C9BA-4369-82B7-AF7EE754099F}"
+
+;[6]
+[USB_Install_XP.CoInstallers]
+AddReg=CoInstallersXP_AddReg
+CopyFiles=CoInstallersXP_CopyFiles
+
+[USB_Install.CoInstallers]
+AddReg=CoInstallers_AddReg
+CopyFiles=CoInstallers_CopyFiles
+
+[CoInstallersXP_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01011.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallersXP_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01009.dll
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01011.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+CoInstallersXP_CopyFiles=11
+
+; ================= Source Media Section =====================
+;[7]
+
+[SourceDisksNames]
+1 = %DISKLABEL%,,,WINUSBDRV
+
+[SourceDisksFiles]
+WinUSBCoInstaller2.dll=1
+WdfCoInstaller01009.dll=1
+WdfCoInstaller01011.dll=1
+
+; =================== Strings ===================
+
+[Strings]
+EPSON           = "EPSON"
+DISKLABEL       = "EPSON Generic Printer Utility"
+WinUSB_SvcDesc	="WinUSB Driver"
+ClassName	="EPSON Device Configuration Setting"
