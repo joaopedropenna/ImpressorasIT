@@ -75,6 +75,22 @@ if (Test-Path $csPath) {
 # ------------------------------------------------------------------------
 $Impressoras = [ordered]@{
     "Canon" = [ordered]@{
+        "imageCLASS X MF1643i II / imageRUNNER 1643i II" = @{
+            Pasta        = "iR1643iII"
+            DriverNames  = @("Canon Generic Plus UFR II")
+            Installer    = ""
+            SilentArgs   = ""
+            Descricao    = "Canon imageCLASS X MF1643i II / imageRUNNER 1643i II (UFR II x64)"
+            DownloadUrl  = "https://in.canon/en/support/0101118801"
+        }
+        "imageCLASS X MF1643iF II / imageRUNNER 1643iF II" = @{
+            Pasta        = "iR1643iFII"
+            DriverNames  = @("Canon Generic Plus UFR II")
+            Installer    = ""
+            SilentArgs   = ""
+            Descricao    = "Canon imageCLASS X MF1643iF II / imageRUNNER 1643iF II (UFR II x64)"
+            DownloadUrl  = "https://in.canon/en/support/0101118801"
+        }
         "imageRUNNER 1643iF" = @{
             Pasta        = "iR1643iF"
             DriverNames  = @("Canon Generic Plus PCL6")
@@ -856,6 +872,8 @@ $window.Add_Loaded({
 
 # Exibe a janela grafica
 $window.ShowDialog() | Out-Null
+
+
 
 
 

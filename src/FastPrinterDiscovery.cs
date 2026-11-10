@@ -215,6 +215,12 @@ public class FastPrinterDiscovery {
         if (search.Contains("gx70") || search.Contains("g7000") || search.Contains("g7010") || search.Contains("gx7000") || search.Contains("gx7010")) {
             dp.Brand = "Canon";
             dp.Model = "GX7010 / GX7000";
+        } else if (search.Contains("1643if ii") || search.Contains("1643iif ii")) {
+            dp.Brand = "Canon";
+            dp.Model = "imageCLASS X MF1643iF II / imageRUNNER 1643iF II";
+        } else if (search.Contains("1643i ii") || search.Contains("1643ii")) {
+            dp.Brand = "Canon";
+            dp.Model = "imageCLASS X MF1643i II / imageRUNNER 1643i II";
         } else if (search.Contains("1643") || search.Contains("imagerunner") || search.Contains("generic plus")) {
             dp.Brand = "Canon";
             dp.Model = "imageRUNNER 1643iF";
@@ -240,6 +246,8 @@ public class FastPrinterDiscovery {
         }
     }
 }
+
+
 
 
 

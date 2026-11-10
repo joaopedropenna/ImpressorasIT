@@ -22,6 +22,20 @@ Write-Host "Pasta base: $DriversDir`n" -ForegroundColor Gray
 $modelos = @(
     @{
         Marca    = "Canon"
+        Modelo   = "imageCLASS X MF1643i II / imageRUNNER 1643i II"
+        Pasta    = "Canon\iR1643iII"
+        Site     = "https://in.canon/en/support/0101118801"
+        Pacote   = "Generic Plus UFR II Printer Driver (x64)"
+    },
+    @{
+        Marca    = "Canon"
+        Modelo   = "imageCLASS X MF1643iF II / imageRUNNER 1643iF II"
+        Pasta    = "Canon\iR1643iFII"
+        Site     = "https://in.canon/en/support/0101118801"
+        Pacote   = "Generic Plus UFR II Printer Driver (x64)"
+    },
+    @{
+        Marca    = "Canon"
         Modelo   = "imageRUNNER 1643iF"
         Pasta    = "Canon\iR1643iF"
         Site     = "https://www.usa.canon.com/support/p/imagerunner-1643if"

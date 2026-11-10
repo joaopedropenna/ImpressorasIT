@@ -27,6 +27,8 @@ Desenvolvido para agilizar o suporte técnico da TI, padronizar as filas de impr
 
 | Fabricante | Modelo | Tipo / Tecnologia | Método de Instalação |
 | :--- | :--- | :--- | :--- |
+| **Canon** | imageCLASS X MF1643i II / iR 1643i II | Multifuncional Laser Monocromática A4 | Driver UFR II silencioso (`pnputil`) |
+| **Canon** | imageCLASS X MF1643iF II / iR 1643iF II | Multifuncional Laser Monocromática A4 | Driver UFR II silencioso (`pnputil`) |
 | **Canon** | imageRUNNER 1643iF | Multifuncional Laser Monocromática A4 | Driver INF PCL6 silencioso (`pnputil`) |
 | **Canon** | GX7000 / GX7010 | Multifuncional Tanque de Tinta Colorida | Pacote silencioso / INF nativo |
 | **Brother** | DCP-L5652DN | Multifuncional Laser Monocromática | Pacote silencioso (`/S`) / INF |
@@ -117,7 +119,9 @@ c:\Impressora IT (Útil)\
 │   ├── Canon\
 │   │   ├── GX7000\
 │   │   ├── GX7010\
-│   │   └── iR1643iF\
+│   │   ├── iR1643iF\
+│   │   ├── iR1643iII\
+│   │   └── iR1643iFII\
 │   └── Epson\
 │       └── L6490\
 │

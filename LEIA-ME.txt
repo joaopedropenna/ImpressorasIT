@@ -40,17 +40,103 @@ Se a impressora estiver em outra VLAN/sub-rede ou desligada durante a busca:
 ------------------------------------------------------------------------------
  DOWNLOAD E ARMAZENAMENTO DE DRIVERS
 ------------------------------------------------------------------------------
-- Modo Offline: Os drivers da Canon (imageRUNNER 1643iF e GX7000/GX7010) já estão
+- Modo Offline: Os drivers da Canon (imageCLASS X MF1643i II/imageRUNNER 1643i II, imageCLASS X MF1643iF II/imageRUNNER 1643iF II, imageRUNNER 1643iF e GX7000/GX7010) já estão
   salvos localmente na pasta "Drivers\". A instalação deles não necessita de internet.
 - Epson L6490: o pacote oficial é extraído para arquivos .inf e instalado
   automaticamente com pnputil, sem abrir o assistente Epson. O pacote e os
   arquivos extraídos ficam em Drivers\Epson\L6490.
 - Em outras marcas, a instalação offline depende de haver arquivos .inf em
-  suas pastas dentro de Drivers. Se faltarem, use o script Baixar-Drivers.ps1.- Para outros modelos, o instalador procura arquivos .inf na pasta local Drivers.
+  suas pastas dentro de Drivers. Se faltarem, use o script Baixar-Drivers.ps1.
+- Para outros modelos, o instalador procura arquivos .inf na pasta local Drivers.
   A extração automática depende do formato do pacote do fabricante.
 - Script Auxiliar: O arquivo "Baixar-Drivers.ps1" continua disponível para quem
   quiser baixar os pacotes completos previamente e deixá-los no pendrive.
 
+==============================================================================
+------------------------------------------------------------------------------
+ COMO ADICIONAR UM MODELO NOVO (PASSO A PASSO)
+------------------------------------------------------------------------------
+Use este procedimento quando o modelo ainda nao existir na pasta Drivers nem
+aparecer na lista de selecao. Trabalhe numa copia do projeto e guarde backup
+antes de editar o script.
+
+1. Identifique o modelo e encontre o pacote correto
+- Confira a etiqueta da impressora e anote o nome completo, incluindo sufixos
+  como i, iF, II etc. Variantes parecidas podem ser modelos diferentes.
+- No site oficial do fabricante, procure o modelo e confirme a lista de modelos
+  compativeis e a versao do Windows (normalmente Windows 10/11 x64).
+- Se um pacote servir para varios modelos, confirme isso na pagina oficial ou
+  no LEIA-ME do pacote. Cada modelo deve ter sua propria opcao no programa,
+  mesmo que compartilhe a mesma pasta e o mesmo driver com outro.
+
+2. Baixe e extraia os arquivos do driver
+- Baixe o pacote oficial e guarde o instalador original.
+- Tente listar um EXE sem executa-lo: no PowerShell aberto na pasta do pacote,
+  rode `tar -tf .\pacote_driver.exe`. Se listar os arquivos, extraia com:
+      mkdir .\extraido
+      tar -xf .\pacote_driver.exe -C .\extraido
+  Se nao funcionar, tente a funcao Extrair do 7-Zip ou a opcao de extracao do
+  fabricante. Alguns instaladores nao podem ser extraidos dessa forma.
+- Procure arquivos .inf e mantenha junto deles os arquivos .cat, .cab e os
+  demais arquivos da mesma estrutura. O INF sozinho pode nao ser suficiente.
+  Escolha o pacote x64 ou x86 conforme os computadores da manutencao.
+- Se nao houver INF extraivel, sera preciso adaptar a instalacao para executar
+  o instalador oficial com parametros silenciosos documentados pelo fabricante;
+  nao invente parametros nem nomes de driver.
+
+3. Crie a pasta para guardar o driver
+- Crie `Drivers\Marca\NomeCurtoDoModelo` e copie para dentro a estrutura
+  extraida, sem renomear INF, CAT ou CAB. Exemplo:
+      Drivers\Canon\MF1643i
+  O programa procura arquivos .inf tambem nas subpastas. Exemplo existente:
+      Drivers\Canon\iR1643iII\intdrv\UFRII\x64\Driver\CNLB0MA64.INF
+- Se dois modelos forem oficialmente compativeis com o mesmo driver, ambos
+  podem apontar para a mesma pasta.
+
+4. Faca o modelo aparecer na selecao manual
+- Abra `InstaladorImpressoras.ps1` num editor de texto e localize perto do
+  inicio o bloco `$Impressoras = [ordered]@{`.
+- Dentro da marca correta, copie a entrada de um modelo parecido. Altere o nome
+  entre aspas (texto da lista), `Pasta` (nome curto da pasta criada),
+  `DriverNames` (nome interno do driver no Windows) e `Descricao`.
+- Exemplo ilustrativo; substitua os nomes pelos dados reais do pacote:
+      "Modelo Novo 123" = @{
+          Pasta       = "ModeloNovo123"
+          DriverNames = @("Nome exato do driver no Windows")
+          Installer   = ""
+          SilentArgs  = ""
+          Descricao   = "Modelo Novo 123 (driver oficial x64)"
+      }
+- `DriverNames` nao e necessariamente o nome comercial da impressora. Instale o
+  driver num computador de teste e consulte os nomes registrados no Windows:
+      Get-PrinterDriver | Select-Object -ExpandProperty Name
+  Use o nome correspondente ao driver daquele INF. Se houver nomes alternativos
+  validos, podem ser informados numa lista separados por virgula.
+- Salve o script. A lista manual e preenchida automaticamente a partir de
+  `$Impressoras`; nao precisa editar a interface para adicionar a opcao.
+
+5. (Opcional) Ensine a busca automatica a reconhecer o modelo
+- Sem esta etapa, voce ainda pode localizar a impressora pelo IP e escolher o
+  modelo manualmente. Para a busca mostrar o modelo correto, abra
+  `src\FastPrinterDiscovery.cs` e procure `ClassifyDevice`.
+- Adicione uma condicao baseada no nome ou identificador que a impressora
+  anuncia na rede. Faca-a especifica o bastante para nao confundir modelos.
+  A regra deve retornar a mesma marca e o mesmo texto de modelo cadastrados em
+  `$Impressoras` no script.
+
+6. Confira e leve a versao completa para o pendrive
+- Verifique que a pasta indicada em `Pasta` existe e contem pelo menos um INF
+  em algum nivel de subpastas.
+- Teste a instalacao num computador de manutencao com o modelo conectado por
+  rede ou USB. Confirme o driver no Windows e, se possivel, imprima uma pagina.
+- Feche o programa e copie para o pendrive a pasta atualizada completa:
+  `Drivers`, `src`, `InstaladorImpressoras.ps1`, `Iniciar.bat` e os demais
+  arquivos do projeto. Copiar somente o Iniciar.bat nao leva o novo driver nem
+  a nova opcao do modelo.
+
+Em resumo: so copiar arquivos para `Drivers` nao cria a opcao na lista; cadastrar
+a opcao no script sem colocar o driver nao permite instalacao offline. Para o
+reconhecimento automatico exato, tambem e necessario atualizar `ClassifyDevice`.
 ==============================================================================
  ARQUIVOS DO PROJETO:
 ==============================================================================
@@ -63,12 +149,28 @@ Se a impressora estiver em outra VLAN/sub-rede ou desligada durante a busca:
    ├── LEIA-ME.txt                 (Manual completo)
    │
    ├── Drivers\                    (Pasta dos drivers offline)
-   │   ├── Canon\ (iR1643iF, GX7000, GX7010)
+   │   ├── Canon\ (iR1643iII, iR1643iFII, iR1643iF, GX7000, GX7010)
    │   ├── Brother\ (DCPL5652DN)
    │   └── Epson\ (L6490)
    │
    └── src\                        (Código-fonte e motor C# FastPrinterDiscovery)
 ==============================================================================
 
+
+
+
+
+
+
+
+
+
+
+
+==============================================================================
+ Intuito da criação do programa
+==============================================================================
+
+Desenvolvido para otimização de tempo de equipes de manutenção e TI.
 
 
