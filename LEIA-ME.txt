@@ -52,10 +52,30 @@ Se a impressora estiver em outra VLAN/sub-rede ou desligada durante a busca:
 - Script Auxiliar: O arquivo "Baixar-Drivers.ps1" continua disponível para quem
   quiser baixar os pacotes completos previamente e deixá-los no pendrive.
 
-==============================================================================
 ------------------------------------------------------------------------------
+ IMPRESSORA E SCANNER
+------------------------------------------------------------------------------
+Na tela de configuração, marque "Instalar também o scanner (depois da impressora)"
+para executar o instalador do scanner somente após criar a fila de impressão.
+O nome digitado é aplicado no Windows e conferido antes da etapa do scanner.
+
+O pacote ScanGear x64 do Canon imageCLASS X MF1643i II e MF1643iF II está em:
+    Drivers\Canon\iR1643iII\ScanGear\intdrv\SCAN\x64
+Para impressora em rede, o instalador ScanGear é iniciado no modo de rede.
+A instalação do scanner pode abrir o assistente Canon para localizar/configurar
+o dispositivo; conclua esse assistente para terminar a instalação.
+
+A opção é exibida no fluxo para qualquer modelo cadastrado, mas só pode ser usada
+quando os arquivos do scanner daquele modelo estiverem incluídos e configurados.
+No momento, este projeto tem o pacote ScanGear compartilhado pelo MF1643i II e MF1643iF II. Para outros
+modelos, acrescente o pacote oficial de scanner e a propriedade ScannerSetup na
+entrada do modelo em InstaladorImpressoras.ps1. Sem pacote, o programa avisa
+antes de iniciar a instalação e evita deixar uma instalação parcial.
+
+==============================================================================
  COMO ADICIONAR UM MODELO NOVO (PASSO A PASSO)
 ------------------------------------------------------------------------------
+
 Use este procedimento quando o modelo ainda nao existir na pasta Drivers nem
 aparecer na lista de selecao. Trabalhe numa copia do projeto e guarde backup
 antes de editar o script.
@@ -99,6 +119,13 @@ antes de editar o script.
 - Dentro da marca correta, copie a entrada de um modelo parecido. Altere o nome
   entre aspas (texto da lista), `Pasta` (nome curto da pasta criada),
   `DriverNames` (nome interno do driver no Windows) e `Descricao`.
+- Para habilitar o scanner, inclua `ScannerSetup` na entrada do modelo com o
+  caminho do instalador relativo a `Drivers`, por exemplo:
+      ScannerSetup = "Marca\Modelo\Scanner\Setup.exe"
+  Use `ScannerArgsNetwork` somente se o fabricante documentar argumento
+  específico para instalação/configuração pela rede. Sem `ScannerSetup` e o
+  arquivo correspondente, o programa avisa antes de iniciar e evita uma
+  instalação parcial.
 - Exemplo ilustrativo; substitua os nomes pelos dados reais do pacote:
       "Modelo Novo 123" = @{
           Pasta       = "ModeloNovo123"
@@ -172,5 +199,8 @@ reconhecimento automatico exato, tambem e necessario atualizar `ClassifyDevice`.
 ==============================================================================
 
 Desenvolvido para otimização de tempo de equipes de manutenção e TI.
+
+
+
 
 

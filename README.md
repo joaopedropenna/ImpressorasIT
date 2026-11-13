@@ -15,7 +15,8 @@ Desenvolvido para agilizar o suporte técnico da TI, padronizar as filas de impr
 
 * ⚡ **Descoberta Automática de Alta Velocidade:** Motor em C# multithread (`FastPrinterDiscovery`) que varre a sub-rede local via SNMP/HTTP e as portas USB em poucos segundos sem travar a interface.
 * 🌐 **Seleção Inteligente de Sub-rede:** Identifica automaticamente a placa de rede física com gateway ativo (ignorando adaptadores virtuais como VirtualBox e VMware) e oferece um campo editável para selecionar ou digitar a faixa de IP desejada.
-* 🏷️ **Personalização do Nome da Impressora:** Sugere nomes organizados por padrão e permite personalização imediata (ex.: *"Canon 1643 - Gabinete"*, *"Epson L6490 - Recepção"*, *"Brother RH"*).
+* 🏷️ **Personalização do Nome da Impressora:** Sugere nomes organizados por padrão, permite personalização imediata e confirma no Windows que a fila recebeu o nome escolhido (ex.: *"Canon 1643 - Gabinete"*, *"Epson L6490 - Recepção"*, *"Brother RH"*).
+* 📠 **Instalação Opcional do Scanner:** A opção de scanner executa o instalador do scanner depois que a fila de impressão foi criada. O pacote ScanGear do Canon imageCLASS X MF1643i II / MF1643iF II está incluído; os demais modelos precisam ter seu próprio pacote de scanner cadastrado.
 * 📦 **Gerenciamento de Drivers (Offline e Online):** Suporte nativo a repositório local de drivers (arquivos `.inf` instalados via `pnputil`) com opção de download automático caso o pacote não esteja salvo no computador.
 * 📄 **Página de Teste Automática:** Envia opcionalmente uma página de teste assim que a instalação é finalizada para validação imediata do funcionamento.
 * ⚙️ **Modo Manual Alternativo:** Permite configurar impressoras informando o IP e modelo manualmente, ideal para VLANs segmentadas ou equipamentos temporariamente fora da rede.
@@ -86,18 +87,23 @@ flowchart TD
     E --> G[Personalizar Nome da Fila]
     F --> G
     
-    G --> H[Marcar Opções: Página de Teste / Baixar Driver]
-    H --> I[Instalação Silenciosa do Driver & Porta TCP/IP ou USB]
-    I --> J{Página de Teste Marcada?}
-    J -->|Sim| K[Envio de Página de Teste]
+    G --> H[Marcar opções: teste, scanner e download]
+    H --> I[Instalar driver de impressão e criar fila com o nome escolhido]
+    I --> S{Scanner marcado e configurado?}
+    S -->|Sim| T[Executar instalador do scanner]
+    S -->|Não| J{Página de teste marcada?}
+    T --> J
+    J -->|Sim| K[Enviar página de teste]
     J -->|Não| L[Concluído]
     K --> L
-    L --> M[Sucesso! Fila Pronta para Uso]
+    L --> M[Sucesso! Fila pronta para uso]
 ```
 
 1. **Localização:** O instalador detecta a sub-rede ativa e lista as impressoras disponíveis na rede ou conectadas via USB.
 2. **Personalização:** Escolha a impressora detectada e defina o nome com o setor ou sala de destino.
 3. **Instalação:** Clique em **"INSTALAR AGORA"**. O driver é publicado, a porta TCP/IP (RAW 9100) ou USB é criada, e a impressora é disponibilizada no sistema.
+
+4. **Scanner (opcional):** Marque **"Instalar também o scanner"** para iniciar o pacote do scanner somente depois que a impressora estiver criada. O ScanGear do Canon imageCLASS X MF1643i II e MF1643iF II está disponível em `Drivers\Canon\iR1643iII\ScanGear`. Nos outros modelos, a opção só pode ser usada depois de incluir e cadastrar o pacote oficial correspondente; caso contrário, o instalador avisa antes de iniciar a instalação.
 
 ---
 
@@ -164,3 +170,7 @@ c:\Impressora IT (Útil)\
 ## ⏳ Intuito da criação do programa
 
 Desenvolvido para otimização de tempo de equipes de manutenção e TI.
+
+
+
+

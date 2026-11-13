@@ -81,6 +81,8 @@ $Impressoras = [ordered]@{
             Installer    = ""
             SilentArgs   = ""
             Descricao    = "Canon imageCLASS X MF1643i II / imageRUNNER 1643i II (UFR II x64)"
+            ScannerSetup = "Canon\iR1643iII\ScanGear\intdrv\SCAN\x64\ScanSetup.exe"
+            ScannerArgsNetwork = "/XNET"
             DownloadUrl  = "https://in.canon/en/support/0101118801"
         }
         "imageCLASS X MF1643iF II / imageRUNNER 1643iF II" = @{
@@ -89,6 +91,8 @@ $Impressoras = [ordered]@{
             Installer    = ""
             SilentArgs   = ""
             Descricao    = "Canon imageCLASS X MF1643iF II / imageRUNNER 1643iF II (UFR II x64)"
+            ScannerSetup = "Canon\iR1643iII\ScanGear\intdrv\SCAN\x64\ScanSetup.exe"
+            ScannerArgsNetwork = "/XNET"
             DownloadUrl  = "https://in.canon/en/support/0101118801"
         }
         "imageRUNNER 1643iF" = @{
@@ -210,6 +214,7 @@ function NormalizarFaixa($entrada) {
 function ObterPastaModelo($m, $mod) {
     if (-not $m -or -not $mod) { return $null }
     $cfg = $Impressoras[$m][$mod]
+
     if (-not $cfg) { return $null }
     $caminhos = @(
         (Join-Path (Join-Path $DriversRoot $m) $cfg.Pasta),
@@ -235,7 +240,7 @@ function VerificarDriverPronto($m, $mod) {
 [xml]$xaml = @"
 <Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Instalador Inteligente de Impressoras - TI Prefeitura" Height="580" Width="480"
+        Title="Instalador Inteligente de Impressoras - TI Prefeitura" Height="620" Width="480"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
         Background="#F8FAFC" FontFamily="Segoe UI">
     <Window.Resources>
@@ -272,13 +277,13 @@ function VerificarDriverPronto($m, $mod) {
 
             <Button x:Name="btnBuscar" Content="Procurar Impressoras na Rede e USB" Height="42" FontWeight="Bold" FontSize="14" Background="#2563EB" Foreground="White" BorderThickness="0" Margin="0,0,0,10"/>
 
-            <TextBlock x:Name="txtStatusBusca" Text="Pronto para iniciar a busca." FontSize="12" Foreground="#475569" Margin="2,0,0,6"/>
+            <TextBlock x:Name="txtStatusBusca" Text="Pronto para iniciar a busca." FontSize="12" Foreground="#475569" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" MaxHeight="34" Margin="2,0,0,6"/>
             <ProgressBar x:Name="barraBusca" Height="10" IsIndeterminate="False" Visibility="Hidden" Margin="0,0,0,10"/>
 
             <TextBlock Text="Impressoras Encontradas:" FontSize="12" FontWeight="SemiBold" Foreground="#334155" Margin="0,2,0,6"/>
             <ListBox x:Name="lstImpressoras" Height="170" Background="#FFFFFF" BorderBrush="#E2E8F0" BorderThickness="1" Margin="0,0,0,10" SelectionMode="Single"/>
 
-            <Button x:Name="btnAvancarDescoberta" Content="Configurar Impressora Selecionada &gt;" Height="40" FontWeight="Bold" Background="#0F172A" Foreground="White" BorderThickness="0" IsEnabled="False" Margin="0,0,0,6"/>
+            <Button x:Name="btnAvancarDescoberta" Content="Configurar Impressora Selecionada &gt;" Height="40" FontWeight="Bold" Background="#E2E8F0" Foreground="#334155" BorderThickness="0" IsEnabled="False" Margin="0,0,0,6"/>
             <Button x:Name="btnIrManual" Content="Nao encontrou? Inserir IP ou Modelo Manualmente" Background="Transparent" BorderThickness="0" Foreground="#2563EB" Height="26" FontSize="12"/>
         </StackPanel>
 
@@ -299,8 +304,9 @@ function VerificarDriverPronto($m, $mod) {
             <TextBox x:Name="txtNomePersonalizado" Height="36" FontSize="14" VerticalContentAlignment="Center" Padding="8,0" Background="#FFFFFF" BorderBrush="#CBD5E1" Margin="0,0,0,4"/>
             <TextBlock Text="Voce pode manter o nome acima ou personalizar (ex: Canon 1643 - Gabinete, Epson - Recepcao)." FontSize="11" Foreground="#64748B" TextWrapping="Wrap" Margin="0,0,0,14"/>
 
-            <CheckBox x:Name="chkTeste" Content="Imprimir pagina de teste ao concluir a instalacao" IsChecked="True" FontSize="13" Margin="0,0,0,8"/>
-            <CheckBox x:Name="chkDownload" Content="Baixar driver oficial da internet caso nao esteja no PC" IsChecked="True" FontSize="13" Margin="0,0,0,18"/>
+            <CheckBox x:Name="chkTeste" Content="Imprimir pagina de teste ao concluir a instalacao" IsChecked="True" FontSize="13" Margin="0,0,0,7"/>
+            <CheckBox x:Name="chkScanner" Content="Instalar tambem o scanner (depois da impressora)" IsChecked="False" FontSize="13" Margin="0,0,0,7"/>
+            <CheckBox x:Name="chkDownload" Content="Baixar driver oficial da internet caso nao esteja no PC" IsChecked="True" FontSize="13" Margin="0,0,0,14"/>
 
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="btnVoltarConfig" Content="&lt; Voltar" Width="90" Height="42" Margin="0,0,10,0"/>
@@ -365,6 +371,7 @@ $lblResumoConexao     = $window.FindName("lblResumoConexao")
 $lblResumoDriver      = $window.FindName("lblResumoDriver")
 $txtNomePersonalizado = $window.FindName("txtNomePersonalizado")
 $chkTeste             = $window.FindName("chkTeste")
+$chkScanner           = $window.FindName("chkScanner")
 $chkDownload          = $window.FindName("chkDownload")
 $btnVoltarConfig      = $window.FindName("btnVoltarConfig")
 $btnInstalarConfirmado = $window.FindName("btnInstalarConfirmado")
@@ -442,50 +449,75 @@ $cbMarcaManual.Add_SelectionChanged({
 # 6. DESCOBERTA ASSINCRONA (REDE E USB) - COM FAIXA EDITAVEL
 # ------------------------------------------------------------------------
 $script:scanTimer = $null
-$script:scanStartTime = $null
 $script:scanTask = $null
 
 $iniciarBusca = {
-    # Obtem a faixa de IP selecionada ou digitada pelo usuario
-    $faixaRaw = $cbFaixaIP.Text
-    if ([string]::IsNullOrWhiteSpace($faixaRaw) -and $cbFaixaIP.SelectedItem) { $faixaRaw = [string]$cbFaixaIP.SelectedItem }
-    $faixaAlvo = NormalizarFaixa $faixaRaw
+    # A faixa selecionada deve ser preservada fora do escopo local do clique,
+    # pois a busca e atualizada por um DispatcherTimer assincrono.
+    $faixaRaw = ([string]$cbFaixaIP.Text).Trim()
+    if ([string]::IsNullOrWhiteSpace($faixaRaw) -and $cbFaixaIP.SelectedItem -is [System.Windows.Controls.ComboBoxItem]) {
+        $faixaRaw = [string]$cbFaixaIP.SelectedItem.Content
+    } elseif ([string]::IsNullOrWhiteSpace($faixaRaw) -and $null -ne $cbFaixaIP.SelectedItem) {
+        $faixaRaw = [string]$cbFaixaIP.SelectedItem
+    }
+    $script:faixaAlvoBusca = NormalizarFaixa $faixaRaw
+    $script:faixasIpBusca = New-Object 'System.Collections.Generic.List[string]'
+    if ($script:faixaAlvoBusca) { $script:faixasIpBusca.Add($script:faixaAlvoBusca) }
+    # Busca tambem nas outras redes ativas detectadas pelo Windows, por exemplo
+    # quando o computador tem Wi-Fi e Ethernet ligados ao mesmo tempo.
+    foreach ($faixaLocal in $subredesDetectadas) {
+        if ($faixaLocal -and -not $script:faixasIpBusca.Contains([string]$faixaLocal)) {
+            $script:faixasIpBusca.Add([string]$faixaLocal)
+        }
+    }
+    $script:faixasIpBuscaTexto = if ($script:faixasIpBusca.Count -gt 0) { $script:faixasIpBusca -join ', ' } else { 'nenhuma detectada' }
+    $txtStatusBusca.ToolTip = "Faixas de IP que serao pesquisadas: $($script:faixasIpBuscaTexto)"
 
     $btnBuscar.IsEnabled = $false
+    $btnBuscar.Content = "Buscando impressoras..."
+    $btnBuscar.Background = "#DBEAFE"
+    $btnBuscar.Foreground = "#1D4ED8"
     $barraBusca.Visibility = "Visible"
-    $barraBusca.IsIndeterminate = $true
-    if ($faixaAlvo) {
-        $txtStatusBusca.Text = "Procurando na rede detectada ($faixaAlvo) e portas USB..."
+    $barraBusca.IsIndeterminate = $false
+    $barraBusca.Minimum = 0
+    $barraBusca.Maximum = 100
+    $barraBusca.Value = 0
+    if ($script:faixasIpBusca.Count -gt 0) {
+        $txtStatusBusca.Text = "Preparando busca em $($script:faixasIpBusca.Count) faixa(s) de IP e USB..."
     } else {
-        $txtStatusBusca.Text = "Rede nao detectada; verificando portas USB..."
+        $txtStatusBusca.Text = "Faixa de IP nao detectada; verificando portas USB..."
     }
     $lstImpressoras.Items.Clear()
     $btnAvancarDescoberta.IsEnabled = $false
 
     $subList = New-Object 'System.Collections.Generic.List[string]'
-    if ($faixaAlvo) { $subList.Add($faixaAlvo) }
+    foreach ($faixaBusca in $script:faixasIpBusca) { $subList.Add($faixaBusca) }
 
-    $script:scanStartTime = [System.DateTime]::Now
     $script:scanTask = [FastPrinterDiscovery]::ScanAllAsync($subList, 250)
 
     $script:scanTimer = New-Object System.Windows.Threading.DispatcherTimer
     $script:scanTimer.Interval = [TimeSpan]::FromMilliseconds(100)
     $script:scanTimer.Add_Tick({
-        $segundos = [int]([System.DateTime]::Now - $script:scanStartTime).TotalSeconds
-        $txtStatusBusca.Text = "Escaneando faixa $($faixaAlvo) e portas USB... ($($segundos)s)"
+        $percentual = [FastPrinterDiscovery]::GetProgressPercent()
+        $barraBusca.Value = $percentual
+        $txtStatusBusca.Text = "Buscando em $($script:faixasIpBusca.Count) faixa(s) de IP e USB... ($percentual%)"
 
         if ($script:scanTask.IsCompleted) {
             $script:scanTimer.Stop()
             $barraBusca.IsIndeterminate = $false
+            $barraBusca.Value = 100
             $barraBusca.Visibility = "Hidden"
             $btnBuscar.IsEnabled = $true
+            $btnBuscar.Content = "Procurar Impressoras na Rede e USB"
+            $btnBuscar.Background = "#2563EB"
+            $btnBuscar.Foreground = "White"
 
             $achadas = @()
             try { $achadas = $script:scanTask.Result } catch {}
             $state.ImpressorasEncontradas = $achadas
 
             if (-not $achadas -or $achadas.Count -eq 0) {
-                $txtStatusBusca.Text = "Nenhuma impressora encontrada na faixa $($faixaAlvo) ou USB."
+                $txtStatusBusca.Text = "Nenhuma impressora encontrada em $($script:faixasIpBusca.Count) faixa(s) de IP; USB verificado."
                 $itemAviso = New-Object System.Windows.Controls.ListBoxItem
                 $itemAviso.Content = "Nenhuma impressora encontrada. Verifique a faixa de IP acima ou clique em 'Inserir IP Manualmente'."
                 $itemAviso.IsEnabled = $false
@@ -524,8 +556,12 @@ $btnBuscar.Add_Click($iniciarBusca)
 $lstImpressoras.Add_SelectionChanged({
     if ($lstImpressoras.SelectedItem -and $lstImpressoras.SelectedItem.Tag) {
         $btnAvancarDescoberta.IsEnabled = $true
+        $btnAvancarDescoberta.Background = "#0F172A"
+        $btnAvancarDescoberta.Foreground = "White"
     } else {
         $btnAvancarDescoberta.IsEnabled = $false
+        $btnAvancarDescoberta.Background = "#E2E8F0"
+        $btnAvancarDescoberta.Foreground = "#334155"
     }
 })
 
@@ -645,6 +681,12 @@ $btnInstalarConfirmado.Add_Click({
     $tipo     = $state.Tipo
 
     $cfg = $Impressoras[$m][$mod]
+    if ($chkScanner.IsChecked -and $cfg) {
+        if (-not $cfg.ScannerSetup -or -not (Test-Path -LiteralPath (Join-Path $DriversRoot $cfg.ScannerSetup))) {
+            [System.Windows.MessageBox]::Show("O pacote de scanner nao esta completo/cadastrado para $m $mod. Desmarque a opcao ou inclua o pacote oficial antes de instalar.", "Driver de scanner indisponivel", "OK", "Information") | Out-Null
+            return
+        }
+    }
     if (-not $cfg) {
         [System.Windows.MessageBox]::Show("Configuracoes nao encontradas para $m $mod.", "Erro", "OK", "Error") | Out-Null
         return
@@ -826,17 +868,48 @@ $btnInstalarConfirmado.Add_Click({
             Add-PrinterDriver -Name $driverParaAdicionar
         }
 
-        # 5. Cria a impressora com o NOME PERSONALIZADO
+        # 5. Cria/atualiza a fila com o nome personalizado e confirma no Windows
         AtualizarProgresso 80 "Criando impressora '$nomeFinal'..."
-        try {
-            if (Get-Printer -Name $nomeFinal -ErrorAction SilentlyContinue) {
-                Remove-Printer -Name $nomeFinal -ErrorAction SilentlyContinue
+        $impressoraExistente = Get-Printer -ErrorAction SilentlyContinue | Where-Object { $_.Name -eq $nomeFinal } | Select-Object -First 1
+        if ($impressoraExistente) {
+            Set-Printer -InputObject $impressoraExistente -DriverName $driverParaAdicionar -PortName $nomePorta -ErrorAction Stop
+        } else {
+            Add-Printer -Name $nomeFinal -DriverName $driverParaAdicionar -PortName $nomePorta -ErrorAction Stop
+        }
+        $impressoraConfirmada = Get-Printer -ErrorAction Stop | Where-Object { $_.Name -eq $nomeFinal } | Select-Object -First 1
+        if (-not $impressoraConfirmada -or $impressoraConfirmada.Name -ne $nomeFinal) {
+            throw "O Windows nao confirmou a criacao da impressora com o nome informado."
+        }
+
+        # 6. Instala o scanner somente depois de criar/atualizar a impressora
+        if ($chkScanner.IsChecked) {
+            $scannerCaminho = Join-Path $DriversRoot $cfg.ScannerSetup
+            if (-not (Test-Path -LiteralPath $scannerCaminho)) {
+                throw "O instalador do scanner nao foi encontrado: $scannerCaminho"
             }
-        } catch {}
+            AtualizarProgresso 88 "Instalando scanner depois da impressora..."
+            $argumentosScanner = if ($tipo -eq "Rede") { $cfg.ScannerArgsNetwork } else { "" }
+            $parametrosProcesso = @{ FilePath = $scannerCaminho; WorkingDirectory = (Split-Path -Parent $scannerCaminho); PassThru = $true; ErrorAction = "Stop" }
+            if ($argumentosScanner) { $parametrosProcesso.ArgumentList = $argumentosScanner }
+            $processoScanner = Start-Process @parametrosProcesso
+            $frameScanner = New-Object System.Windows.Threading.DispatcherFrame
+            $timerScanner = New-Object System.Windows.Threading.DispatcherTimer
+            $timerScanner.Interval = [TimeSpan]::FromMilliseconds(300)
+            $tickScanner = {
+                try { $processoScanner.Refresh() } catch {}
+                if ($processoScanner.HasExited) {
+                    $timerScanner.Stop()
+                    $frameScanner.Continue = $false
+                }
+            }.GetNewClosure()
+            $timerScanner.Add_Tick($tickScanner)
+            $timerScanner.Start()
+            [System.Windows.Threading.Dispatcher]::PushFrame($frameScanner)
+            $processoScanner.Refresh()
+            if ($processoScanner.ExitCode -ne 0) { throw "O instalador do scanner terminou com codigo $($processoScanner.ExitCode)." }
+        }
 
-        Add-Printer -Name $nomeFinal -DriverName $driverParaAdicionar -PortName $nomePorta
-
-        # 6. Pagina de teste
+        # 7. Pagina de teste
         if ($chkTeste.IsChecked) {
             AtualizarProgresso 92 "Enviando pagina de teste..."
             try {
@@ -851,8 +924,8 @@ $btnInstalarConfirmado.Add_Click({
         }
 
         AtualizarProgresso 100 "Concluido com sucesso!"
-        $tituloProgresso.Text = "Impressora Instalada com Sucesso!"
-        $txtEtapa.Text = "A impressora '$nomeFinal' foi instalada e esta pronta para impressao na porta $nomePorta."
+        $tituloProgresso.Text = if ($chkScanner.IsChecked) { "Impressora e scanner instalados!" } else { "Impressora Instalada com Sucesso!" }
+        $txtEtapa.Text = if ($chkScanner.IsChecked) { "A impressora '$nomeFinal' foi criada primeiro e o instalador do scanner foi concluido em seguida." } else { "A impressora '$nomeFinal' foi instalada e confirmada no Windows na porta $nomePorta." }
     }
     catch {
         $tituloProgresso.Text = "Falha na Instalacao"
@@ -872,6 +945,10 @@ $window.Add_Loaded({
 
 # Exibe a janela grafica
 $window.ShowDialog() | Out-Null
+
+
+
+
 
 
 

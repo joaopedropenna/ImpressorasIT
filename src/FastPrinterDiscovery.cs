@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 public class DiscoveredPrinter {
@@ -31,12 +33,22 @@ public class DiscoveredPrinter {
     }
 }
 
-public class FastPrinterDiscovery {
+public class FastPrinterDiscovery {
+    private static int _progressPercent = 0;
+
+    public static int GetProgressPercent() {
+        return Interlocked.CompareExchange(ref _progressPercent, 0, 0);
+    }
+
+    private static void SetProgressPercent(int value) {
+        Interlocked.Exchange(ref _progressPercent, Math.Max(0, Math.Min(100, value)));
+    }
     public static Task<List<DiscoveredPrinter>> ScanAllAsync(List<string> subnets, int timeoutMs) {
         return Task.Factory.StartNew(() => ScanAll(subnets, timeoutMs));
     }
 
     public static List<DiscoveredPrinter> ScanAll(List<string> subnets, int timeoutMs) {
+        SetProgressPercent(0);
         List<DiscoveredPrinter> result = new List<DiscoveredPrinter>();
 
         // 1. Escaneia dispositivos USB
@@ -47,25 +59,35 @@ public class FastPrinterDiscovery {
                 result.Add(p);
             }
         } catch {}
+        SetProgressPercent(5);
 
         // 2. Escaneia subredes na rede local
+        List<string> networks = new List<string>();
         if (subnets != null) {
-            foreach (string subnet in subnets) {
-                if (!string.IsNullOrEmpty(subnet)) {
-                    try {
-                        List<DiscoveredPrinter> netPrinters = ScanNetwork(subnet, timeoutMs);
-                        foreach (var p in netPrinters) {
-                            result.Add(p);
-                        }
-                    } catch {}
-                }
+            foreach (string subnet in subnets) if (!string.IsNullOrEmpty(subnet)) networks.Add(subnet);
+        }
+        if (networks.Count == 0) {
+            SetProgressPercent(100);
+        } else {
+            SetProgressPercent(10);
+            for (int i = 0; i < networks.Count; i++) {
+                int progressStart = 10 + (90 * i / networks.Count);
+                int progressEnd = 10 + (90 * (i + 1) / networks.Count);
+                try {
+                    List<DiscoveredPrinter> netPrinters = ScanNetworkInternal(networks[i], timeoutMs, progressStart, progressEnd - progressStart);
+                    foreach (var p in netPrinters) result.Add(p);
+                } catch {}
             }
         }
-
+        SetProgressPercent(100);
         return result;
     }
 
     public static List<DiscoveredPrinter> ScanNetwork(string subnetBase, int timeoutMs) {
+        return ScanNetworkInternal(subnetBase, timeoutMs, 10, 90);
+    }
+
+    private static List<DiscoveredPrinter> ScanNetworkInternal(string subnetBase, int timeoutMs, int progressStart, int progressSpan) {
         List<DiscoveredPrinter> list = new List<DiscoveredPrinter>();
         List<string> ips = new List<string>();
 
@@ -94,33 +116,48 @@ public class FastPrinterDiscovery {
             ips.Add(subnetBase);
         }
 
-        Parallel.ForEach(ips, new ParallelOptions { MaxDegreeOfParallelism = 60 }, ip => {
-            // Portas padrao de impressao: RAW/JetDirect, LPD e IPP.
-            bool port9100 = CheckPort(ip, 9100, timeoutMs);
-            bool port515 = CheckPort(ip, 515, timeoutMs);
-            bool port631 = CheckPort(ip, 631, timeoutMs);
-            bool port80 = CheckPort(ip, 80, timeoutMs);
-            bool port443 = CheckPort(ip, 443, timeoutMs);
+        if (ips.Count == 0) { SetProgressPercent(progressStart + progressSpan); return list; }
+        int completedHosts = 0;
+        Parallel.ForEach(ips, new ParallelOptions { MaxDegreeOfParallelism = 64 }, ip => {
+            try {
+            // Examina os IPs em paralelo e limita o tempo de cada porta testada.
+            bool[] ports = CheckPorts(ip, new int[] { 9100, 515, 631, 80 }, Math.Max(timeoutMs, 300));
+            bool port9100 = ports[0];
+            bool port515 = ports[1];
+            bool port631 = ports[2];
+            bool port80 = ports[3];
 
-            string title = (port80 || port443 || port631) ? GetHttpTitle(ip, 1200) : null;
-            string hostName = (port9100 || port515 || port631 || port80 || port443) ? GetHostName(ip) : null;
-            string identity = ((title ?? "") + " " + (hostName ?? "")).ToLowerInvariant();
+            string title = port80 ? GetHttpTitle(ip, 80, 700) : (port631 ? GetHttpTitle(ip, 631, 700) : null);
+            string snmpInfo = null;
+            if (!(port9100 || port515 || port631)) snmpInfo = GetSnmpPrinterDescription(ip, Math.Max(timeoutMs, 300));
+            string identity = ((title ?? "") + " " + (snmpInfo ?? "")).ToLowerInvariant();
             bool nomeIndicaImpressora = identity.Contains("printer") || identity.Contains("impress") ||
                 identity.Contains("epson") || identity.Contains("brother") || identity.Contains("canon") ||
-                identity.Contains("ecotank") || identity.Contains("pixma") || identity.Contains("imageclass");
+                identity.Contains("ecotank") || identity.Contains("pixma") || identity.Contains("imageclass") ||
+                identity.Contains("laserjet") || identity.Contains("workforce") || identity.Contains("ricoh") ||
+                identity.Contains("kyocera") || identity.Contains("xerox") || identity.Contains("lexmark") ||
+                identity.Contains("sharp") || identity.Contains("konica") || identity.Contains("mfp");
 
-            // Evita listar qualquer computador que tenha apenas uma pagina web comum.
-            if (port9100 || port515 || port631 || ((port80 || port443) && nomeIndicaImpressora)) {
+            // Filtra páginas web comuns; SNMP permite reconhecer impressoras sem RAW/LPD/IPP.
+            bool temPortaImpressao = port9100 || port515 || port631;
+            bool impressoraWebOuSnmp = (port80 && nomeIndicaImpressora) || !string.IsNullOrEmpty(snmpInfo);
+            if (temPortaImpressao || impressoraWebOuSnmp) {
                 DiscoveredPrinter dp = new DiscoveredPrinter();
                 dp.IP = ip;
                 dp.Type = "Rede";
                 dp.PortName = "IP_" + ip;
-                string bestName = !string.IsNullOrEmpty(title) ? title : (!string.IsNullOrEmpty(hostName) ? hostName : ("Impressora de rede (" + ip + ")"));
+                string bestName = !string.IsNullOrEmpty(title) ? title : (!string.IsNullOrEmpty(snmpInfo) ? snmpInfo : ("Impressora de rede (" + ip + ")"));
                 dp.Name = CleanPrinterName(bestName);
                 ClassifyDevice(dp);
                 lock (list) { list.Add(dp); }
             }
+            } finally {
+                int completed = Interlocked.Increment(ref completedHosts);
+                int percent = progressStart + (int)((long)progressSpan * completed / ips.Count);
+                SetProgressPercent(percent);
+            }
         });
+        SetProgressPercent(progressStart + progressSpan);
         return list;
     }
 
@@ -160,22 +197,60 @@ public class FastPrinterDiscovery {
         return list;
     }
 
+    private static bool[] CheckPorts(string ip, int[] ports, int timeout) {
+        bool[] result = new bool[ports.Length];
+        for (int i = 0; i < ports.Length; i++) result[i] = CheckPort(ip, ports[i], timeout);
+        return result;
+    }
+
     private static bool CheckPort(string ip, int port, int timeout) {
         try {
             using (TcpClient client = new TcpClient()) {
-                IAsyncResult ar = client.BeginConnect(ip, port, null, null);
-                if (ar.AsyncWaitHandle.WaitOne(timeout, false)) {
-                    client.EndConnect(ar);
-                    return true;
-                }
+                IAsyncResult attempt = client.BeginConnect(ip, port, null, null);
+                bool connected;
+                WaitHandle waitHandle = attempt.AsyncWaitHandle;
+                using (waitHandle) { connected = waitHandle.WaitOne(timeout, false); }
+                if (!connected) { try { client.Close(); } catch {} return false; }
+                client.EndConnect(attempt);
+                return true;
             }
         } catch {}
         return false;
     }
 
-    private static string GetHttpTitle(string ip, int timeout) {
+    private static string GetSnmpPrinterDescription(string ip, int timeout) {
+        // SNMP v1 GET system.sysDescr.0 com community publica (OID 1.3.6.1.2.1.1.1.0).
+        byte[] request = new byte[] {
+            0x30,0x26,0x02,0x01,0x00,0x04,0x06,0x70,0x75,0x62,0x6c,0x69,0x63,
+            0xa0,0x19,0x02,0x01,0x01,0x02,0x01,0x00,0x02,0x01,0x00,0x30,0x0e,
+            0x30,0x0c,0x06,0x08,0x2b,0x06,0x01,0x02,0x01,0x01,0x01,0x00,0x05,0x00
+        };
         try {
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://" + ip);
+            using (UdpClient client = new UdpClient()) {
+                client.Client.ReceiveTimeout = timeout;
+                client.Client.SendTimeout = timeout;
+                IPEndPoint target = new IPEndPoint(IPAddress.Parse(ip), 161);
+                client.Send(request, request.Length, target);
+                IPEndPoint source = new IPEndPoint(IPAddress.Any, 0);
+                byte[] response = client.Receive(ref source);
+                string raw = Encoding.ASCII.GetString(response);
+                StringBuilder printable = new StringBuilder();
+                foreach (char ch in raw) printable.Append(ch >= 32 && ch <= 126 ? ch : ' ');
+                string description = printable.ToString().Trim();
+                string lower = description.ToLowerInvariant();
+                string[] markers = new string[] { "printer", "print", "canon", "epson", "brother", "hewlett", "hp ", "laserjet", "imageclass", "workforce", "ricoh", "kyocera", "xerox", "lexmark", "sharp", "konica", "mfp" };
+                foreach (string marker in markers) {
+                    int markerIndex = lower.IndexOf(marker, StringComparison.Ordinal);
+                    if (markerIndex >= 0) return description.Substring(markerIndex).Trim();
+                }
+            }
+        } catch {}
+        return null;
+    }
+
+    private static string GetHttpTitle(string ip, int port, int timeout) {
+        try {
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://" + ip + ":" + port + "/");
             req.Timeout = timeout;
             req.ReadWriteTimeout = timeout;
             using (HttpWebResponse resp = (HttpWebResponse)req.GetResponse()) {
@@ -191,14 +266,6 @@ public class FastPrinterDiscovery {
                     }
                 }
             }
-        } catch {}
-        return null;
-    }
-
-    private static string GetHostName(string ip) {
-        try {
-            IPHostEntry e = Dns.GetHostEntry(ip);
-            return e.HostName;
         } catch {}
         return null;
     }
@@ -246,8 +313,4 @@ public class FastPrinterDiscovery {
         }
     }
 }
-
-
-
-
 

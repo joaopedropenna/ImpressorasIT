@@ -1,0 +1,1583 @@
+;
+; MFSCN.INF  -- Windows Setup File for the Canon MF650C Series / Canon MF1238/1238II / Canon MF450 Series / Canon iR1643 II Series / Canon MF1643 II Series / Canon MF550 Series (Windows 7,8.1,10(64-bit))
+; Copyright CANON INC. 2005
+;
+; InfID: {706BD554-BBEE-4AE7-87D4-F0DECBD8ADA4}
+;
+; LastModified: 01-Mar-2021
+
+[Version]
+Signature="$Windows NT$"
+Class=Image
+ClassGUID={6bdd1fc6-810f-11d0-bec7-08002be2092f}
+Provider="Canon"
+CatalogFile=MFSCNM.CAT
+DriverVer=%Version%,%SGVersion%
+
+[DestinationDirs]
+DefaultDestDir=11
+CNCMediaFiles=10,media
+ColorFiles.NT=11,spool\drivers\Color
+DsCmnFilesXP=24,"CanonMF\MFSCN"
+DsCmnFiles=16422,"Canon\CanonMF\MFSCN"
+MFSCN_DsFiles=10,"twain_32\MFSCN"
+MF650C_DsFiles=10,"twain_32\MF650C"
+MF1238_II_DsFiles=10,"twain_32\MF1238_II"
+MF450_DsFiles=10,"twain_32\MF450"
+iR1643_II_DsFiles=10,"twain_32\iR1643_II"
+MF1643_II_DsFiles=10,"twain_32\MF1643_II"
+MF550_DsFiles=10,"twain_32\MF550"
+
+[ControlFlags]
+;ExcludeFromSelect=*
+
+[Manufacturer]
+"Canon"=Models,NTamd64,NTamd64.6.0
+
+[Models.NTamd64]
+"Canon MF Scan"=MFSCN_USB,,USB\MS_COMP_SCAN&MS_SUBCOMP_CAOPIS2
+"Canon MF650C Series"=MF650C_USB,USB\VID_04A9&PID_287B&MI_00
+"Canon MF1238/1238II"=MF1238_II_USB,USB\VID_04A9&PID_2880&MI_00
+"Canon MF450 Series"=MF450_USB,USB\VID_04A9&PID_2881&MI_00
+"Canon iR1643 II Series"=iR1643_II_USB,USB\VID_04A9&PID_287E&MI_00
+"Canon MF1643 II Series"=MF1643_II_USB,USB\VID_04A9&PID_287D&MI_00
+"Canon MF550 Series"=MF550_USB,USB\VID_04A9&PID_287F&MI_00
+"Canon MF Scan"=MFSCN_NW,CANON_MFNP&MFSCN
+"Canon MF650C Series"=MF650C_NW,CANON_MFNP&MF650C
+"Canon MF1238/1238II"=MF1238_II_NW,CANON_MFNP&MF1238_II
+"Canon MF450 Series"=MF450_NW,CANON_MFNP&MF450
+"Canon iR1643 II Series"=iR1643_II_NW,CANON_MFNP&iR1643_II
+"Canon MF1643 II Series"=MF1643_II_NW,CANON_MFNP&MF1643_II
+"Canon MF550 Series"=MF550_NW,CANON_MFNP&MF550
+
+[Models.NTamd64.6.0]
+"Canon MF Scan"= MFSCN_USB_VISTA,,USB\MS_COMP_SCAN&MS_SUBCOMP_CAOPIS2
+"Canon MF650C Series"= MF650C_USB_VISTA,USB\VID_04A9&PID_287B&MI_00
+"Canon MF1238/1238II"= MF1238_II_USB_VISTA,USB\VID_04A9&PID_2880&MI_00
+"Canon MF450 Series"= MF450_USB_VISTA,USB\VID_04A9&PID_2881&MI_00
+"Canon iR1643 II Series"= iR1643_II_USB_VISTA,USB\VID_04A9&PID_287E&MI_00
+"Canon MF1643 II Series"= MF1643_II_USB_VISTA,USB\VID_04A9&PID_287D&MI_00
+"Canon MF550 Series"= MF550_USB_VISTA,USB\VID_04A9&PID_287F&MI_00
+"Canon MF Scan"= MFSCN_NW_VISTA,CANON_MFNP&MFSCN
+"Canon MF650C Series"= MF650C_NW_VISTA,CANON_MFNP&MF650C
+"Canon MF1238/1238II"= MF1238_II_NW_VISTA,CANON_MFNP&MF1238_II
+"Canon MF450 Series"= MF450_NW_VISTA,CANON_MFNP&MF450
+"Canon iR1643 II Series"= iR1643_II_NW_VISTA,CANON_MFNP&iR1643_II
+"Canon MF1643 II Series"= MF1643_II_NW_VISTA,CANON_MFNP&MF1643_II
+"Canon MF550 Series"= MF550_NW_VISTA,CANON_MFNP&MF550
+
+[MFSCN_USB.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MFSCN_DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF Scan"
+AddReg=MFSCN_Addreg,MFSCN_Addreg_XP,MFSCN_Addreg.USB,MFSCN_USDAddreg,USDAddreg
+CopyFiles=MFSCN_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MFSCN_PushButton.Events
+
+[MF650C_USB.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF650C_DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF650C "
+AddReg=MF650C_Addreg,MF650C_Addreg_XP,MF650C_Addreg.USB,MF650C_USDAddreg,USDAddreg
+CopyFiles=MF650C_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF650C_PushButton.Events
+
+[MF1238_II_USB.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF1238_II_DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF1238/1238II"
+AddReg=MF1238_II_Addreg,MF1238_II_Addreg_XP,MF1238_II_Addreg.USB,MF1238_II_USDAddreg,USDAddreg
+CopyFiles=MF1238_II_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF1238_II_PushButton.Events
+
+[MF450_USB.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF450_DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF450 "
+AddReg=MF450_Addreg,MF450_Addreg_XP,MF450_Addreg.USB,MF450_USDAddreg,USDAddreg
+CopyFiles=MF450_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF450_PushButton.Events
+
+[iR1643_II_USB.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=iR1643_II_DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon iR1643 II "
+AddReg=iR1643_II_Addreg,iR1643_II_Addreg_XP,iR1643_II_Addreg.USB,iR1643_II_USDAddreg,USDAddreg
+CopyFiles=iR1643_II_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=iR1643_II_PushButton.Events
+
+[MF1643_II_USB.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF1643_II_DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF1643 II "
+AddReg=MF1643_II_Addreg,MF1643_II_Addreg_XP,MF1643_II_Addreg.USB,MF1643_II_USDAddreg,USDAddreg
+CopyFiles=MF1643_II_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF1643_II_PushButton.Events
+
+[MF550_USB.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF550_DeviceData
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF550 "
+AddReg=MF550_Addreg,MF550_Addreg_XP,MF550_Addreg.USB,MF550_USDAddreg,USDAddreg
+CopyFiles=MF550_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF550_PushButton.Events
+
+[MFSCN_USB.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF650C_USB.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF1238_II_USB.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF450_USB.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[iR1643_II_USB.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF1643_II_USB.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF550_USB.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MFSCN_USB_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MFSCN_DeviceData_VISTA
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF Scan"
+AddReg=MFSCN_Addreg,MFSCN_Addreg_VISTA,MFSCN_Addreg.USB,MFSCN_USDAddreg,USDAddreg,USDAddreg_VISTA
+CopyFiles=MFSCN_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MFSCN_PushButton.Events
+
+[MF650C_USB_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF650C_DeviceData_VISTA
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF650C "
+AddReg=MF650C_Addreg,MF650C_Addreg_VISTA,MF650C_Addreg.USB,MF650C_USDAddreg,USDAddreg,USDAddreg_VISTA
+CopyFiles=MF650C_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF650C_PushButton.Events
+
+[MF1238_II_USB_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF1238_II_DeviceData_VISTA
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF1238/1238II"
+AddReg=MF1238_II_Addreg,MF1238_II_Addreg_VISTA,MF1238_II_Addreg.USB,MF1238_II_USDAddreg,USDAddreg,USDAddreg_VISTA
+CopyFiles=MF1238_II_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF1238_II_PushButton.Events
+
+[MF450_USB_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF450_DeviceData_VISTA
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF450 "
+AddReg=MF450_Addreg,MF450_Addreg_VISTA,MF450_Addreg.USB,MF450_USDAddreg,USDAddreg,USDAddreg_VISTA
+CopyFiles=MF450_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF450_PushButton.Events
+
+[iR1643_II_USB_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=iR1643_II_DeviceData_VISTA
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon iR1643 II "
+AddReg=iR1643_II_Addreg,iR1643_II_Addreg_VISTA,iR1643_II_Addreg.USB,iR1643_II_USDAddreg,USDAddreg,USDAddreg_VISTA
+CopyFiles=iR1643_II_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=iR1643_II_PushButton.Events
+
+[MF1643_II_USB_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF1643_II_DeviceData_VISTA
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF1643 II "
+AddReg=MF1643_II_Addreg,MF1643_II_Addreg_VISTA,MF1643_II_Addreg.USB,MF1643_II_USDAddreg,USDAddreg,USDAddreg_VISTA
+CopyFiles=MF1643_II_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF1643_II_PushButton.Events
+
+[MF550_USB_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.USBSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF550_DeviceData_VISTA
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF550 "
+AddReg=MF550_Addreg,MF550_Addreg_VISTA,MF550_Addreg.USB,MF550_USDAddreg,USDAddreg,USDAddreg_VISTA
+CopyFiles=MF550_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF550_PushButton.Events
+
+[MFSCN_USB_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF650C_USB_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF1238_II_USB_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF450_USB_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[iR1643_II_USB_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF1643_II_USB_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MF550_USB_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.USBSection.Services
+
+[MFSCN_NW.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MFSCN_DeviceData.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF Scan"
+AddReg=MFSCN_Addreg,MFSCN_Addreg_XP,MFSCN_USDAddreg,USDAddreg,USDAddreg.NET
+CopyFiles=MFSCN_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MFSCN_PushButton.Events
+PortSelect=NO
+
+[MF650C_NW.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF650C_DeviceData.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF650C "
+AddReg=MF650C_Addreg,MF650C_Addreg_XP,MF650C_USDAddreg,USDAddreg,USDAddreg.NET
+CopyFiles=MF650C_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF650C_PushButton.Events
+PortSelect=NO
+
+[MF1238_II_NW.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF1238_II_DeviceData.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF1238/1238II"
+AddReg=MF1238_II_Addreg,MF1238_II_Addreg_XP,MF1238_II_USDAddreg,USDAddreg,USDAddreg.NET
+CopyFiles=MF1238_II_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF1238_II_PushButton.Events
+PortSelect=NO
+
+[MF450_NW.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF450_DeviceData.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF450 "
+AddReg=MF450_Addreg,MF450_Addreg_XP,MF450_USDAddreg,USDAddreg,USDAddreg.NET
+CopyFiles=MF450_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF450_PushButton.Events
+PortSelect=NO
+
+[iR1643_II_NW.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=iR1643_II_DeviceData.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon iR1643 II "
+AddReg=iR1643_II_Addreg,iR1643_II_Addreg_XP,iR1643_II_USDAddreg,USDAddreg,USDAddreg.NET
+CopyFiles=iR1643_II_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=iR1643_II_PushButton.Events
+PortSelect=NO
+
+[MF1643_II_NW.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF1643_II_DeviceData.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF1643 II "
+AddReg=MF1643_II_Addreg,MF1643_II_Addreg_XP,MF1643_II_USDAddreg,USDAddreg,USDAddreg.NET
+CopyFiles=MF1643_II_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF1643_II_PushButton.Events
+PortSelect=NO
+
+[MF550_NW.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF550_DeviceData.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF550 "
+AddReg=MF550_Addreg,MF550_Addreg_XP,MF550_USDAddreg,USDAddreg,USDAddreg.NET
+CopyFiles=MF550_DsFiles,DsCmnFilesXP,WiaFiles,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF550_PushButton.Events
+PortSelect=NO
+
+[MFSCN_NW.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF650C_NW.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF1238_II_NW.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF450_NW.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[iR1643_II_NW.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF1643_II_NW.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF550_NW.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MFSCN_NW_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MFSCN_DeviceData_VISTA.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF Scan"
+AddReg=MFSCN_Addreg,MFSCN_Addreg_VISTA,MFSCN_USDAddreg,USDAddreg,USDAddreg_VISTA,USDAddreg.Net
+CopyFiles=MFSCN_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MFSCN_PushButton.Events
+PortSelect=NO
+
+[MF650C_NW_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF650C_DeviceData_VISTA.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF650C "
+AddReg=MF650C_Addreg,MF650C_Addreg_VISTA,MF650C_USDAddreg,USDAddreg,USDAddreg_VISTA,USDAddreg.Net
+CopyFiles=MF650C_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF650C_PushButton.Events
+PortSelect=NO
+
+[MF1238_II_NW_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF1238_II_DeviceData_VISTA.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF1238/1238II"
+AddReg=MF1238_II_Addreg,MF1238_II_Addreg_VISTA,MF1238_II_USDAddreg,USDAddreg,USDAddreg_VISTA,USDAddreg.Net
+CopyFiles=MF1238_II_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF1238_II_PushButton.Events
+PortSelect=NO
+
+[MF450_NW_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF450_DeviceData_VISTA.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF450 "
+AddReg=MF450_Addreg,MF450_Addreg_VISTA,MF450_USDAddreg,USDAddreg,USDAddreg_VISTA,USDAddreg.Net
+CopyFiles=MF450_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF450_PushButton.Events
+PortSelect=NO
+
+[iR1643_II_NW_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=iR1643_II_DeviceData_VISTA.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon iR1643 II "
+AddReg=iR1643_II_Addreg,iR1643_II_Addreg_VISTA,iR1643_II_USDAddreg,USDAddreg,USDAddreg_VISTA,USDAddreg.Net
+CopyFiles=iR1643_II_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=iR1643_II_PushButton.Events
+PortSelect=NO
+
+[MF1643_II_NW_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF1643_II_DeviceData_VISTA.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF1643 II "
+AddReg=MF1643_II_Addreg,MF1643_II_Addreg_VISTA,MF1643_II_USDAddreg,USDAddreg,USDAddreg_VISTA,USDAddreg.Net
+CopyFiles=MF1643_II_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF1643_II_PushButton.Events
+PortSelect=NO
+
+[MF550_NW_VISTA.NTamd64]
+Include=sti.inf
+Needs=STI.SerialSection
+SubClass=StillImage
+DeviceType=1
+DeviceSubType=0x1
+DeviceData=MF550_DeviceData_VISTA.Net
+ICMProfiles="sRGB Color Space Profile.icm"
+Capabilities=0x11
+DriverVer=%Version%,%SGVersion%
+FriendlyName="WIA Canon MF550 "
+AddReg=MF550_Addreg,MF550_Addreg_VISTA,MF550_USDAddreg,USDAddreg,USDAddreg_VISTA,USDAddreg.Net
+CopyFiles=MF550_DsFiles,DsCmnFiles,Wia2Files,MPScanLLD,ColorFiles.NT,CNCMediaFiles
+Events=MF550_PushButton.Events
+PortSelect=NO
+
+[MFSCN_NW_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF650C_NW_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF1238_II_NW_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF450_NW_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[iR1643_II_NW_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF1643_II_NW_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MF550_NW_VISTA.NTamd64.Services]
+Include=sti.inf
+Needs=STI.SerialSection.Services
+
+[MFSCN_PushButton.Events]
+PushButtonPushed1=%PushButtonPushed1%,{9BB9528A-F2C8-444C-8A4F-C5DA3AA478D5},%ButtonApp%
+PushButtonPushed2=%PushButtonPushed2%,{04D4A2CA-0AAA-4EFD-B6BF-36548C21109D},%ButtonApp%
+PushButtonPushed3=%PushButtonPushed3%,{FE8719EE-CA18-4C6C-A921-B9017500664C},%ButtonApp%
+PushButtonPushed4=%PushButtonPushed4%,{7565BFFF-EF34-4BF8-ACCF-E7195EBA0A86},%ButtonApp%
+
+[MF650C_PushButton.Events]
+PushButtonPushed1=%PushButtonPushed1%,{058D793D-4DD5-422A-80B3-7A7E1A6AA9E0},%ButtonApp%
+PushButtonPushed2=%PushButtonPushed2%,{8937932F-0060-4044-9CF2-C3679EC5D485},%ButtonApp%
+PushButtonPushed3=%PushButtonPushed3%,{B6B74A9D-AA4A-451F-9686-0BD7DD8CEB3C},%ButtonApp%
+PushButtonPushed4=%PushButtonPushed4%,{5F191743-0763-4684-B21C-4EF94D984BF2},%ButtonApp%
+
+[MF1238_II_PushButton.Events]
+PushButtonPushed1=%PushButtonPushed1%,{4015A0F8-18BD-479E-9A56-8EF9F18EB6BB},%ButtonApp%
+PushButtonPushed2=%PushButtonPushed2%,{1AD81697-DFE5-4251-8DA8-F3E6AAF14A71},%ButtonApp%
+PushButtonPushed3=%PushButtonPushed3%,{152BCD8E-2B06-49E0-ADBE-98BE53788B88},%ButtonApp%
+PushButtonPushed4=%PushButtonPushed4%,{ACEAFB2E-CD99-46A0-B6AE-7A36851DEC33},%ButtonApp%
+
+[MF450_PushButton.Events]
+PushButtonPushed1=%PushButtonPushed1%,{75C060ED-527B-490B-93CE-57E0D2AC7EC2},%ButtonApp%
+PushButtonPushed2=%PushButtonPushed2%,{E158976A-F0AA-4950-8AF7-C66012CB3C82},%ButtonApp%
+PushButtonPushed3=%PushButtonPushed3%,{FD338D36-F653-471D-8E91-8586AF341D7E},%ButtonApp%
+PushButtonPushed4=%PushButtonPushed4%,{8D9F0244-A784-432A-B982-66A3E7A214A8},%ButtonApp%
+
+[iR1643_II_PushButton.Events]
+PushButtonPushed1=%PushButtonPushed1%,{DA500D8F-B966-4CEB-B839-5AD98B78FB6F},%ButtonApp%
+PushButtonPushed2=%PushButtonPushed2%,{C8DE7FFD-C940-4021-816F-DDF284E56D7D},%ButtonApp%
+PushButtonPushed3=%PushButtonPushed3%,{C04490C3-EDA6-4E22-8C8E-C823BBF9BD1D},%ButtonApp%
+PushButtonPushed4=%PushButtonPushed4%,{161C1DE8-C699-4936-8A38-AE7B4C3D54E7},%ButtonApp%
+
+[MF1643_II_PushButton.Events]
+PushButtonPushed1=%PushButtonPushed1%,{02DBAC62-4BEE-408C-B4C1-331E6A5D5C1A},%ButtonApp%
+PushButtonPushed2=%PushButtonPushed2%,{45B5AC76-8598-4CED-934B-B2E0040B8503},%ButtonApp%
+PushButtonPushed3=%PushButtonPushed3%,{988C53A1-6016-4B8C-A5FA-C0474DF7C25B},%ButtonApp%
+PushButtonPushed4=%PushButtonPushed4%,{EE6DDB10-9B46-4E73-93B1-E3B132DC0B24},%ButtonApp%
+
+[MF550_PushButton.Events]
+PushButtonPushed1=%PushButtonPushed1%,{AD44A974-7541-4742-87F2-A6D6EC33188D},%ButtonApp%
+PushButtonPushed2=%PushButtonPushed2%,{809D9E59-BDED-4B14-A698-B184656F2F00},%ButtonApp%
+PushButtonPushed3=%PushButtonPushed3%,{764B24E5-93BB-491D-B57C-D6972D073C0B},%ButtonApp%
+PushButtonPushed4=%PushButtonPushed4%,{A22D2079-8599-4216-B7FC-746BBDC173A0},%ButtonApp%
+
+[MFSCN_DeviceData]
+TwainDS="Canon MF Scan"
+SpecialInfo="Canon MF Scanner"
+DeviceKey=MFSCN
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0000.DAT"
+
+[MF650C_DeviceData]
+TwainDS="Canon MF650C Series"
+SpecialInfo="Canon MF650C  Scanner"
+DeviceKey=MF650C
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0007.DAT"
+
+[MF1238_II_DeviceData]
+TwainDS="Canon MF1238/1238II"
+SpecialInfo="Canon MF1238/1238II Scanner"
+DeviceKey=MF1238_II
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+
+[MF450_DeviceData]
+TwainDS="Canon MF450 Series"
+SpecialInfo="Canon MF450  Scanner"
+DeviceKey=MF450
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+
+[iR1643_II_DeviceData]
+TwainDS="Canon iR1643 II Series"
+SpecialInfo="Canon iR1643 II  Scanner"
+DeviceKey=iR1643_II
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+
+[MF1643_II_DeviceData]
+TwainDS="Canon MF1643 II Series"
+SpecialInfo="Canon MF1643 II  Scanner"
+DeviceKey=MF1643_II
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+
+[MF550_DeviceData]
+TwainDS="Canon MF550 Series"
+SpecialInfo="Canon MF550  Scanner"
+DeviceKey=MF550
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+
+[MFSCN_DeviceData_VISTA]
+TwainDS="Canon MF Scan"
+SpecialInfo="Canon MF Scanner"
+DeviceKey=MFSCN
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0000.DAT"
+UI Class ID=%GUID.UIClass%
+
+[MF650C_DeviceData_VISTA]
+TwainDS="Canon MF650C Series"
+SpecialInfo="Canon MF650C  Scanner"
+DeviceKey=MF650C
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0007.DAT"
+UI Class ID=%GUID.UIClass%
+
+[MF1238_II_DeviceData_VISTA]
+TwainDS="Canon MF1238/1238II"
+SpecialInfo="Canon MF1238/1238II Scanner"
+DeviceKey=MF1238_II
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+
+[MF450_DeviceData_VISTA]
+TwainDS="Canon MF450 Series"
+SpecialInfo="Canon MF450  Scanner"
+DeviceKey=MF450
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+
+[iR1643_II_DeviceData_VISTA]
+TwainDS="Canon iR1643 II Series"
+SpecialInfo="Canon iR1643 II  Scanner"
+DeviceKey=iR1643_II
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+
+[MF1643_II_DeviceData_VISTA]
+TwainDS="Canon MF1643 II Series"
+SpecialInfo="Canon MF1643 II  Scanner"
+DeviceKey=MF1643_II
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+
+[MF550_DeviceData_VISTA]
+TwainDS="Canon MF550 Series"
+SpecialInfo="Canon MF550  Scanner"
+DeviceKey=MF550
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+
+[MFSCN_DeviceData.Net]
+TwainDS="Canon MF Scan"
+SpecialInfo="Canon MF Scanner"
+DeviceKey=MFSCN
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0000.DAT"
+PortName="CNMFNPSCAN_"
+
+[MF650C_DeviceData.Net]
+TwainDS="Canon MF650C Series"
+SpecialInfo="Canon MF650C  Scanner"
+DeviceKey=MF650C
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0007.DAT"
+PortName="CNMFNPSCAN_"
+
+[MF1238_II_DeviceData.Net]
+TwainDS="Canon MF1238/1238II"
+SpecialInfo="Canon MF1238/1238II Scanner"
+DeviceKey=MF1238_II
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+PortName="CNMFNPSCAN_"
+
+[MF450_DeviceData.Net]
+TwainDS="Canon MF450 Series"
+SpecialInfo="Canon MF450  Scanner"
+DeviceKey=MF450
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+PortName="CNMFNPSCAN_"
+
+[iR1643_II_DeviceData.Net]
+TwainDS="Canon iR1643 II Series"
+SpecialInfo="Canon iR1643 II  Scanner"
+DeviceKey=iR1643_II
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+PortName="CNMFNPSCAN_"
+
+[MF1643_II_DeviceData.Net]
+TwainDS="Canon MF1643 II Series"
+SpecialInfo="Canon MF1643 II  Scanner"
+DeviceKey=MF1643_II
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+PortName="CNMFNPSCAN_"
+
+[MF550_DeviceData.Net]
+TwainDS="Canon MF550 Series"
+SpecialInfo="Canon MF550  Scanner"
+DeviceKey=MF550
+InstallDirectory="CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+PortName="CNMFNPSCAN_"
+
+[MFSCN_DeviceData_VISTA.Net]
+TwainDS="Canon MF Scan"
+SpecialInfo="Canon MF Scanner"
+DeviceKey=MFSCN
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0000.DAT"
+UI Class ID=%GUID.UIClass%
+PortName="CNMFNPSCAN_"
+
+[MF650C_DeviceData_VISTA.Net]
+TwainDS="Canon MF650C Series"
+SpecialInfo="Canon MF650C  Scanner"
+DeviceKey=MF650C
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0007.DAT"
+UI Class ID=%GUID.UIClass%
+PortName="CNMFNPSCAN_"
+
+[MF1238_II_DeviceData_VISTA.Net]
+TwainDS="Canon MF1238/1238II"
+SpecialInfo="Canon MF1238/1238II Scanner"
+DeviceKey=MF1238_II
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+PortName="CNMFNPSCAN_"
+
+[MF450_DeviceData_VISTA.Net]
+TwainDS="Canon MF450 Series"
+SpecialInfo="Canon MF450  Scanner"
+DeviceKey=MF450
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+PortName="CNMFNPSCAN_"
+
+[iR1643_II_DeviceData_VISTA.Net]
+TwainDS="Canon iR1643 II Series"
+SpecialInfo="Canon iR1643 II  Scanner"
+DeviceKey=iR1643_II
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+PortName="CNMFNPSCAN_"
+
+[MF1643_II_DeviceData_VISTA.Net]
+TwainDS="Canon MF1643 II Series"
+SpecialInfo="Canon MF1643 II  Scanner"
+DeviceKey=MF1643_II
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+PortName="CNMFNPSCAN_"
+
+[MF550_DeviceData_VISTA.Net]
+TwainDS="Canon MF550 Series"
+SpecialInfo="Canon MF550  Scanner"
+DeviceKey=MF550
+InstallDirectory="Program Files\Canon\CanonMF\MFSCN\"
+DeviceInfoClass="SGDEV0009.DAT"
+UI Class ID=%GUID.UIClass%
+PortName="CNMFNPSCAN_"
+
+[MFSCN_Addreg]
+HKLM,"%SGDKEY%\MFSCN","SeriesName",,"Canon MF Scan"
+HKLM,"%SGDKEY%\MFSCN","ProductId",,"MFSCN"
+HKLM,"%SGDKEY%\MFSCN","ProductName",,"Canon MF Scan"
+HKLM,"%SGDKEY%\MFSCN","InstallDirectory",,"%10%\TWAIN_32\MFSCN\"
+HKLM,"%SGDKEY%\MFSCN","DriverDate",,"03 2021"
+HKLM,"%SGDKEY%\MFSCN","ButtonNum",0x00010001,4
+HKLM,"%SGDKEY%\MFSCN","CaddisLLDPath",,"CNC1772DMF.TBL"
+HKLM,"%SGDKEY%\MFSCN","CaddisUIPath",,"CNUIG01.TBL"
+HKLM,"%SGDKEY%\MFSCN","SGGenMFUninst",,"Canon MF Scan"
+HKLM,"%SGDKEY%\MFSCN","DeviceInfoClass",,"SGDEV0000.DAT"
+HKLM,"%STIKEY%","MFSCN",0x00010001,1
+
+[MF650C_Addreg]
+HKLM,"%SGDKEY%\MF650C","SeriesName",,"Canon MF650C Series"
+HKLM,"%SGDKEY%\MF650C","ProductId",,"MF650C"
+HKLM,"%SGDKEY%\MF650C","ProductName",,"Canon MF650C Series"
+HKLM,"%SGDKEY%\MF650C","InstallDirectory",,"%10%\TWAIN_32\MF650C\"
+HKLM,"%SGDKEY%\MF650C","DriverDate",,"03 2021"
+HKLM,"%SGDKEY%\MF650C","ButtonNum",0x00010001,4
+HKLM,"%SGDKEY%\MF650C","CaddisLLDPath",,"CNC1772DMF.TBL"
+HKLM,"%SGDKEY%\MF650C","CaddisUIPath",,"CNUI011.TBL"
+HKLM,"%SGDKEY%\MF650C","SGGenMFUninst",,"Canon MF650C Series"
+HKLM,"%SGDKEY%\MF650C","DeviceInfoClass",,"SGDEV0007.DAT"
+HKLM,"%STIKEY%","MF650C",0x00010001,1
+
+[MF1238_II_Addreg]
+HKLM,"%SGDKEY%\MF1238_II","SeriesName",,"Canon MF1238/1238II"
+HKLM,"%SGDKEY%\MF1238_II","ProductId",,"MF1238_II"
+HKLM,"%SGDKEY%\MF1238_II","ProductName",,"Canon MF1238/1238II"
+HKLM,"%SGDKEY%\MF1238_II","InstallDirectory",,"%10%\TWAIN_32\MF1238_II\"
+HKLM,"%SGDKEY%\MF1238_II","DriverDate",,"03 2021"
+HKLM,"%SGDKEY%\MF1238_II","ButtonNum",0x00010001,4
+HKLM,"%SGDKEY%\MF1238_II","CaddisLLDPath",,"CNC1772DMF.TBL"
+HKLM,"%SGDKEY%\MF1238_II","CaddisUIPath",,"CNUI012.TBL"
+HKLM,"%SGDKEY%\MF1238_II","SGGenMFUninst",,"Canon MF1238/1238II"
+HKLM,"%SGDKEY%\MF1238_II","DeviceInfoClass",,"SGDEV0009.DAT"
+HKLM,"%STIKEY%","MF1238_II",0x00010001,1
+
+[MF450_Addreg]
+HKLM,"%SGDKEY%\MF450","SeriesName",,"Canon MF450 Series"
+HKLM,"%SGDKEY%\MF450","ProductId",,"MF450"
+HKLM,"%SGDKEY%\MF450","ProductName",,"Canon MF450 Series"
+HKLM,"%SGDKEY%\MF450","InstallDirectory",,"%10%\TWAIN_32\MF450\"
+HKLM,"%SGDKEY%\MF450","DriverDate",,"03 2021"
+HKLM,"%SGDKEY%\MF450","ButtonNum",0x00010001,4
+HKLM,"%SGDKEY%\MF450","CaddisLLDPath",,"CNC1772DMF.TBL"
+HKLM,"%SGDKEY%\MF450","CaddisUIPath",,"CNUI012.TBL"
+HKLM,"%SGDKEY%\MF450","SGGenMFUninst",,"Canon MF450 Series"
+HKLM,"%SGDKEY%\MF450","DeviceInfoClass",,"SGDEV0009.DAT"
+HKLM,"%STIKEY%","MF450",0x00010001,1
+
+[iR1643_II_Addreg]
+HKLM,"%SGDKEY%\iR1643_II","SeriesName",,"Canon iR1643 II Series"
+HKLM,"%SGDKEY%\iR1643_II","ProductId",,"iR1643_II"
+HKLM,"%SGDKEY%\iR1643_II","ProductName",,"Canon iR1643 II Series"
+HKLM,"%SGDKEY%\iR1643_II","InstallDirectory",,"%10%\TWAIN_32\iR1643_II\"
+HKLM,"%SGDKEY%\iR1643_II","DriverDate",,"03 2021"
+HKLM,"%SGDKEY%\iR1643_II","ButtonNum",0x00010001,4
+HKLM,"%SGDKEY%\iR1643_II","CaddisLLDPath",,"CNC1772DMF.TBL"
+HKLM,"%SGDKEY%\iR1643_II","CaddisUIPath",,"CNUI012.TBL"
+HKLM,"%SGDKEY%\iR1643_II","SGGenMFUninst",,"Canon iR1643 II Series"
+HKLM,"%SGDKEY%\iR1643_II","DeviceInfoClass",,"SGDEV0009.DAT"
+HKLM,"%STIKEY%","iR1643_II",0x00010001,1
+
+[MF1643_II_Addreg]
+HKLM,"%SGDKEY%\MF1643_II","SeriesName",,"Canon MF1643 II Series"
+HKLM,"%SGDKEY%\MF1643_II","ProductId",,"MF1643_II"
+HKLM,"%SGDKEY%\MF1643_II","ProductName",,"Canon MF1643 II Series"
+HKLM,"%SGDKEY%\MF1643_II","InstallDirectory",,"%10%\TWAIN_32\MF1643_II\"
+HKLM,"%SGDKEY%\MF1643_II","DriverDate",,"03 2021"
+HKLM,"%SGDKEY%\MF1643_II","ButtonNum",0x00010001,4
+HKLM,"%SGDKEY%\MF1643_II","CaddisLLDPath",,"CNC1772DMF.TBL"
+HKLM,"%SGDKEY%\MF1643_II","CaddisUIPath",,"CNUI012.TBL"
+HKLM,"%SGDKEY%\MF1643_II","SGGenMFUninst",,"Canon MF1643 II Series"
+HKLM,"%SGDKEY%\MF1643_II","DeviceInfoClass",,"SGDEV0009.DAT"
+HKLM,"%STIKEY%","MF1643_II",0x00010001,1
+
+[MF550_Addreg]
+HKLM,"%SGDKEY%\MF550","SeriesName",,"Canon MF550 Series"
+HKLM,"%SGDKEY%\MF550","ProductId",,"MF550"
+HKLM,"%SGDKEY%\MF550","ProductName",,"Canon MF550 Series"
+HKLM,"%SGDKEY%\MF550","InstallDirectory",,"%10%\TWAIN_32\MF550\"
+HKLM,"%SGDKEY%\MF550","DriverDate",,"03 2021"
+HKLM,"%SGDKEY%\MF550","ButtonNum",0x00010001,4
+HKLM,"%SGDKEY%\MF550","CaddisLLDPath",,"CNC1772DMF.TBL"
+HKLM,"%SGDKEY%\MF550","CaddisUIPath",,"CNUI012.TBL"
+HKLM,"%SGDKEY%\MF550","SGGenMFUninst",,"Canon MF550 Series"
+HKLM,"%SGDKEY%\MF550","DeviceInfoClass",,"SGDEV0009.DAT"
+HKLM,"%STIKEY%","MF550",0x00010001,1
+
+[MFSCN_Addreg_XP]
+HKLM,"%SGDKEY%\MFSCN","CommonModuleDirectory",,"%24%\CanonMF\MFSCN\"
+
+[MF650C_Addreg_XP]
+HKLM,"%SGDKEY%\MF650C","CommonModuleDirectory",,"%24%\CanonMF\MFSCN\"
+
+[MF1238_II_Addreg_XP]
+HKLM,"%SGDKEY%\MF1238_II","CommonModuleDirectory",,"%24%\CanonMF\MFSCN\"
+
+[MF450_Addreg_XP]
+HKLM,"%SGDKEY%\MF450","CommonModuleDirectory",,"%24%\CanonMF\MFSCN\"
+
+[iR1643_II_Addreg_XP]
+HKLM,"%SGDKEY%\iR1643_II","CommonModuleDirectory",,"%24%\CanonMF\MFSCN\"
+
+[MF1643_II_Addreg_XP]
+HKLM,"%SGDKEY%\MF1643_II","CommonModuleDirectory",,"%24%\CanonMF\MFSCN\"
+
+[MF550_Addreg_XP]
+HKLM,"%SGDKEY%\MF550","CommonModuleDirectory",,"%24%\CanonMF\MFSCN\"
+
+[MFSCN_Addreg_VISTA]
+HKLM,"%SGDKEY%\MFSCN","CommonModuleDirectory",,"%16422%\Canon\CanonMF\MFSCN\"
+
+[MF650C_Addreg_VISTA]
+HKLM,"%SGDKEY%\MF650C","CommonModuleDirectory",,"%16422%\Canon\CanonMF\MFSCN\"
+
+[MF1238_II_Addreg_VISTA]
+HKLM,"%SGDKEY%\MF1238_II","CommonModuleDirectory",,"%16422%\Canon\CanonMF\MFSCN\"
+
+[MF450_Addreg_VISTA]
+HKLM,"%SGDKEY%\MF450","CommonModuleDirectory",,"%16422%\Canon\CanonMF\MFSCN\"
+
+[iR1643_II_Addreg_VISTA]
+HKLM,"%SGDKEY%\iR1643_II","CommonModuleDirectory",,"%16422%\Canon\CanonMF\MFSCN\"
+
+[MF1643_II_Addreg_VISTA]
+HKLM,"%SGDKEY%\MF1643_II","CommonModuleDirectory",,"%16422%\Canon\CanonMF\MFSCN\"
+
+[MF550_Addreg_VISTA]
+HKLM,"%SGDKEY%\MF550","CommonModuleDirectory",,"%16422%\Canon\CanonMF\MFSCN\"
+
+[MFSCN_Addreg.USB]
+HKLM,"%SGDKEY%\MFSCN","AvailableDriver",0x00010001,1
+
+[MF650C_Addreg.USB]
+HKLM,"%SGDKEY%\MF650C","AvailableDriver",0x00010001,1
+
+[MF1238_II_Addreg.USB]
+HKLM,"%SGDKEY%\MF1238_II","AvailableDriver",0x00010001,1
+
+[MF450_Addreg.USB]
+HKLM,"%SGDKEY%\MF450","AvailableDriver",0x00010001,1
+
+[iR1643_II_Addreg.USB]
+HKLM,"%SGDKEY%\iR1643_II","AvailableDriver",0x00010001,1
+
+[MF1643_II_Addreg.USB]
+HKLM,"%SGDKEY%\MF1643_II","AvailableDriver",0x00010001,1
+
+[MF550_Addreg.USB]
+HKLM,"%SGDKEY%\MF550","AvailableDriver",0x00010001,1
+
+[MFSCN_USDAddreg]
+HKLM,"%WIASGDKEY%\MFSCN","SGGenMFUninst",,"Canon MF Scan"
+HKLM,"%WIASTIKEY%","MFSCN",0x00010001,1
+
+[MF650C_USDAddreg]
+HKLM,"%WIASGDKEY%\MF650C","SGGenMFUninst",,"Canon MF650C Series"
+HKLM,"%WIASTIKEY%","MF650C",0x00010001,1
+
+[MF1238_II_USDAddreg]
+HKLM,"%WIASGDKEY%\MF1238_II","SGGenMFUninst",,"Canon MF1238/1238II"
+HKLM,"%WIASTIKEY%","MF1238_II",0x00010001,1
+
+[MF450_USDAddreg]
+HKLM,"%WIASGDKEY%\MF450","SGGenMFUninst",,"Canon MF450 Series"
+HKLM,"%WIASTIKEY%","MF450",0x00010001,1
+
+[iR1643_II_USDAddreg]
+HKLM,"%WIASGDKEY%\iR1643_II","SGGenMFUninst",,"Canon iR1643 II Series"
+HKLM,"%WIASTIKEY%","iR1643_II",0x00010001,1
+
+[MF1643_II_USDAddreg]
+HKLM,"%WIASGDKEY%\MF1643_II","SGGenMFUninst",,"Canon MF1643 II Series"
+HKLM,"%WIASTIKEY%","MF1643_II",0x00010001,1
+
+[MF550_USDAddreg]
+HKLM,"%WIASGDKEY%\MF550","SGGenMFUninst",,"Canon MF550 Series"
+HKLM,"%WIASTIKEY%","MF550",0x00010001,1
+
+[USDAddreg]
+HKR,,USDClass,,%GUID.USDClass%
+HKCR,CLSID\%GUID.USDClass%,,,"Canon USD2"
+HKCR,CLSID\%GUID.USDClass%\InProcServer32,,,%11%\CNCCSCN2.DLL
+HKCR,CLSID\%GUID.USDClass%\InProcServer32,ThreadingModel,,"Both"
+
+[USDAddreg_VISTA]
+HKCR,CLSID\%GUID.UIClass%,,,"Canon WIA Driver UI Extension2"
+HKCR,CLSID\%GUID.UIClass%\shellex\ImageProcessingFilter\%GUID.IPFilter%
+HKCR,CLSID\%GUID.IPFilter%,,,"Canon Image Processing Filter2"
+HKCR,CLSID\%GUID.IPFilter%\InProcServer32,,,%11%\CNCESCN2.DLL
+HKCR,CLSID\%GUID.IPFilter%\InProcServer32,ThreadingModel,,"Both"
+
+[USDAddreg.Net]
+HKR,,CreateFileName,,AUTO
+
+[WiaFiles]
+CNCCSCN2.DLL
+CNCISCN2.DLL
+CNCLSCN2.DLL
+
+[Wia2Files]
+CNCCSCN2.DLL
+CNCISCN2.DLL
+CNCLSCN2.DLL
+CNCESCN2.DLL
+
+[MPScanLLD]
+CNCMFPSCN2.INI,,,0x20
+CNCLSISCN2.DLL,,,0x20
+CNCLSDSCN2.DLL,,,0x20
+CNCLSCSCN2.DLL,,,0x20
+CNCLSTSCN2.DLL,,,0x20
+CNCLSUSCN2.DLL,,,0x20
+
+[ColorFiles.NT]
+CNZ005.ICC
+CNFR36.ICC
+
+[CNCMediaFiles]
+CSSAMP1.MID
+
+[DsCmnFilesXP]
+WIARES_en-US.DLL
+WIARES_ar-SA.DLL
+WIARES_eu-ES.DLL
+WIARES_ca-ES.DLL
+WIARES_cs-CZ.DLL
+WIARES_da-DK.DLL
+WIARES_nl-NL.DLL
+WIARES_fi-FI.DLL
+WIARES_fr-FR.DLL
+WIARES_de-DE.DLL
+WIARES_hu-HU.DLL
+WIARES_it-IT.DLL
+WIARES_ja-JP.DLL
+WIARES_ko-KR.DLL
+WIARES_ms-MY.DLL
+WIARES_nb-NO.DLL
+WIARES_pl-PL.DLL
+WIARES_pt.DLL
+WIARES_ru-RU.DLL
+WIARES_zh-CN.DLL
+WIARES_zh-TW.DLL
+WIARES_sk-SK.DLL
+WIARES_es-ES.DLL
+WIARES_sv-SE.DLL
+WIARES_th-TH.DLL
+WIARES_tr-TR.DLL
+WIARES_vi-VN.DLL
+WIARES_uk-UA.DLL
+SGCFLTR.dll
+SGCFLTR6.dll
+SGDEV0000.DAT
+SGDEV0007.DAT
+SGDEV0009.DAT
+
+[DsCmnFiles]
+WIARES_en-US.DLL
+WIARES_ar-SA.DLL
+WIARES_eu-ES.DLL
+WIARES_ca-ES.DLL
+WIARES_cs-CZ.DLL
+WIARES_da-DK.DLL
+WIARES_nl-NL.DLL
+WIARES_fi-FI.DLL
+WIARES_fr-FR.DLL
+WIARES_de-DE.DLL
+WIARES_hu-HU.DLL
+WIARES_it-IT.DLL
+WIARES_ja-JP.DLL
+WIARES_ko-KR.DLL
+WIARES_ms-MY.DLL
+WIARES_nb-NO.DLL
+WIARES_pl-PL.DLL
+WIARES_pt.DLL
+WIARES_ru-RU.DLL
+WIARES_zh-CN.DLL
+WIARES_zh-TW.DLL
+WIARES_sk-SK.DLL
+WIARES_es-ES.DLL
+WIARES_sv-SE.DLL
+WIARES_th-TH.DLL
+WIARES_tr-TR.DLL
+WIARES_vi-VN.DLL
+WIARES_uk-UA.DLL
+SGCFLTR.dll
+SGCFLTR6.dll
+SGDEV0000.DAT
+SGDEV0007.DAT
+SGDEV0009.DAT
+
+[MFSCN_DsFiles]
+CISDS.DS
+SGUI.DLL
+SGUI_RES_en-US.DLL
+SGUI_RES_ar-SA.DLL
+SGUI_RES_eu-ES.DLL
+SGUI_RES_ca-ES.DLL
+SGUI_RES_cs-CZ.DLL
+SGUI_RES_da-DK.DLL
+SGUI_RES_nl-NL.DLL
+SGUI_RES_fi-FI.DLL
+SGUI_RES_fr-FR.DLL
+SGUI_RES_de-DE.DLL
+SGUI_RES_hu-HU.DLL
+SGUI_RES_it-IT.DLL
+SGUI_RES_ja-JP.DLL
+SGUI_RES_ko-KR.DLL
+SGUI_RES_ms-MY.DLL
+SGUI_RES_nb-NO.DLL
+SGUI_RES_pl-PL.DLL
+SGUI_RES_pt.DLL
+SGUI_RES_ru-RU.DLL
+SGUI_RES_zh-CN.DLL
+SGUI_RES_zh-TW.DLL
+SGUI_RES_sk-SK.DLL
+SGUI_RES_es-ES.DLL
+SGUI_RES_sv-SE.DLL
+SGUI_RES_th-TH.DLL
+SGUI_RES_tr-TR.DLL
+SGUI_RES_vi-VN.DLL
+SGUI_RES_uk-UA.DLL
+IOP.DLL
+ITLIB32.DLL
+SCANINTF.DLL
+TPM.DLL
+CNCFR36.DAT
+MC2.TXT
+JDA_CIMG.DLL
+NBS4MB.DLL
+NBSCOR4M.DLL
+RMSLANTC.DLL
+RSTCOL.DLL
+
+[MF650C_DsFiles]
+CISDS.DS
+SGUI.DLL
+SGUI_RES_en-US.DLL
+SGUI_RES_ar-SA.DLL
+SGUI_RES_eu-ES.DLL
+SGUI_RES_ca-ES.DLL
+SGUI_RES_cs-CZ.DLL
+SGUI_RES_da-DK.DLL
+SGUI_RES_nl-NL.DLL
+SGUI_RES_fi-FI.DLL
+SGUI_RES_fr-FR.DLL
+SGUI_RES_de-DE.DLL
+SGUI_RES_hu-HU.DLL
+SGUI_RES_it-IT.DLL
+SGUI_RES_ja-JP.DLL
+SGUI_RES_ko-KR.DLL
+SGUI_RES_ms-MY.DLL
+SGUI_RES_nb-NO.DLL
+SGUI_RES_pl-PL.DLL
+SGUI_RES_pt.DLL
+SGUI_RES_ru-RU.DLL
+SGUI_RES_zh-CN.DLL
+SGUI_RES_zh-TW.DLL
+SGUI_RES_sk-SK.DLL
+SGUI_RES_es-ES.DLL
+SGUI_RES_sv-SE.DLL
+SGUI_RES_th-TH.DLL
+SGUI_RES_tr-TR.DLL
+SGUI_RES_vi-VN.DLL
+SGUI_RES_uk-UA.DLL
+IOP.DLL
+ITLIB32.DLL
+SCANINTF.DLL
+TPM.DLL
+CNCFR36.DAT
+MC2.TXT
+JDA_CIMG.DLL
+NBS4MB.DLL
+NBSCOR4M.DLL
+RMSLANTC.DLL
+RSTCOL.DLL
+
+[MF1238_II_DsFiles]
+CISDS.DS
+SGUI.DLL
+SGUI_RES_en-US.DLL
+SGUI_RES_ar-SA.DLL
+SGUI_RES_eu-ES.DLL
+SGUI_RES_ca-ES.DLL
+SGUI_RES_cs-CZ.DLL
+SGUI_RES_da-DK.DLL
+SGUI_RES_nl-NL.DLL
+SGUI_RES_fi-FI.DLL
+SGUI_RES_fr-FR.DLL
+SGUI_RES_de-DE.DLL
+SGUI_RES_hu-HU.DLL
+SGUI_RES_it-IT.DLL
+SGUI_RES_ja-JP.DLL
+SGUI_RES_ko-KR.DLL
+SGUI_RES_ms-MY.DLL
+SGUI_RES_nb-NO.DLL
+SGUI_RES_pl-PL.DLL
+SGUI_RES_pt.DLL
+SGUI_RES_ru-RU.DLL
+SGUI_RES_zh-CN.DLL
+SGUI_RES_zh-TW.DLL
+SGUI_RES_sk-SK.DLL
+SGUI_RES_es-ES.DLL
+SGUI_RES_sv-SE.DLL
+SGUI_RES_th-TH.DLL
+SGUI_RES_tr-TR.DLL
+SGUI_RES_vi-VN.DLL
+SGUI_RES_uk-UA.DLL
+IOP.DLL
+ITLIB32.DLL
+SCANINTF.DLL
+TPM.DLL
+CNCFR36.DAT
+MC2.TXT
+JDA_CIMG.DLL
+NBS4MB.DLL
+NBSCOR4M.DLL
+RMSLANTC.DLL
+RSTCOL.DLL
+
+[MF450_DsFiles]
+CISDS.DS
+SGUI.DLL
+SGUI_RES_en-US.DLL
+SGUI_RES_ar-SA.DLL
+SGUI_RES_eu-ES.DLL
+SGUI_RES_ca-ES.DLL
+SGUI_RES_cs-CZ.DLL
+SGUI_RES_da-DK.DLL
+SGUI_RES_nl-NL.DLL
+SGUI_RES_fi-FI.DLL
+SGUI_RES_fr-FR.DLL
+SGUI_RES_de-DE.DLL
+SGUI_RES_hu-HU.DLL
+SGUI_RES_it-IT.DLL
+SGUI_RES_ja-JP.DLL
+SGUI_RES_ko-KR.DLL
+SGUI_RES_ms-MY.DLL
+SGUI_RES_nb-NO.DLL
+SGUI_RES_pl-PL.DLL
+SGUI_RES_pt.DLL
+SGUI_RES_ru-RU.DLL
+SGUI_RES_zh-CN.DLL
+SGUI_RES_zh-TW.DLL
+SGUI_RES_sk-SK.DLL
+SGUI_RES_es-ES.DLL
+SGUI_RES_sv-SE.DLL
+SGUI_RES_th-TH.DLL
+SGUI_RES_tr-TR.DLL
+SGUI_RES_vi-VN.DLL
+SGUI_RES_uk-UA.DLL
+IOP.DLL
+ITLIB32.DLL
+SCANINTF.DLL
+TPM.DLL
+CNCFR36.DAT
+MC2.TXT
+JDA_CIMG.DLL
+NBS4MB.DLL
+NBSCOR4M.DLL
+RMSLANTC.DLL
+RSTCOL.DLL
+
+[iR1643_II_DsFiles]
+CISDS.DS
+SGUI.DLL
+SGUI_RES_en-US.DLL
+SGUI_RES_ar-SA.DLL
+SGUI_RES_eu-ES.DLL
+SGUI_RES_ca-ES.DLL
+SGUI_RES_cs-CZ.DLL
+SGUI_RES_da-DK.DLL
+SGUI_RES_nl-NL.DLL
+SGUI_RES_fi-FI.DLL
+SGUI_RES_fr-FR.DLL
+SGUI_RES_de-DE.DLL
+SGUI_RES_hu-HU.DLL
+SGUI_RES_it-IT.DLL
+SGUI_RES_ja-JP.DLL
+SGUI_RES_ko-KR.DLL
+SGUI_RES_ms-MY.DLL
+SGUI_RES_nb-NO.DLL
+SGUI_RES_pl-PL.DLL
+SGUI_RES_pt.DLL
+SGUI_RES_ru-RU.DLL
+SGUI_RES_zh-CN.DLL
+SGUI_RES_zh-TW.DLL
+SGUI_RES_sk-SK.DLL
+SGUI_RES_es-ES.DLL
+SGUI_RES_sv-SE.DLL
+SGUI_RES_th-TH.DLL
+SGUI_RES_tr-TR.DLL
+SGUI_RES_vi-VN.DLL
+SGUI_RES_uk-UA.DLL
+IOP.DLL
+ITLIB32.DLL
+SCANINTF.DLL
+TPM.DLL
+CNCFR36.DAT
+MC2.TXT
+JDA_CIMG.DLL
+NBS4MB.DLL
+NBSCOR4M.DLL
+RMSLANTC.DLL
+RSTCOL.DLL
+
+[MF1643_II_DsFiles]
+CISDS.DS
+SGUI.DLL
+SGUI_RES_en-US.DLL
+SGUI_RES_ar-SA.DLL
+SGUI_RES_eu-ES.DLL
+SGUI_RES_ca-ES.DLL
+SGUI_RES_cs-CZ.DLL
+SGUI_RES_da-DK.DLL
+SGUI_RES_nl-NL.DLL
+SGUI_RES_fi-FI.DLL
+SGUI_RES_fr-FR.DLL
+SGUI_RES_de-DE.DLL
+SGUI_RES_hu-HU.DLL
+SGUI_RES_it-IT.DLL
+SGUI_RES_ja-JP.DLL
+SGUI_RES_ko-KR.DLL
+SGUI_RES_ms-MY.DLL
+SGUI_RES_nb-NO.DLL
+SGUI_RES_pl-PL.DLL
+SGUI_RES_pt.DLL
+SGUI_RES_ru-RU.DLL
+SGUI_RES_zh-CN.DLL
+SGUI_RES_zh-TW.DLL
+SGUI_RES_sk-SK.DLL
+SGUI_RES_es-ES.DLL
+SGUI_RES_sv-SE.DLL
+SGUI_RES_th-TH.DLL
+SGUI_RES_tr-TR.DLL
+SGUI_RES_vi-VN.DLL
+SGUI_RES_uk-UA.DLL
+IOP.DLL
+ITLIB32.DLL
+SCANINTF.DLL
+TPM.DLL
+CNCFR36.DAT
+MC2.TXT
+JDA_CIMG.DLL
+NBS4MB.DLL
+NBSCOR4M.DLL
+RMSLANTC.DLL
+RSTCOL.DLL
+
+[MF550_DsFiles]
+CISDS.DS
+SGUI.DLL
+SGUI_RES_en-US.DLL
+SGUI_RES_ar-SA.DLL
+SGUI_RES_eu-ES.DLL
+SGUI_RES_ca-ES.DLL
+SGUI_RES_cs-CZ.DLL
+SGUI_RES_da-DK.DLL
+SGUI_RES_nl-NL.DLL
+SGUI_RES_fi-FI.DLL
+SGUI_RES_fr-FR.DLL
+SGUI_RES_de-DE.DLL
+SGUI_RES_hu-HU.DLL
+SGUI_RES_it-IT.DLL
+SGUI_RES_ja-JP.DLL
+SGUI_RES_ko-KR.DLL
+SGUI_RES_ms-MY.DLL
+SGUI_RES_nb-NO.DLL
+SGUI_RES_pl-PL.DLL
+SGUI_RES_pt.DLL
+SGUI_RES_ru-RU.DLL
+SGUI_RES_zh-CN.DLL
+SGUI_RES_zh-TW.DLL
+SGUI_RES_sk-SK.DLL
+SGUI_RES_es-ES.DLL
+SGUI_RES_sv-SE.DLL
+SGUI_RES_th-TH.DLL
+SGUI_RES_tr-TR.DLL
+SGUI_RES_vi-VN.DLL
+SGUI_RES_uk-UA.DLL
+IOP.DLL
+ITLIB32.DLL
+SCANINTF.DLL
+TPM.DLL
+CNCFR36.DAT
+MC2.TXT
+JDA_CIMG.DLL
+NBS4MB.DLL
+NBSCOR4M.DLL
+RMSLANTC.DLL
+RSTCOL.DLL
+
+[SourceDisksFiles]
+CNZ005.ICC=1
+ITLIB32.DLL=1
+JDA_CIMG.DLL=1
+NBS4MB.DLL=1
+NBSCOR4M.DLL=1
+RMSLANTC.DLL=1
+RSTCOL.DLL=1
+CISDS.DS=1
+SGUI.DLL=1
+IOP.DLL=1
+SCANINTF.DLL=1
+TPM.DLL=1
+SGCFLTR.dll=1
+SGCFLTR6.dll=1
+SGUI_RES_en-US.DLL=1
+SGUI_RES_ar-SA.DLL=1
+SGUI_RES_eu-ES.DLL=1
+SGUI_RES_ca-ES.DLL=1
+SGUI_RES_cs-CZ.DLL=1
+SGUI_RES_da-DK.DLL=1
+SGUI_RES_nl-NL.DLL=1
+SGUI_RES_fi-FI.DLL=1
+SGUI_RES_fr-FR.DLL=1
+SGUI_RES_de-DE.DLL=1
+SGUI_RES_hu-HU.DLL=1
+SGUI_RES_it-IT.DLL=1
+SGUI_RES_ja-JP.DLL=1
+SGUI_RES_ko-KR.DLL=1
+SGUI_RES_ms-MY.DLL=1
+SGUI_RES_nb-NO.DLL=1
+SGUI_RES_pl-PL.DLL=1
+SGUI_RES_pt.DLL=1
+SGUI_RES_ru-RU.DLL=1
+SGUI_RES_zh-CN.DLL=1
+SGUI_RES_zh-TW.DLL=1
+SGUI_RES_sk-SK.DLL=1
+SGUI_RES_es-ES.DLL=1
+SGUI_RES_sv-SE.DLL=1
+SGUI_RES_th-TH.DLL=1
+SGUI_RES_tr-TR.DLL=1
+SGUI_RES_vi-VN.DLL=1
+SGUI_RES_uk-UA.DLL=1
+WIARES_en-US.DLL=1
+WIARES_ar-SA.DLL=1
+WIARES_eu-ES.DLL=1
+WIARES_ca-ES.DLL=1
+WIARES_cs-CZ.DLL=1
+WIARES_da-DK.DLL=1
+WIARES_nl-NL.DLL=1
+WIARES_fi-FI.DLL=1
+WIARES_fr-FR.DLL=1
+WIARES_de-DE.DLL=1
+WIARES_hu-HU.DLL=1
+WIARES_it-IT.DLL=1
+WIARES_ja-JP.DLL=1
+WIARES_ko-KR.DLL=1
+WIARES_ms-MY.DLL=1
+WIARES_nb-NO.DLL=1
+WIARES_pl-PL.DLL=1
+WIARES_pt.DLL=1
+WIARES_ru-RU.DLL=1
+WIARES_zh-CN.DLL=1
+WIARES_zh-TW.DLL=1
+WIARES_sk-SK.DLL=1
+WIARES_es-ES.DLL=1
+WIARES_sv-SE.DLL=1
+WIARES_th-TH.DLL=1
+WIARES_tr-TR.DLL=1
+WIARES_vi-VN.DLL=1
+WIARES_uk-UA.DLL=1
+CSSAMP1.MID=1
+CNCFR36.DAT=1
+CNFR36.ICC=1
+MC2.TXT=1
+CNCCSCN2.DLL=1
+CNCISCN2.DLL=1
+CNCLSCN2.DLL=1
+CNCESCN2.DLL=1
+CNCMFPSCN2.INI=1
+CNCLSISCN2.DLL=1
+CNCLSDSCN2.DLL=1
+CNCLSCSCN2.DLL=1
+CNCLSTSCN2.DLL=1
+CNCLSUSCN2.DLL=1
+SGDEV0000.DAT=1
+SGDEV0007.DAT=1
+SGDEV0009.DAT=1
+
+[SourceDisksNames]
+1=%D1%,scan.cab,
+
+[Strings]
+Version="03/01/2021"
+SGVersion="11.3.0.0"
+ButtonApp="MF Scan Utility"
+SGDKEY="Software\Wow6432Node\Canon\SateraMFP1\ScanGear\11.3\Devices"
+STIKEY="Software\Wow6432Node\Canon\SateraMFP1\ScanGear\STI"
+WIASGDKEY="Software\Canon\SateraMFP1\WIA\3.0\Devices"
+WIASTIKEY="Software\Canon\SateraMFP1\WIA\STI"
+PushButtonPushed1="Color Scan"
+PushButtonPushed2="B&W Scan"
+PushButtonPushed3="Custom 1"
+PushButtonPushed4="Custom 2"
+D1="Canon MF Scan Setup Disk"
+GUID.USDClass="{56511608-4559-4AA0-8050-FABEAA214322}"
+GUID.IPFilter="{CD66C2E3-7521-4A60-8E9D-93343C077867}"
+GUID.UIClass="{3AA7ECC0-A835-4D9A-A96B-639CBD6AECE3}"
